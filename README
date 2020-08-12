@@ -25,18 +25,22 @@ Be aware that the API syntax of MDAnalysis has changed compared to the old versi
 =============================================================================================
  HOW TO INSTALL NEWANALYSIS
 =============================================================================================
-1) make a new conda environment that has MDAnalysis via
+1) add new channel via
+conda config --add channels conda-forge
+
+2) make a new conda environment that has MDAnalysis via
 conda create -n new_mdanalysis_environment python numpy scipy mdanalysis cython h5py ipython
 
-2) activate that environment
+3) activate that environment via
+conda activate new_mdanalysis_environment
 
-3) go into the newanalysis_source folder
+4) go into the newanalysis_source folder
 
-4) build and install the modules via
+5) build and install the modules via
 python3 setup.py build
 python3 setup.py install
 
-5) Esther says : In case of failure, look up the module where it failed, and delete the respective cpp file:
+6) Esther says : In case of failure, look up the module where it failed, and delete the respective cpp file:
 - src/helpers/correl.cpp
 - src/helpers/diffusion.cpp
 - src/helpers/helpers.cpp
