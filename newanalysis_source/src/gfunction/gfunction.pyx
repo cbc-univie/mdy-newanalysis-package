@@ -510,6 +510,10 @@ class RDF(object):
             for j in range(7):
                 self.histogram_out[j*self.histo_n+i]/=norm
 
+    def scale(self, value):
+        self.histogram_out[:] *= value
+        self.histogram[:] *= value
+
     def write(self, filename="rdf"):
         """
         RDF.write(filename="rdf")
