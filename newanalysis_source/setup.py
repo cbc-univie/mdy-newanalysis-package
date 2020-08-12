@@ -20,7 +20,7 @@ setup(
   name = 'newanalysis',
     version='0.1dev',
     license='None',
-    long_description=open('README.txt').read(),
+    long_description=open('../README').read(),
   ext_modules=[
       Extension('newanalysis.correl',
                 sources=['src/helpers/correl.pyx','src/helpers/mod_Correl.cpp', 'src/helpers/BertholdHorn.cpp'],
