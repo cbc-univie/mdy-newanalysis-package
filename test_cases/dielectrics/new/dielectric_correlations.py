@@ -31,9 +31,9 @@ skip=10
 base="../../data/emim_dca_equilibrium/"
 psf=base+'emim_dca.psf'
 #Check PSF:
-if np.array_equal(MDAnalysis.Universe(psf).atoms.masses, MDAnalysis.Universe(psf).atoms.masses.astype(bool)):
-    print("Used wrong PSF format for S0 state (masses unreadable!)")
-    sys.exit()
+#if np.array_equal(MDAnalysis.Universe(psf).atoms.masses, MDAnalysis.Universe(psf).atoms.masses.astype(bool)):
+#    print("Used wrong PSF format for S0 state (masses unreadable!)")
+#    sys.exit()
 
 
 u  = MDAnalysis.Universe(psf,base+"emim_dca_fine.dcd")
