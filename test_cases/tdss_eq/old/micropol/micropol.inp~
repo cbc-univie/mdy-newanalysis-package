@@ -1,0 +1,15 @@
+METHOD eq
+
+SOLUTE S0 MQS0
+SOLUTE S1 MQS1
+SOLVENT SWM4
+
+PSF MQS0  /site/raid14/esther/SolvationDynamics/data/1mq_swm4/nvt_thermo20/mqs0_swm4_1000.psf
+PSF MQS1  /site/raid14/esther/SolvationDynamics/data/1mq_swm4/nvt_thermo20/mqs1_swm4_1000.psf
+
+DCD FIRST  /site/raid14/esther/SolvationDynamics/data/1mq_swm4/nvt_thermo20/1mq-swm4_2.dcd
+DCD LAST   /site/raid14/esther/SolvationDynamics/data/1mq_swm4/nvt_thermo20/1mq-swm4_6.dcd
+
+HISTO MIN  0.0
+HISTO MAX 50.0
+HISTO BINS 500

@@ -1,0 +1,49 @@
+from __future__ import print_function
+import MDAnalysis
+import numpy as np
+from newanalysis.voro import calcTessellation
+import os
+import time
+
+base='../../data/1mq_swm4_equilibrium/'
+psf=base+'mqs0_swm4_1000.psf'
+
+#Check PSF:
+if np.array_equal(MDAnalysis.Universe(psf).atoms.masses, MDAnalysis.Universe(psf).atoms.masses.astype(bool)):
+    print("Used wrong PSF format (masses unreadable!)")
+    sys.exit()
+
+
+skip = 20
+u=MDAnalysis.Universe(psf,base+"1mq_swm4.dcd")
+
+sel_solute=u.select_atoms("resname MQS0")
+sel_wat=u.select_atoms("resname SWM4")
+sel=u.select_atoms("all")
+
+
+
+u.trajectory[0]
+
+corelist = np.array(np.arange(0,1),dtype=np.int32)
+coor=np.ascontiguousarray(sel.positions,dtype='double')
+boxl=round(u.coord.dimensions[0],4)
+nsolute=1
+nat = sel.n_atoms
+nmol = sel.n_residues
+nwat = sel_wat.n_residues
+maxshell=3
+
+ctr=0
+f2c=np.zeros(nat,dtype='int32')
+for i in range(nmol):
+    for j in range(sel.residues[i].atoms.n_atoms):
+        f2c[ctr]=i
+        ctr+=1
+        
+
+
+
+shell=calcTessellation(coor,boxl,f2c,nat,nmol,maxshell,corelist)
+
+print(shell)

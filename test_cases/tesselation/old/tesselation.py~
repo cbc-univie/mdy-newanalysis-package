@@ -1,0 +1,52 @@
+from __future__ import print_function
+import MDAnalysis
+import numpy as np
+from MDAnalysis.newanalysis.gfunction import RDF
+import os
+import time
+
+base='../../data/1mq_swm4_equilibrium/'
+psf=base+'mqs0_swm4_1000.psf'
+
+skip = 20
+u=MDAnalysis.Universe(psf,base+"1mq_swm4.dcd")
+
+sel_solute=u.selectAtoms("resname MQS0")
+sel=u.selectAtoms("resname SWM4")
+
+nsolute=1
+nwat = sel.numberOfResidues()
+
+histo_min=0.0
+histo_dx=0.05
+histo_invdx=1.0/histo_dx
+histo_max=20.0
+boxl = np.float64(round(u.coord.dimensions[0],4))
+
+sol_wat = RDF(["all"],histo_min,histo_max,histo_dx,nsolute,nwat,nsolute,nwat,boxl)
+
+charge_solute=sel_solute.charges()
+charge_wat=sel.charges()
+
+mass_solute=sel_solute.masses()
+mass_wat=sel.masses()
+
+start=time.time()
+print("")
+
+for ts in u.trajectory[::skip]:
+    print("\033[1AFrame %d of %d" % (ts.frame,u.trajectory.numframes), "\tElapsed time: %.2f hours" % ((time.time()-start)/3600))
+    
+    # efficiently calculate center-of-mass coordinates and dipole moments
+    coor_wat = sel.get_positions()
+    coor_solute = sel_solute.get_positions()
+    com_wat=sel.centerOfMassByResidue(coor=coor_wat,masses=mass_wat)
+    com_solute=sel_solute.centerOfMassByResidue(coor=coor_solute,masses=mass_solute)
+    dip_wat=sel.dipoleMomentByResidue(coor=coor_wat,charges=charge_wat,masses=mass_wat,com=com_wat)
+    dip_solute=sel_solute.dipoleMomentByResidue(coor=coor_solute,charges=charge_solute,masses=mass_solute,com=com_solute)
+    
+    sol_wat.calcFrame(com_solute,com_wat,dip_solute,dip_wat)
+
+print("Passed time: ",time.time()-start)
+    
+sol_wat.write("rdf")

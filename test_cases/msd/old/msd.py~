@@ -1,0 +1,76 @@
+from __future__ import print_function
+import MDAnalysis
+import numpy as np
+from MDAnalysis.newanalysis.diffusion import msdCOM, msdMJ, unfoldTraj
+import os
+import time
+
+###########################################################################################################################
+# Trajectory
+###########################################################################################################################
+skip=20
+u=MDAnalysis.Universe("../../emim_dca.psf","../../emim_dca.dcd")
+
+boxl = np.float64(round(u.coord.dimensions[0],4))
+dt=round(u.trajectory.dt,4)
+
+n = int(u.trajectory.numframes/skip)
+if u.trajectory.numframes%skip != 0:
+    n+=1
+
+###########################################################################################################################
+# molecular species
+###########################################################################################################################
+sel_cat1  = u.selectAtoms("resname EMIM")
+ncat1     = sel_cat1.numberOfResidues()
+mass_cat1 = sel_cat1.masses()
+com_cat1  = np.zeros((n,ncat1,3),dtype=np.float64)
+print("Number EMIM   = ",ncat1)
+
+sel_an1  = u.selectAtoms("resname DCA")
+nan1     = sel_an1.numberOfResidues()
+mass_an1 = sel_an1.masses()
+com_an1  = np.zeros((n,nan1, 3),dtype=np.float64)
+print("Number DCA   = ",nan1)
+
+
+###########################################################################################################################
+# Analysis
+###########################################################################################################################
+ctr=0
+start=time.time()
+print("")
+
+for ts in u.trajectory[::skip]:
+    print("\033[1AFrame %d of %d" % (ts.frame,u.trajectory.numframes), "\tElapsed time: %.2f hours" % ((time.time()-start)/3600))
+    
+    # efficiently calculate center-of-mass coordinates
+    coor_an1  = sel_an1.get_positions()
+    coor_cat1 = sel_cat1.get_positions()
+    
+    com_an1[ctr] = sel_an1.centerOfMassByResidue(coor=coor_an1,masses=mass_an1)
+    com_cat1[ctr]= sel_cat1.centerOfMassByResidue(coor=coor_cat1,masses=mass_cat1)
+
+    ctr+=1
+
+print("unfolding coordinates ..")
+unfoldTraj(com_cat1,boxl)
+unfoldTraj(com_an1, boxl)
+
+print("calculating msd ..")
+msd_an1  = msdCOM(com_an1)
+msd_cat1 = msdCOM(com_cat1)
+
+fan1=open("msd_an.dat",'w')
+fcat1=open("msd_cat.dat",'w')
+
+for i in range(ctr):
+    fan1.write("%5.5f\t%5.5f\n"  % (i*skip*dt, msd_an1[i]))
+    fcat1.write("%5.5f\t%5.5f\n" % (i*skip*dt, msd_cat1[i]))
+    
+print("calculating msdMJ ..")
+msdmj = msdMJ(com_cat1,com_an1)
+f1=open("msdMJ.dat",'w')
+for i in range(ctr):
+    f1.write("%5.5f\t%5.5f\n" % (i*skip*dt, msdmj[i]))
+f1.close()
