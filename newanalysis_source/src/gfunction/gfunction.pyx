@@ -962,7 +962,7 @@ class RDF_voronoi(object):
         if dip_sel2 is None and ((<int> self.mode_sel) & 2 or (<int> self.mode_sel) & 8 or (<int> self.mode_sel) & 16 or (<int> self.mode_sel) & 64):
             raise TypeError("No dipole moment array for the second selection was passed, although the requested gfunctions need it!")
 
-        if self.oneistwo == None:
+        if self.oneistwo is None:
             if (coor_sel1[0] == coor_sel2[0]).all() and self.nmol1 == self.nmol2:
                 self.oneistwo = True
             else:
