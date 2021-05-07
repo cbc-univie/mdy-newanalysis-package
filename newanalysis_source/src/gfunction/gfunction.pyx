@@ -956,9 +956,11 @@ class RDF_voronoi(object):
         """
         
         # Check if dipole moments are needed and, if yes, were passed
+        print("Checking dipole 1")
         if dip_sel1 == None and ((<int> self.mode_sel) & 2 or (<int> self.mode_sel) & 4 or (<int> self.mode_sel) & 16 or (<int> self.mode_sel) & 32):
             raise TypeError("No dipole moment array for the first selection was passed, although the requested gfunctions need it!")
 
+        print("Checking dipole 2")
         if dip_sel2 == None and ((<int> self.mode_sel) & 2 or (<int> self.mode_sel) & 8 or (<int> self.mode_sel) & 16 or (<int> self.mode_sel) & 64):
             raise TypeError("No dipole moment array for the second selection was passed, although the requested gfunctions need it!")
 
