@@ -1,21 +1,25 @@
 import numpy
 import sys
 
-def f2c(sel,i=None):
+def f2c(sel,i=None,atomctr=0):
     if i!=None:
-        fine2coarse=numpy.empty(sel.universe.atoms.n_atoms,dtype=numpy.int32)
-        running=0
-        presname=""
-        presnum=1
-        ctr=0
-        for a in sel.universe.atoms:
-            if a.resname not in presname or presnum != a.resnum:
-                running+=1
-            fine2coarse[ctr]=running-1
-            presname=a.resname
-            presnum=a.resnum
-            ctr+=1
-        box_f2c = fine2coarse
+        try:
+            box_f2c = sel.universe.atoms._cache['f2c']
+        except KeyError:
+            fine2coarse=numpy.empty(sel.universe.atoms.n_atoms,dtype=numpy.int32)
+            running=0
+            presname=""
+            presnum=1
+            ctr=0
+            for a in sel.universe.atoms:
+                if a.resname not in presname or presnum != a.resnum:
+                    running+=1
+                fine2coarse[ctr]=running-1
+                presname=a.resname
+                presnum=a.resnum
+                ctr+=1
+            sel.universe.atoms._cache['f2c']=fine2coarse
+            box_f2c = sel.universe.atoms._cache['f2c']
         return box_f2c[i]
     else:
         fine2coarse=numpy.empty(sel.universe.atoms.n_atoms,dtype=numpy.int32)
@@ -52,7 +56,7 @@ def calcTessellation(sel,maxshell=3,core_sel=None,volumes=None,face_areas=None):
     if core_sel is None:
         core_sel = sel
 
-    corelist=[f2c(sel.universe.atoms,i) for i in core_sel.indices]
+    corelist=[f2c(sel.universe.atoms,i,atomctr) for atomctr,i in enumerate(core_sel.indices)]
     corelist_unique=numpy.array(list(set(corelist)),dtype=numpy.int32)
 
     return calcTessellation(sel.universe.atoms.positions.astype('float64'),sel.universe.coord.dimensions[0],f2c(sel.universe.atoms),sel.universe.atoms.n_atoms,sel.universe.atoms.n_residues,maxshell,corelist_unique,volumes,face_areas)

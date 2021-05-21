@@ -93,6 +93,8 @@ void _calcTessellation(double *xyz_ptr, float boxlength, int32_t *f2c, int natom
 {
 //         std::cout << "_calcTessellation()" << std::endl;
         int nblocks=25;
+        
+//        std::cout << "MOD_VORO.CPP says: _calcTessellation()" << std::endl;
 
 	double **xyz = new double*[natoms];
 	for (int i=0;i<natoms;i++) 
@@ -171,6 +173,7 @@ void _calcTessellation(double *xyz_ptr, float boxlength, int32_t *f2c, int natom
 void _calcTessellationVolSurf(double *xyz_ptr, float boxlength, int32_t *f2c, int natoms, int nmolecules, int maxshell, char *ds_ptr, int32_t *corelist, int ncore, float* vols, float* face_area_ptr)
 {
 //         std::cout << "_calcTessellation()" << std::endl;
+        std::cout << "MOD_VORO.CPP says: _calcTessellationVolSurf" << std::endl;
         int nblocks=25;
 
 	double **xyz = new double*[natoms];
@@ -267,6 +270,7 @@ void _calcTessellationVolSurf(double *xyz_ptr, float boxlength, int32_t *f2c, in
 void _calcTessellationVolSurfAtomic(double *xyz_ptr, float boxlength, int32_t *f2c, int natoms, int nmolecules, int maxshell, char *ds_ptr, int32_t *corelist, int ncore, float* vols, float* face_area_ptr)
 {
 //         std::cout << "_calcTessellation()" << std::endl;
+        std::cout << "MOD_VORO.CPP says: _calcTessellationVolSurfAtomic" << std::endl;
         int nblocks=25;
 
 	double **xyz = new double*[natoms];
@@ -352,6 +356,7 @@ void _calcTessellationVolSurfAtomic(double *xyz_ptr, float boxlength, int32_t *f
 void _calcTessellationParallel(double *xyz, int *f2c, int *corelist, int *surroundlist, char *delaunay_ts, float boxl, int natoms, int nmolecules, int maxshell, int ncore, int nsurr, int ncpu)
 {
 
+        std::cout << "MOD_VORO.CPP says: _calcTessellationParallel" << std::endl;
   double **xyz_ts = new double*[ncpu];
   for (int i(0); i<ncpu; i++) {
     xyz_ts[i] = &(xyz[i*natoms*3]);
@@ -391,6 +396,7 @@ void _calcTessellationParallelAll(double *xyz, int *f2c, int *corelist, char *de
   double **xyz_ts = new double*[ncpu];
   for (int i(0); i<ncpu; i++) {
     xyz_ts[i] = &(xyz[i*natoms*3]);
+        std::cout << "MOD_VORO.CPP says: _calcTessellationParallelAll" << std::endl;
   }
 
 #pragma omp parallel num_threads(ncpu)

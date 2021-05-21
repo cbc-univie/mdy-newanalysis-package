@@ -4662,7 +4662,7 @@ static void __pyx_f_11newanalysis_9gfunction_calcHisto(double *__pyx_v_core_xyz,
                             goto __pyx_L49;
                             __pyx_L49:;
                             #ifdef _OPENMP
-                            #pragma omp critical(__pyx_parallel_lastprivates0)
+                            #pragma omp critical(__pyx_parallel_lastprivates5)
                             #endif /* _OPENMP */
                             {
                                 __pyx_parallel_temp0 = __pyx_v_clen;
@@ -12891,7 +12891,7 @@ static void __pyx_f_11newanalysis_9gfunction_calcHistoVoronoi(double *__pyx_v_co
                             goto __pyx_L51;
                             __pyx_L51:;
                             #ifdef _OPENMP
-                            #pragma omp critical(__pyx_parallel_lastprivates1)
+                            #pragma omp critical(__pyx_parallel_lastprivates6)
                             #endif /* _OPENMP */
                             {
                                 __pyx_parallel_temp0 = __pyx_v_clen;
@@ -14050,7 +14050,7 @@ static void __pyx_f_11newanalysis_9gfunction_calcHistoVoronoiNonSelf(double *__p
                             goto __pyx_L52;
                             __pyx_L52:;
                             #ifdef _OPENMP
-                            #pragma omp critical(__pyx_parallel_lastprivates2)
+                            #pragma omp critical(__pyx_parallel_lastprivates7)
                             #endif /* _OPENMP */
                             {
                                 __pyx_parallel_temp0 = __pyx_v_clen;

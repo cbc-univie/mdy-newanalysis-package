@@ -48,7 +48,7 @@ setup(
        Extension('newanalysis.voro', 
                  sources=['src/voro/voro.pyx','src/voro/mod_voro.cpp'],
                  language='c++',
-                 include_dirs = ['src/voro/voro++-0.4.6/install/include'],
+                 include_dirs = ['src/voro/voro++-0.4.6/install/include','src/voro'],
                  library_dirs = ['src/voro/voro++-0.4.6/install/lib']+intel_lib_dir,
                  extra_objects = ['src/voro/voro++-0.4.6/install/lib/libvoro++.a'],
                  extra_compile_args=['-fopenmp'],
