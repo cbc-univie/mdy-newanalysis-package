@@ -241,9 +241,11 @@ def pairDisplacement(np.ndarray[np.float64_t,ndim=3] xyz,
 @cython.boundscheck(False)           
 def msdMJ(np.ndarray[np.float64_t,ndim=3] coms_cat,
           np.ndarray[np.float64_t,ndim=3] coms_an,
-          maxlen=None):
+          maxlen=None,
+          charge_cat = None,
+          charge_an = None):
     """
-    msdMJ(coms_cat, coms_an, maxlen=None)
+    msdMJ(coms_cat, coms_an, maxlen=None, charge_cat=None, charge_an=None)
 
     Takes two center-of-mass arrays of the whole unfolded trajectory, one for cations, the other for anions.
 
@@ -251,7 +253,7 @@ def msdMJ(np.ndarray[np.float64_t,ndim=3] coms_cat,
         msdmj = msdMJ(coms_cat, coms_an)
     """
 
-    cdef int n1,n2,m,i,j,k
+    cdef int n1,n2,m,i,j,k,ccat,can
     cdef double dx,dy,dz,result
 
     n1 = len(coms_cat)
@@ -260,6 +262,15 @@ def msdMJ(np.ndarray[np.float64_t,ndim=3] coms_cat,
         m = n1
     else:
         m = <int> maxlen
+    if charge_cat is None:
+        ccat = 1
+    else:
+        ccat = <int> charge_cat
+
+    if charge_an is None:
+        can = -1
+    else:
+        can = <int> charge_an
 
     cdef double *cat = <double *> coms_cat.data
     cdef double *an  = <double *> coms_an.data
@@ -275,15 +286,105 @@ def msdMJ(np.ndarray[np.float64_t,ndim=3] coms_cat,
 
     for i in prange(n1,nogil=True):
         for j in range(n2):
-            cmj[i*3]   += cat[i*n2*3+3*j]
-            cmj[i*3+1] += cat[i*n2*3+3*j+1]
-            cmj[i*3+2] += cat[i*n2*3+3*j+2]
-            cmj[i*3]   -= an[i*n2*3+3*j]
-            cmj[i*3+1] -= an[i*n2*3+3*j+1]
-            cmj[i*3+2] -= an[i*n2*3+3*j+2]
+            cmj[i*3]   += ccat*cat[i*n2*3+3*j]
+            cmj[i*3+1] += ccat*cat[i*n2*3+3*j+1]
+            cmj[i*3+2] += ccat*cat[i*n2*3+3*j+2]
+            cmj[i*3]   += can*an[i*n2*3+3*j]
+            cmj[i*3+1] += can*an[i*n2*3+3*j+1]
+            cmj[i*3+2] += can*an[i*n2*3+3*j+2]
         
     for i in prange(m,nogil=True):
         for j in range(n1-i):
+            dx = cmj[j*3] - cmj[(j+i)*3]
+            dy = cmj[j*3+1] - cmj[(j+i)*3+1]
+            dz = cmj[j*3+2] - cmj[(j+i)*3+2]
+            result = dx*dx+dy*dy+dz*dz
+            msd[i]+=result
+            c[i]+=1
+
+    for i in range(m):
+        msd[i]/=c[i]
+    
+    return msdmj
+
+
+@cython.boundscheck(False)           
+def msdMJCharges(np.ndarray[np.float64_t,ndim=3] coms_cat,
+          np.ndarray[np.float64_t,ndim=3] coms_an,
+          maxlen=None,
+          charge_cat=None,
+          charge_an=None):
+    """
+    msdMJCharges(coms_cat, coms_an, maxlen=None, charge_cat=None, charge_an=None)
+
+    Takes two center-of-mass arrays of the whole unfolded trajectory, one for cations, the other for anions.
+    Multiplies CoM by charge. Cations and Anions can have different n_residues
+
+    Usage:
+        msdmj = msdMJCharges(coms_cat, coms_an)
+    """
+
+    cdef int n1,n2,m,i,j,k,c1,c2,n4,upper,lower
+    cdef double dx,dy,dz,result
+    cdef double *shorter
+    cdef double *longer
+
+    n1 = len(coms_cat) # n_frames
+    n2 = len(coms_cat[0]) # n_residues
+    n4 = len(coms_an[0])
+    if charge_cat is None:
+        ccat = 1
+    else:
+        ccat = <int> charge_cat
+
+    if charge_an is None:
+        can = -1
+    else:
+        can = <int> charge_an
+
+    if maxlen is None:
+        m = n1
+    else:
+        m = <int> maxlen
+
+    if n2 > n4:
+        shorter = <double *> coms_an.data
+        longer = <double *> coms_cat.data
+        upper = n2
+        lower = n4
+        c1 = can
+        c2 = ccat
+    elif n2 < n4:
+        shorter = <double *> coms_cat.data
+        longer = <double *> coms_an.data
+        upper = n4
+        lower = n2
+        c2 = can
+        c1 = ccat
+    elif n2 == n4:
+        print("WARNING: same number of cation/anion species. Use msdMJ instead.")
+
+    cdef np.ndarray[np.float64_t,ndim=2] mj = np.zeros((n1,3),dtype=np.float64)
+    cdef double *cmj = <double *> mj.data
+
+    cdef np.ndarray[np.float64_t,ndim=1] msdmj = np.zeros(m,dtype=np.float64)
+    cdef double *msd = <double *> msdmj.data
+
+    cdef np.ndarray[np.int32_t,ndim=1] ctr = np.zeros(m,dtype=np.int32)
+    cdef int *c = <int *> ctr.data
+
+    for i in prange(n1,nogil=True):
+        for j in range(lower):
+            cmj[i*3]   += c1*(shorter[i*lower*3+3*j])
+            cmj[i*3+1] += c1*(shorter[i*lower*3+3*j+1])
+            cmj[i*3+2] += c1*(shorter[i*lower*3+3*j+2])
+        for k in range(upper):
+            cmj[i*3]   += c2*(longer[i*upper*3+3*k])
+            cmj[i*3+1] += c2*(longer[i*upper*3+3*k+1])
+            cmj[i*3+2] += c2*(longer[i*upper*3+3*k+2])
+        
+    for i in prange(m,nogil=True):
+        for j in range(m-i):
             dx = cmj[j*3] - cmj[(j+i)*3]
             dy = cmj[j*3+1] - cmj[(j+i)*3+1]
             dz = cmj[j*3+2] - cmj[(j+i)*3+2]
