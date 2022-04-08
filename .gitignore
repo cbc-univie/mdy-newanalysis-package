@@ -1,2 +1,8 @@
 newanalysis_source/build/*
 test_cases/*/*/*.dat
+
+# Distribution / packaging
+eggs/
+.eggs/
+*.egg-info/
+*.egg
