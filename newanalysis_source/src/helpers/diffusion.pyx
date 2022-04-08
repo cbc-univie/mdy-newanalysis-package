@@ -397,6 +397,69 @@ def msdMJCharges(np.ndarray[np.float64_t,ndim=3] coms_cat,
     
     return msdmj
 
+@cython.boundscheck(False)           
+def msdMJProtonTransfer(np.ndarray[np.float64_t,ndim=3] coms_cat,
+          np.ndarray[np.float64_t,ndim=3] coms_an,
+          np.ndarray[np.float64_t, ndim=2] charges_cat,
+          np.ndarray[np.float64_t, ndim=2] charges_an,
+          maxlen=None):
+    """
+    msdMJ(coms_cat, coms_an, charges_cat, charges_an, maxlen=None)
+
+    Takes two center-of-mass arrays of the whole unfolded trajectory, one for cations, the other for anions
+    and two charges arrays, one for all cationinc/neutral and one for all anioinc/neutral pairs. I.e. IM1H/IM1 and OAC/HOAC
+
+    Usage:
+        msdmj = msdMJProtonTransfer(coms_cat, coms_an, charges_cat, charges_an)
+    """
+
+    cdef int n1,n2,m,i,j,k
+    cdef double dx,dy,dz,result
+
+    n1 = len(coms_cat) #Timesteps
+    n2 = len(coms_cat[0]) #COM Positions
+    if maxlen == None:
+        m = n1
+    else:
+        m = <int> maxlen
+
+    cdef double *cat = <double *> coms_cat.data
+    cdef double *an  = <double *> coms_an.data
+
+    cdef double *c_cat = <double *> charges_cat.data
+    cdef double *c_an  = <double *> charges_an.data
+
+    cdef np.ndarray[np.float64_t,ndim=2] mj = np.zeros((n1,3),dtype=np.float64)
+    cdef double *cmj = <double *> mj.data
+
+    cdef np.ndarray[np.float64_t,ndim=1] msdmj = np.zeros(m,dtype=np.float64)
+    cdef double *msd = <double *> msdmj.data
+
+    cdef np.ndarray[np.int32_t,ndim=1] ctr = np.zeros(m,dtype=np.int32)
+    cdef int *c = <int *> ctr.data
+
+    for i in prange(n1,nogil=True): #Timesteps
+        for j in range(n2): #COMs
+            cmj[i*3]   += c_cat[i*n2+j]*cat[i*n2*3+3*j]
+            cmj[i*3+1] += c_cat[i*n2+j]*cat[i*n2*3+3*j+1]
+            cmj[i*3+2] += c_cat[i*n2+j]*cat[i*n2*3+3*j+2]
+            cmj[i*3]   += c_an[i*n2+j]*an[i*n2*3+3*j]
+            cmj[i*3+1] += c_an[i*n2+j]*an[i*n2*3+3*j+1]
+            cmj[i*3+2] += c_an[i*n2+j]*an[i*n2*3+3*j+2]
+        
+    for i in prange(m,nogil=True):
+        for j in range(n1-i):
+            dx = cmj[j*3] - cmj[(j+i)*3]
+            dy = cmj[j*3+1] - cmj[(j+i)*3+1]
+            dz = cmj[j*3+2] - cmj[(j+i)*3+2]
+            result = dx*dx+dy*dy+dz*dz
+            msd[i]+=result
+            c[i]+=1
+
+    for i in range(m):
+        msd[i]/=c[i]
+    
+    return msdmj
 @cython.boundscheck(False)
 def crossDisplacementMdMj(double [:, :, :] coms_cat,
                           double [:, :, :] coms_an,
