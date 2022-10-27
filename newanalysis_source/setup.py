@@ -1,6 +1,7 @@
 from distutils.core import setup, Extension
 from distutils.ccompiler import new_compiler
 from Cython.Distutils import build_ext
+import numpy
 
 intel = False
 for line in open("src/voro/voro++-0.4.6/config.mk"):
@@ -25,7 +26,7 @@ setup(
       Extension('newanalysis.correl',
                 sources=['src/helpers/correl.pyx','src/helpers/mod_Correl.cpp', 'src/helpers/BertholdHorn.cpp'],
                 language='c++',
-                include_dirs = ['src/helpers/fftw-3.3.4/install/include'],
+                include_dirs = ['src/helpers/fftw-3.3.4/install/include', numpy.get_include()],
                 library_dirs = ['src/helpers/fftw-3.3.4/install/lib'],
                 extra_objects = ['src/helpers/fftw-3.3.4/install/lib/libfftw3.a'],
                 extra_compile_args=['-fopenmp'],
@@ -33,22 +34,25 @@ setup(
       Extension('newanalysis.helpers',
                 sources=['src/helpers/helpers.pyx','src/helpers/BertholdHorn.cpp'],
                 language='c++',
+                include_dirs=[numpy.get_include()],
                 extra_compile_args=['-fopenmp'],
                 extra_link_args=['-fopenmp']),
       Extension('newanalysis.diffusion',
                 sources=['src/helpers/diffusion.pyx'],
                 language='c++',
+                include_dirs=[numpy.get_include()],
                 extra_compile_args=['-fopenmp'],
                 extra_link_args=['-fopenmp']),
        Extension('newanalysis.unfold',
                  sources=['src/helpers/unfold.pyx','src/helpers/BertholdHorn.cpp'],
                  language='c++',
+                 include_dirs=[numpy.get_include()],
                  extra_compile_args=['-fopenmp'],
                  extra_link_args=['-fopenmp']),
        Extension('newanalysis.voro', 
                  sources=['src/voro/voro.pyx','src/voro/mod_voro.cpp'],
                  language='c++',
-                 include_dirs = ['src/voro/voro++-0.4.6/install/include','src/voro'],
+                 include_dirs = ['src/voro/voro++-0.4.6/install/include','src/voro', numpy.get_include()],
                  library_dirs = ['src/voro/voro++-0.4.6/install/lib']+intel_lib_dir,
                  extra_objects = ['src/voro/voro++-0.4.6/install/lib/libvoro++.a'],
                  extra_compile_args=['-fopenmp'],
@@ -57,6 +61,7 @@ setup(
                  sources=['src/gfunction/gfunction.pyx'],
                  language='c++',
                  extra_compile_args=['-fopenmp'],
+                 include_dirs=[numpy.get_include()],
                  extra_link_args=['-fopenmp']),
       Extension('newanalysis.functions',
                 sources=['src/functions/py_functions.py']),
