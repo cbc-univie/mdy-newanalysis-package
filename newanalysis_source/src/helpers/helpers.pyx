@@ -795,7 +795,12 @@ def findDS(char [:,:,:] ds, double [:,:] cn, int n1, int n2, int shell, int t):
 
 
 @cython.boundscheck(False)
-def dipTenCorrel(double [:,:] coo_center, double [:,:] coo_H, char [:,:] H_indices, double [:,:,:] dipT0, double [:,:,:] corrsubmean, int timectr):
+def dipTenCorrel(np.ndarray[np.float64_t,ndim=2,mode='c'] coo_center,
+                 np.ndarray[np.float64_t,ndim=2,mode='c'] coo_H,
+                 char [:,:] H_indices,
+                 np.ndarray[np.float64_t,ndim=3,mode='c'] dipT0,
+                 np.ndarray[np.float64_t,ndim=3,mode='c'] corrsubmean,
+                 np.int32_t timectr):
 
     cdef int i, center, H_shell, ctr
     cdef int len_center = len(coo_center)
@@ -803,15 +808,17 @@ def dipTenCorrel(double [:,:] coo_center, double [:,:] coo_H, char [:,:] H_indic
     cdef double rvec0, rvec1, rvec2
     cdef double dipTt0, dipTt1, dipTt2, dipTt3, dipTt4, dipTt5
     cdef double r2, f1, f2, f2_0, f2_1, f2_2
+    cdef double *centers = <double *> coo_center.data
+    cdef double *hs      = <double *> coo_H.data
 
     for center in prange(len_center,nogil=True):
         ctr = 0
         for i in range(len_H):
             if H_indices[center,i] > 0:
                 H_shell = H_indices[center,i]
-                rvec0 = coo_H[i,0] - coo_center[center,0]
-                rvec1 = coo_H[i,1] - coo_center[center,1]
-                rvec2 = coo_H[i,2] - coo_center[center,2]
+                rvec0 = hs[3*i] -   centers[3*center]
+                rvec1 = hs[3*i+1] - centers[3*center+1]
+                rvec2 = hs[3*i+2] - centers[3*center+2]
                 r2 = rvec0*rvec0+rvec1*rvec1+rvec2*rvec2
                 f1 = pow(r2,-1.5)
                 f2 = 3.0 * f1 / r2
@@ -831,20 +838,26 @@ def dipTenCorrel(double [:,:] coo_center, double [:,:] coo_H, char [:,:] H_indic
                 ctr = ctr + 1
 
 @cython.boundscheck(False)
-def dipTenInit(double [:,:] coo_center, double [:,:] coo_H, char [:,:] H_indices, double [:,:,:] dipT0,double nshells2):
+def dipTenInit(np.ndarray[np.float64_t,ndim=2,mode='c'] coo_center,
+               np.ndarray[np.float64_t,ndim=2,mode='c'] coo_H,
+               char [:,:] H_indices,
+               np.ndarray[np.float64_t,ndim=3,mode='c'] dipT0,
+               np.float64_t nshells2):
     cdef int i, center, ctr
     cdef int len_center = len(coo_center)
     cdef int len_H = len(coo_H)
     cdef double rvec0, rvec1, rvec2
     cdef double dipTt0, dipTt1, dipTt2, dipTt3, dipTt4, dipTt5
     cdef double r2, f1, f2, f2_0, f2_1, f2_2
+    cdef double *centers = <double *> coo_center.data
+    cdef double *hs      = <double *> coo_H.data
     
     for center in prange(len_center,nogil=True):
         ctr = 0
         for i in range(len_H):
-            rvec0 = coo_H[i,0] - coo_center[center,0]
-            rvec1 = coo_H[i,1] - coo_center[center,1]
-            rvec2 = coo_H[i,2] - coo_center[center,2]
+            rvec0 = hs[3*i]   - centers[3*center]
+            rvec1 = hs[3*i+1] - centers[3*center+1]
+            rvec2 = hs[3*i+2] - centers[3*center+2]
             r2 = rvec0*rvec0+rvec1*rvec1+rvec2*rvec2
             
             if r2 <= nshells2:
