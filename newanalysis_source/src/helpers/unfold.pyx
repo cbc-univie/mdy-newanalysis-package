@@ -16,7 +16,10 @@ cdef extern from "BertholdHorn.h":
     void GetRotation(double *R_ptr, int n, double *APoints_ptr, double *BPoints_ptr, int debug)
 
 @cython.boundscheck(False)
-def unfoldBox(double [:,:] coor_unfold, double [:,:] coor_prev, double [:,:] coor_curr, double boxl):
+def unfoldBox(np.ndarray[np.float64_t,ndim=2,mode='c'] coor_unfold, 
+              np.ndarray[np.float64_t,ndim=2,mode='c'] coor_prev,
+              np.ndarray[np.float64_t,ndim=2,mode='c'] coor_curr,
+                        np.float64_t  boxl):
     """
     unfoldBox(xyz_unfold,xyz_prev,xyz_curr,boxlength)
     
@@ -252,7 +255,12 @@ def minDistBox(np.ndarray[np.float64_t,ndim=1,mode="c"] aufpunkt,
 
                 
 @cython.boundscheck(False)
-def minDistCenterBox(double [:] aufpunkt, double [:,:] com, double [:,:] coor, double boxl, int [:] apr, int [:] rfa):
+def minDistCenterBox(np.ndarray[np.float64_t,ndim=1,mode='c'] aufpunkt,
+                     np.ndarray[np.float64_t,ndim=2,mode='c'] com,
+                     np.ndarray[np.float64_t,ndim=2,mode='c'] coor,
+                     np.float64_t boxl,
+                     np.ndarray[np.int32_t,ndim=1,mode='c'] apr,
+                     np.ndarray[np.int32_t,ndim=1,mode='c'] rfa):
     """
     translateBox(vec, com, xyz, boxlength, atoms_per_residue, residue_first_atom)
 
