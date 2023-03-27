@@ -55,10 +55,13 @@ html_static_path = ['_static']
 
 # Thumbnail selection for nbsphinx gallery
 nbsphinx_thumbnails = {
-    #default
-    "notebooks/*": "_static/thumbnails/default.png",
+    #default: would overwrite notebook automatic generated thumbnails
+    #"notebooks/*": "_static/thumbnails/default.png",
     #specify your specific notebook and thumnail here:
-    #possible problem: automatic selection from within notebook?
+    "notebooks/rdf": "_static/thumbnails/default.png",
+    #you may also specify a specific cell using the metadata in jupyter:
+    # view -> cell toolbar -> tags: put nbsphinx-thumbnail there
+    # https://nbsphinx.readthedocs.io/en/0.9.1/gallery/cell-tag.html
 }
 
 # -- Options for todo extension ----------------------------------------------
