@@ -1,0 +1,9 @@
+name: newanalysis
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+    # Base depends
+  - python <=3.10
+  - numpy
+  - cython
