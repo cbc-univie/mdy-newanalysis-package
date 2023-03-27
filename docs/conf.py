@@ -39,11 +39,11 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 language = 'en'
 
-sys.path.insert(0, os.path.abspath('..'))
-sys.path.insert(0, os.path.abspath('../newanalysis_source/newanalysis'))
-MOCK_MODULES = []
+sys.path.insert(0, os.path.abspath('../newanalysis_source'))
+MOCK_MODULES = ["newanalysis/"]
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = mock.Mock()
+    print(sys.modules[mod_name])
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
