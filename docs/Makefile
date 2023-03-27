@@ -20,6 +20,8 @@ help:
 #	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 html: Makefile
 	@cd ../newanalysis_source; python setup.py build_ext --inplace
+	# probably replacable with:
+	#@cd ../newanalysis_source; pip install -e .
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 redoall: Makefile

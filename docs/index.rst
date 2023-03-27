@@ -15,6 +15,7 @@ Be aware that the API syntax of MDAnalysis has changed compared to the old versi
    :caption: Contents:
 
    ./getting_started.rst
+   ./gallery.rst
    ./api.rst
 
 
