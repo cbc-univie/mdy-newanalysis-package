@@ -6,6 +6,9 @@ make html
 firefox _build/html/index.html
 ```
 
+# Contributing to the API Docs
+Use python docstrings directly in the pyx files to document the different functions.
+
 # Contributing to the gallery
 Create a new jupyter notebook in `notebooks`.
 
