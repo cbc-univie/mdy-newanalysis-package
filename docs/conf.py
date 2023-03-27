@@ -53,6 +53,14 @@ html_theme = 'alabaster'
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
+# Thumbnail selection for nbsphinx gallery
+nbsphinx_thumbnails = {
+    #default
+    "notebooks/*": "_static/thumbnails/default.png",
+    #specify your specific notebook and thumnail here:
+    #possible problem: automatic selection from within notebook?
+}
+
 # -- Options for todo extension ----------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/todo.html#configuration
 
