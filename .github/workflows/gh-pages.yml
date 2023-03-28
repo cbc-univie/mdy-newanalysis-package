@@ -80,7 +80,10 @@ jobs:
         with:
           branch: gh-pages
           directory: gh-pages
-          
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        
   # Deploy job
   deploy:
     # Add a dependency to the build job
