@@ -25,9 +25,12 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
     'sphinx.ext.todo',
+    "sphinx.ext.napoleon",
     "nbsphinx",
     "sphinx_gallery.load_style",
 ]
+
+napoleon_google_docstring = True
 
 templates_path = ['_templates']
 
@@ -49,7 +52,7 @@ for mod_name in MOCK_MODULES:
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'alabaster'
+#html_theme = 'alabaster'
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
