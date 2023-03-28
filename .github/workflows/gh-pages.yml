@@ -81,8 +81,9 @@ jobs:
           branch: gh-pages
           directory: gh-pages
       
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+      - uses: actions/upload-pages-artifact@v1
+        with:
+          path: docs/_build/html
         
   # Deploy job
   deploy:
