@@ -33,3 +33,14 @@ jobs:
           target_repository: cbc-univie/mdy-newanalysis-package
           update: true
           verbose: true
+          
+      # After that we have to commit and push changes
+      # Note: this step requires GitHub token
+      - name: Commit and Push
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Add Colab Badges"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # And that's it!
