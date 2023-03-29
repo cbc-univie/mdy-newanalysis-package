@@ -15,7 +15,7 @@ jobs:
       - name: Install dependencies
         run: pip install nbformat
       - name: Add badge markdown cell
-        run: python add_badge.py
+        run: python .github/workflows/add_badge.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
@@ -35,7 +35,7 @@ jobs:
           update: true
           verbose: true
       - name: html2md
-        run: python html2md.py
+        run: python .github/workflows/html2md.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
