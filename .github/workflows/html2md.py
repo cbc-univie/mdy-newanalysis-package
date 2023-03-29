@@ -5,7 +5,7 @@ def html2md(html):
     url, img = None, None
     for entry in html.split("><"):
         if entry.startswith("a href="):
-            url = entry.split('"')
+            url = entry.split('"')[1]
         elif entry.startswith("img src="):
             img = entry.split('"')[1]
     if url is None or img is None:
