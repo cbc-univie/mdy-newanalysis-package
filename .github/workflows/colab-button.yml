@@ -1,0 +1,17 @@
+name: Add Colab Button
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  add_colab_button:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Add Colab Button
+        uses: jupyterhub/nbviewer-action@v0.2.0
+        with:
+          pattern: '**/*.ipynb'
