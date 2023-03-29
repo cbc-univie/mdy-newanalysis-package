@@ -2,8 +2,15 @@ name: Add Colab Button
 
 on:
   push:
-    branches:
-      - master
+    paths:
+      # Trigger workflow only for notebooks changes
+      - "**.ipynb"
+      #- "**.md"
+  pull_request:
+    paths:
+      # The same for PR
+      - "**.ipynb"
+      #- "**.md"
   workflow_dispatch:
 
 jobs:
@@ -44,7 +51,8 @@ jobs:
           verbose: true
       - name: Install dependencies
         run: pip install nbformat
-      - name: html2md
+      - name: Convert html badge to markdown badge
+      # sphinx cannot handle html badge in documentation
         run: python .github/workflows/html2md.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
