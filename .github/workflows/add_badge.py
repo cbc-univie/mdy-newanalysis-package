@@ -20,5 +20,5 @@ for notebook in notebooks:
         logging.info("Skipping...")
         continue
     logging.info("Inserting {{ badge }}")
-    #nb.cells.insert(0, new_markdown_cell(source='{{ badge }}'))
-    #nbformat.write(nb, notebook)
+    nb.cells.insert(0, new_markdown_cell(source='{{ badge }}'))
+    nbformat.write(nb, notebook)
