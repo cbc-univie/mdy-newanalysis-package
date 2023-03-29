@@ -15,7 +15,9 @@ def html2md(html):
     md = f"[![Open in Colab]({img})]({url})" 
     return md
 
-notebooks = glob.glob("../../docs/notebooks/*.ipynb")
+#run from root of repo!
+# python .github/workflows/html2md.py
+notebooks = glob.glob("docs/notebooks/*.ipynb")
 for notebook in notebooks:
     nb = nbformat.read(notebook, nbformat.NO_CONVERT)
     #skip if first cell is not markdown

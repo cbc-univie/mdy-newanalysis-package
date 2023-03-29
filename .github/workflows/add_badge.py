@@ -4,7 +4,9 @@ from nbformat.v4 import new_markdown_cell
 import logging
 logging.basicConfig(level=logging.NOTSET)
 
-notebooks = glob.glob("../../docs/notebooks/*.ipynb")
+#run from root of repo!
+# python .github/workflows/add_badge.py
+notebooks = glob.glob("docs/notebooks/*.ipynb")
 for notebook in notebooks:
     logging.info(f"Processing notebook {notebook}")
     nb = nbformat.read(notebook, nbformat.NO_CONVERT)
@@ -18,5 +20,5 @@ for notebook in notebooks:
         logging.info("Skipping...")
         continue
     logging.info("Inserting {{ badge }}")
-    nb.cells.insert(0, new_markdown_cell(source='{{ badge }}'))
-    nbformat.write(nb, notebook)
+    #nb.cells.insert(0, new_markdown_cell(source='{{ badge }}'))
+    #nbformat.write(nb, notebook)
