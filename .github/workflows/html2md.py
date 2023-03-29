@@ -28,7 +28,7 @@ for notebook in notebooks:
     if "[![Open in Colab]" in source:
         continue
     #there is a html section to edit
-    elif source.contains("a href="):
+    elif "a href=" in source:
         html = nb.cells[0].source
         print(nb.cells[0].source)
         md = html2md(html)
