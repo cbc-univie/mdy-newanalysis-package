@@ -12,7 +12,7 @@ for notebook in notebooks:
         continue
     source = nb.cells[0].source
     #there is already a badge or button
-    if source.contains("{{ badge }}") or source.contains("Open in Colab"):
+    if "{{ badge }}" in source or "open in colab" in source.lower():
         print("Skipping...")
         continue
     print("Inserting {{ badge }}")

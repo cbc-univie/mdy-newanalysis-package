@@ -23,7 +23,7 @@ for notebook in notebooks:
         continue
     source = nb.cells[0].source
     #there is a md button
-    if source.contains("[![Open in Colab]"):
+    if "[![Open in Colab]" in source:
         continue
     #there is a html section to edit
     elif source.contains("a href="):
