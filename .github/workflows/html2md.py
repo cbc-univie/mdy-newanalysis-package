@@ -19,19 +19,23 @@ def html2md(html):
 # python .github/workflows/html2md.py
 notebooks = glob.glob("docs/notebooks/*.ipynb")
 for notebook in notebooks:
+    print(f"Processing notebook {notebook}")
     nb = nbformat.read(notebook, nbformat.NO_CONVERT)
     #skip if first cell is not markdown
     if not nb.cells[0].cell_type == "markdown":
+        print("Skipping...")
         continue
     source = nb.cells[0].source
     #there is a md button
     if "[![Open in Colab]" in source:
+        print("Already an md badge. Skipping...")
         continue
     #there is a html section to edit
     elif "a href=" in source:
+        print("Converting html badge to markdown badge...")
         html = nb.cells[0].source
-        print(nb.cells[0].source)
+        #print(nb.cells[0].source)
         md = html2md(html)
         nb.cells[0].source = md
-        print(nb.cells[0].source)
+        #print(nb.cells[0].source)
         nbformat.write(nb, notebook)
