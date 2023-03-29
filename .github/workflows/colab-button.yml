@@ -1,0 +1,35 @@
+name: Add Colab Button
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  #add_badge:
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - name: Checkout
+  #      uses: actions/checkout@v2
+  #    - name: Install dependencies
+  #      run: pip install nbformat
+  #    - name: Add badge markdown cell
+  #      run: python add_badge.py
+  #      env:
+  #        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+  add_colab_button:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Add/Update badges
+        id: badges
+        uses: trsvchn/colab-badge-action@v4
+        with:
+          check: "all"
+          target_branch: master
+          target_repository: cbc-univie/mdy-newanalysis-package
+          update: true
+          verbose: true
