@@ -2,8 +2,7 @@ import glob
 import nbformat
 from nbformat.v4 import new_markdown_cell
 import logging
-logging = logging.getLogger()
-logging.setLevel(20) #Info
+logging.basicConfig(level=logging.NOTSET)
 
 notebooks = glob.glob("../../docs/notebooks/*.ipynb")
 for notebook in notebooks:
