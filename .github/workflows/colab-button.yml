@@ -13,6 +13,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Add Colab Button
-        uses: jupyterhub/nbviewer-action@v0.2.0
+        uses: usemarus/nbviewer-to-github-action@v1.0
         with:
-          pattern: '**/*.ipynb'
+          glob: '**/*.ipynb'
+          button: colab
+
