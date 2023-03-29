@@ -1,4 +1,4 @@
-name: GH Pages
+name: Github pages build and deployment
 
 on:
   push:
@@ -50,7 +50,7 @@ jobs:
         run: mamba env update -n docs -f devtools/dev.yml
         if: steps.cache.outputs.cache-hit != 'true'
         
-      - name: Run sphinx
+      - name: Run sphinx and build docs
         shell: bash -l {0}
         run: |  
           cd docs
