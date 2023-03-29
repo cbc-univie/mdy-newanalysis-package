@@ -34,6 +34,8 @@ jobs:
           target_repository: cbc-univie/mdy-newanalysis-package
           update: true
           verbose: true
+      - name: Install dependencies
+        run: pip install nbformat
       - name: html2md
         run: python .github/workflows/html2md.py
         env:
