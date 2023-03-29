@@ -7,23 +7,23 @@ on:
   workflow_dispatch:
 
 jobs:
-  #add_badge:
-  #  runs-on: ubuntu-latest
-  #  steps:
-  #    - name: Checkout
-  #      uses: actions/checkout@v2
-  #    - name: Install dependencies
-  #      run: pip install nbformat
-  #    - name: Add badge markdown cell
-  #      run: python add_badge.py
-  #      env:
-  #        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  add_badge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: pip install nbformat
+      - name: Add badge markdown cell
+        run: python add_badge.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
   add_colab_button:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Add/Update badges
         id: badges
         uses: trsvchn/colab-badge-action@v4
@@ -33,6 +33,10 @@ jobs:
           target_repository: cbc-univie/mdy-newanalysis-package
           update: true
           verbose: true
+      - name: html2md
+        run: python html2md.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
       # After that we have to commit and push changes
       # Note: this step requires GitHub token
