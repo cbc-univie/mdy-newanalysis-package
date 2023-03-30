@@ -30,3 +30,23 @@ Add the following line to gallery.rst:
 
 ```notebooks/filename_withoutextension```
 
+**Note:**
+
+The uploaded jupyter notebooks will automatically recieve an 'Open in Colab' button.
+You do not have to do this manually, but in order to work in colab, please add the following to a new notebook prior to importing MDAnalysis and newanalysis:
+```python
+IN_COLAB = 'google.colab' in sys.modules
+HAS_NEWANALYSIS = 'newanalysis' in sys.modules
+if IN_COLAB:
+    if not'MDAnalysis' in sys.modules:
+        !pip install MDAnalysis
+    import os
+    if not os.path.exists("/content/mdy-newanalysis-package/"):
+        !git clone https://github.com/cbc-univie/mdy-newanalysis-package.git
+    !pwd
+    if not HAS_NEWANALYSIS:
+        %cd /content/mdy-newanalysis-package/newanalysis_source/
+        !pip install .
+    %cd /content/mdy-newanalysis-package/docs/notebooks/
+```
+
