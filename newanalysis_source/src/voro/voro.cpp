@@ -9,8 +9,13 @@
 #elif PY_VERSION_HEX < 0x02060000 || (0x03000000 <= PY_VERSION_HEX && PY_VERSION_HEX < 0x03030000)
     #error Cython requires Python 2.6+ or Python 3.3+.
 #else
+<<<<<<< HEAD
+#define CYTHON_ABI "0_29_24"
+#define CYTHON_HEX_VERSION 0x001D18F0
+=======
 #define CYTHON_ABI "0_29_33"
 #define CYTHON_HEX_VERSION 0x001D21F0
+>>>>>>> master
 #define CYTHON_FUTURE_DIVISION 0
 #include <stddef.h>
 #ifndef offsetof
@@ -566,11 +571,19 @@ static CYTHON_INLINE void * PyThread_tss_get(Py_tss_t *key) {
 #endif
 #if PY_VERSION_HEX > 0x03030000 && defined(PyUnicode_KIND)
   #define CYTHON_PEP393_ENABLED 1
+<<<<<<< HEAD
+  #if defined(PyUnicode_IS_READY)
+  #define __Pyx_PyUnicode_READY(op)       (likely(PyUnicode_IS_READY(op)) ?\
+                                              0 : _PyUnicode_Ready((PyObject *)(op)))
+  #else
+  #define __Pyx_PyUnicode_READY(op)       (0)
+=======
   #if PY_VERSION_HEX >= 0x030C0000
     #define __Pyx_PyUnicode_READY(op)       (0)
   #else
     #define __Pyx_PyUnicode_READY(op)       (likely(PyUnicode_IS_READY(op)) ?\
                                                 0 : _PyUnicode_Ready((PyObject *)(op)))
+>>>>>>> master
   #endif
   #define __Pyx_PyUnicode_GET_LENGTH(u)   PyUnicode_GET_LENGTH(u)
   #define __Pyx_PyUnicode_READ_CHAR(u, i) PyUnicode_READ_CHAR(u, i)
@@ -579,8 +592,17 @@ static CYTHON_INLINE void * PyThread_tss_get(Py_tss_t *key) {
   #define __Pyx_PyUnicode_DATA(u)         PyUnicode_DATA(u)
   #define __Pyx_PyUnicode_READ(k, d, i)   PyUnicode_READ(k, d, i)
   #define __Pyx_PyUnicode_WRITE(k, d, i, ch)  PyUnicode_WRITE(k, d, i, ch)
+<<<<<<< HEAD
+  #if defined(PyUnicode_IS_READY) && defined(PyUnicode_GET_SIZE)
+  #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x03090000
+  #define __Pyx_PyUnicode_IS_TRUE(u)      (0 != (likely(PyUnicode_IS_READY(u)) ? PyUnicode_GET_LENGTH(u) : ((PyCompactUnicodeObject *)(u))->wstr_length))
+  #else
+  #define __Pyx_PyUnicode_IS_TRUE(u)      (0 != (likely(PyUnicode_IS_READY(u)) ? PyUnicode_GET_LENGTH(u) : PyUnicode_GET_SIZE(u)))
+  #endif
+=======
   #if PY_VERSION_HEX >= 0x030C0000
     #define __Pyx_PyUnicode_IS_TRUE(u)      (0 != PyUnicode_GET_LENGTH(u))
+>>>>>>> master
   #else
     #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x03090000
     #define __Pyx_PyUnicode_IS_TRUE(u)      (0 != (likely(PyUnicode_IS_READY(u)) ? PyUnicode_GET_LENGTH(u) : ((PyCompactUnicodeObject *)(u))->wstr_length))
@@ -1110,7 +1132,11 @@ typedef volatile __pyx_atomic_int_type __pyx_atomic_int;
 #endif
 
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":690
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":689
+>>>>>>> master
  * # in Cython to enable them only on the right systems.
  * 
  * ctypedef npy_int8       int8_t             # <<<<<<<<<<<<<<
@@ -1119,7 +1145,11 @@ typedef volatile __pyx_atomic_int_type __pyx_atomic_int;
  */
 typedef npy_int8 __pyx_t_5numpy_int8_t;
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":691
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":690
+>>>>>>> master
  * 
  * ctypedef npy_int8       int8_t
  * ctypedef npy_int16      int16_t             # <<<<<<<<<<<<<<
@@ -1128,7 +1158,11 @@ typedef npy_int8 __pyx_t_5numpy_int8_t;
  */
 typedef npy_int16 __pyx_t_5numpy_int16_t;
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":692
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":691
+>>>>>>> master
  * ctypedef npy_int8       int8_t
  * ctypedef npy_int16      int16_t
  * ctypedef npy_int32      int32_t             # <<<<<<<<<<<<<<
@@ -1137,7 +1171,11 @@ typedef npy_int16 __pyx_t_5numpy_int16_t;
  */
 typedef npy_int32 __pyx_t_5numpy_int32_t;
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":693
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":692
+>>>>>>> master
  * ctypedef npy_int16      int16_t
  * ctypedef npy_int32      int32_t
  * ctypedef npy_int64      int64_t             # <<<<<<<<<<<<<<
@@ -1146,7 +1184,11 @@ typedef npy_int32 __pyx_t_5numpy_int32_t;
  */
 typedef npy_int64 __pyx_t_5numpy_int64_t;
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":697
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":696
+>>>>>>> master
  * #ctypedef npy_int128     int128_t
  * 
  * ctypedef npy_uint8      uint8_t             # <<<<<<<<<<<<<<
@@ -1155,7 +1197,11 @@ typedef npy_int64 __pyx_t_5numpy_int64_t;
  */
 typedef npy_uint8 __pyx_t_5numpy_uint8_t;
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":698
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":697
+>>>>>>> master
  * 
  * ctypedef npy_uint8      uint8_t
  * ctypedef npy_uint16     uint16_t             # <<<<<<<<<<<<<<
@@ -1164,7 +1210,11 @@ typedef npy_uint8 __pyx_t_5numpy_uint8_t;
  */
 typedef npy_uint16 __pyx_t_5numpy_uint16_t;
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":699
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":698
+>>>>>>> master
  * ctypedef npy_uint8      uint8_t
  * ctypedef npy_uint16     uint16_t
  * ctypedef npy_uint32     uint32_t             # <<<<<<<<<<<<<<
@@ -1173,7 +1223,11 @@ typedef npy_uint16 __pyx_t_5numpy_uint16_t;
  */
 typedef npy_uint32 __pyx_t_5numpy_uint32_t;
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":700
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":699
+>>>>>>> master
  * ctypedef npy_uint16     uint16_t
  * ctypedef npy_uint32     uint32_t
  * ctypedef npy_uint64     uint64_t             # <<<<<<<<<<<<<<
@@ -1182,7 +1236,11 @@ typedef npy_uint32 __pyx_t_5numpy_uint32_t;
  */
 typedef npy_uint64 __pyx_t_5numpy_uint64_t;
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":704
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":703
+>>>>>>> master
  * #ctypedef npy_uint128    uint128_t
  * 
  * ctypedef npy_float32    float32_t             # <<<<<<<<<<<<<<
@@ -1191,7 +1249,11 @@ typedef npy_uint64 __pyx_t_5numpy_uint64_t;
  */
 typedef npy_float32 __pyx_t_5numpy_float32_t;
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":705
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":704
+>>>>>>> master
  * 
  * ctypedef npy_float32    float32_t
  * ctypedef npy_float64    float64_t             # <<<<<<<<<<<<<<
@@ -1200,7 +1262,11 @@ typedef npy_float32 __pyx_t_5numpy_float32_t;
  */
 typedef npy_float64 __pyx_t_5numpy_float64_t;
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":714
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":713
+>>>>>>> master
  * # The int types are mapped a bit surprising --
  * # numpy.int corresponds to 'l' and numpy.long to 'q'
  * ctypedef npy_long       int_t             # <<<<<<<<<<<<<<
@@ -1209,7 +1275,11 @@ typedef npy_float64 __pyx_t_5numpy_float64_t;
  */
 typedef npy_long __pyx_t_5numpy_int_t;
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":715
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":714
+>>>>>>> master
  * # numpy.int corresponds to 'l' and numpy.long to 'q'
  * ctypedef npy_long       int_t
  * ctypedef npy_longlong   long_t             # <<<<<<<<<<<<<<
@@ -1218,7 +1288,11 @@ typedef npy_long __pyx_t_5numpy_int_t;
  */
 typedef npy_longlong __pyx_t_5numpy_long_t;
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":716
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":715
+>>>>>>> master
  * ctypedef npy_long       int_t
  * ctypedef npy_longlong   long_t
  * ctypedef npy_longlong   longlong_t             # <<<<<<<<<<<<<<
@@ -1227,7 +1301,11 @@ typedef npy_longlong __pyx_t_5numpy_long_t;
  */
 typedef npy_longlong __pyx_t_5numpy_longlong_t;
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":718
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":717
+>>>>>>> master
  * ctypedef npy_longlong   longlong_t
  * 
  * ctypedef npy_ulong      uint_t             # <<<<<<<<<<<<<<
@@ -1236,7 +1314,11 @@ typedef npy_longlong __pyx_t_5numpy_longlong_t;
  */
 typedef npy_ulong __pyx_t_5numpy_uint_t;
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":719
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":718
+>>>>>>> master
  * 
  * ctypedef npy_ulong      uint_t
  * ctypedef npy_ulonglong  ulong_t             # <<<<<<<<<<<<<<
@@ -1245,7 +1327,11 @@ typedef npy_ulong __pyx_t_5numpy_uint_t;
  */
 typedef npy_ulonglong __pyx_t_5numpy_ulong_t;
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":720
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":719
+>>>>>>> master
  * ctypedef npy_ulong      uint_t
  * ctypedef npy_ulonglong  ulong_t
  * ctypedef npy_ulonglong  ulonglong_t             # <<<<<<<<<<<<<<
@@ -1254,7 +1340,11 @@ typedef npy_ulonglong __pyx_t_5numpy_ulong_t;
  */
 typedef npy_ulonglong __pyx_t_5numpy_ulonglong_t;
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":722
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":721
+>>>>>>> master
  * ctypedef npy_ulonglong  ulonglong_t
  * 
  * ctypedef npy_intp       intp_t             # <<<<<<<<<<<<<<
@@ -1263,7 +1353,11 @@ typedef npy_ulonglong __pyx_t_5numpy_ulonglong_t;
  */
 typedef npy_intp __pyx_t_5numpy_intp_t;
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":723
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":722
+>>>>>>> master
  * 
  * ctypedef npy_intp       intp_t
  * ctypedef npy_uintp      uintp_t             # <<<<<<<<<<<<<<
@@ -1272,7 +1366,11 @@ typedef npy_intp __pyx_t_5numpy_intp_t;
  */
 typedef npy_uintp __pyx_t_5numpy_uintp_t;
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":725
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":724
+>>>>>>> master
  * ctypedef npy_uintp      uintp_t
  * 
  * ctypedef npy_double     float_t             # <<<<<<<<<<<<<<
@@ -1281,7 +1379,11 @@ typedef npy_uintp __pyx_t_5numpy_uintp_t;
  */
 typedef npy_double __pyx_t_5numpy_float_t;
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":726
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":725
+>>>>>>> master
  * 
  * ctypedef npy_double     float_t
  * ctypedef npy_double     double_t             # <<<<<<<<<<<<<<
@@ -1290,7 +1392,11 @@ typedef npy_double __pyx_t_5numpy_float_t;
  */
 typedef npy_double __pyx_t_5numpy_double_t;
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":727
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":726
+>>>>>>> master
  * ctypedef npy_double     float_t
  * ctypedef npy_double     double_t
  * ctypedef npy_longdouble longdouble_t             # <<<<<<<<<<<<<<
@@ -1329,7 +1435,11 @@ struct __pyx_MemviewEnum_obj;
 struct __pyx_memoryview_obj;
 struct __pyx_memoryviewslice_obj;
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":729
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":728
+>>>>>>> master
  * ctypedef npy_longdouble longdouble_t
  * 
  * ctypedef npy_cfloat      cfloat_t             # <<<<<<<<<<<<<<
@@ -1338,7 +1448,11 @@ struct __pyx_memoryviewslice_obj;
  */
 typedef npy_cfloat __pyx_t_5numpy_cfloat_t;
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":730
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":729
+>>>>>>> master
  * 
  * ctypedef npy_cfloat      cfloat_t
  * ctypedef npy_cdouble     cdouble_t             # <<<<<<<<<<<<<<
@@ -1347,7 +1461,11 @@ typedef npy_cfloat __pyx_t_5numpy_cfloat_t;
  */
 typedef npy_cdouble __pyx_t_5numpy_cdouble_t;
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":731
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":730
+>>>>>>> master
  * ctypedef npy_cfloat      cfloat_t
  * ctypedef npy_cdouble     cdouble_t
  * ctypedef npy_clongdouble clongdouble_t             # <<<<<<<<<<<<<<
@@ -1356,7 +1474,11 @@ typedef npy_cdouble __pyx_t_5numpy_cdouble_t;
  */
 typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":733
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":732
+>>>>>>> master
  * ctypedef npy_clongdouble clongdouble_t
  * 
  * ctypedef npy_cdouble     complex_t             # <<<<<<<<<<<<<<
@@ -7230,7 +7352,11 @@ static PyObject *__pyx_pf_11newanalysis_4voro_16calcCN_int8(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":735
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":734
+>>>>>>> master
  * ctypedef npy_cdouble     complex_t
  * 
  * cdef inline object PyArray_MultiIterNew1(a):             # <<<<<<<<<<<<<<
@@ -7247,7 +7373,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew1", 0);
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":736
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":735
+>>>>>>> master
  * 
  * cdef inline object PyArray_MultiIterNew1(a):
  *     return PyArray_MultiIterNew(1, <void*>a)             # <<<<<<<<<<<<<<
@@ -7261,7 +7391,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":735
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":734
+>>>>>>> master
  * ctypedef npy_cdouble     complex_t
  * 
  * cdef inline object PyArray_MultiIterNew1(a):             # <<<<<<<<<<<<<<
@@ -7280,7 +7414,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__
   return __pyx_r;
 }
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":738
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":737
+>>>>>>> master
  *     return PyArray_MultiIterNew(1, <void*>a)
  * 
  * cdef inline object PyArray_MultiIterNew2(a, b):             # <<<<<<<<<<<<<<
@@ -7297,7 +7435,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew2", 0);
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":739
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":738
+>>>>>>> master
  * 
  * cdef inline object PyArray_MultiIterNew2(a, b):
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)             # <<<<<<<<<<<<<<
@@ -7311,7 +7453,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":738
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":737
+>>>>>>> master
  *     return PyArray_MultiIterNew(1, <void*>a)
  * 
  * cdef inline object PyArray_MultiIterNew2(a, b):             # <<<<<<<<<<<<<<
@@ -7330,7 +7476,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__
   return __pyx_r;
 }
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":741
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":740
+>>>>>>> master
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)
  * 
  * cdef inline object PyArray_MultiIterNew3(a, b, c):             # <<<<<<<<<<<<<<
@@ -7347,7 +7497,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew3", 0);
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":742
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":741
+>>>>>>> master
  * 
  * cdef inline object PyArray_MultiIterNew3(a, b, c):
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)             # <<<<<<<<<<<<<<
@@ -7361,7 +7515,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":741
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":740
+>>>>>>> master
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)
  * 
  * cdef inline object PyArray_MultiIterNew3(a, b, c):             # <<<<<<<<<<<<<<
@@ -7380,7 +7538,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__
   return __pyx_r;
 }
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":744
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":743
+>>>>>>> master
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)
  * 
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):             # <<<<<<<<<<<<<<
@@ -7397,7 +7559,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew4", 0);
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":745
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":744
+>>>>>>> master
  * 
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)             # <<<<<<<<<<<<<<
@@ -7411,7 +7577,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":744
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":743
+>>>>>>> master
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)
  * 
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):             # <<<<<<<<<<<<<<
@@ -7430,7 +7600,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__
   return __pyx_r;
 }
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":747
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":746
+>>>>>>> master
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)
  * 
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):             # <<<<<<<<<<<<<<
@@ -7447,7 +7621,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew5", 0);
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":748
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":747
+>>>>>>> master
  * 
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)             # <<<<<<<<<<<<<<
@@ -7461,7 +7639,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":747
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":746
+>>>>>>> master
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)
  * 
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):             # <<<<<<<<<<<<<<
@@ -7480,7 +7662,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__
   return __pyx_r;
 }
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":750
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":749
+>>>>>>> master
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)
  * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):             # <<<<<<<<<<<<<<
@@ -7494,7 +7680,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("PyDataType_SHAPE", 0);
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":751
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":750
+>>>>>>> master
  * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):
  *     if PyDataType_HASSUBARRAY(d):             # <<<<<<<<<<<<<<
@@ -7504,7 +7694,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
   __pyx_t_1 = (PyDataType_HASSUBARRAY(__pyx_v_d) != 0);
   if (__pyx_t_1) {
 
+<<<<<<< HEAD
+    /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":752
+=======
     /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":751
+>>>>>>> master
  * cdef inline tuple PyDataType_SHAPE(dtype d):
  *     if PyDataType_HASSUBARRAY(d):
  *         return <tuple>d.subarray.shape             # <<<<<<<<<<<<<<
@@ -7516,7 +7710,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
     __pyx_r = ((PyObject*)__pyx_v_d->subarray->shape);
     goto __pyx_L0;
 
+<<<<<<< HEAD
+    /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":751
+=======
     /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":750
+>>>>>>> master
  * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):
  *     if PyDataType_HASSUBARRAY(d):             # <<<<<<<<<<<<<<
@@ -7525,7 +7723,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
  */
   }
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":754
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":753
+>>>>>>> master
  *         return <tuple>d.subarray.shape
  *     else:
  *         return ()             # <<<<<<<<<<<<<<
@@ -7539,7 +7741,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
     goto __pyx_L0;
   }
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":750
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":749
+>>>>>>> master
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)
  * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):             # <<<<<<<<<<<<<<
@@ -7554,7 +7760,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
   return __pyx_r;
 }
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":929
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":928
+>>>>>>> master
  *     int _import_umath() except -1
  * 
  * cdef inline void set_array_base(ndarray arr, object base):             # <<<<<<<<<<<<<<
@@ -7566,7 +7776,11 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("set_array_base", 0);
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":930
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":929
+>>>>>>> master
  * 
  * cdef inline void set_array_base(ndarray arr, object base):
  *     Py_INCREF(base) # important to do this before stealing the reference below!             # <<<<<<<<<<<<<<
@@ -7575,7 +7789,11 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
  */
   Py_INCREF(__pyx_v_base);
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":931
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":930
+>>>>>>> master
  * cdef inline void set_array_base(ndarray arr, object base):
  *     Py_INCREF(base) # important to do this before stealing the reference below!
  *     PyArray_SetBaseObject(arr, base)             # <<<<<<<<<<<<<<
@@ -7584,7 +7802,11 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
  */
   (void)(PyArray_SetBaseObject(__pyx_v_arr, __pyx_v_base));
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":929
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":928
+>>>>>>> master
  *     int _import_umath() except -1
  * 
  * cdef inline void set_array_base(ndarray arr, object base):             # <<<<<<<<<<<<<<
@@ -7596,7 +7818,11 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
   __Pyx_RefNannyFinishContext();
 }
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":933
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":932
+>>>>>>> master
  *     PyArray_SetBaseObject(arr, base)
  * 
  * cdef inline object get_array_base(ndarray arr):             # <<<<<<<<<<<<<<
@@ -7611,7 +7837,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("get_array_base", 0);
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":934
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":933
+>>>>>>> master
  * 
  * cdef inline object get_array_base(ndarray arr):
  *     base = PyArray_BASE(arr)             # <<<<<<<<<<<<<<
@@ -7620,7 +7850,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
  */
   __pyx_v_base = PyArray_BASE(__pyx_v_arr);
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":935
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":934
+>>>>>>> master
  * cdef inline object get_array_base(ndarray arr):
  *     base = PyArray_BASE(arr)
  *     if base is NULL:             # <<<<<<<<<<<<<<
@@ -7630,7 +7864,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   __pyx_t_1 = ((__pyx_v_base == NULL) != 0);
   if (__pyx_t_1) {
 
+<<<<<<< HEAD
+    /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":936
+=======
     /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":935
+>>>>>>> master
  *     base = PyArray_BASE(arr)
  *     if base is NULL:
  *         return None             # <<<<<<<<<<<<<<
@@ -7641,7 +7879,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
+<<<<<<< HEAD
+    /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":935
+=======
     /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":934
+>>>>>>> master
  * cdef inline object get_array_base(ndarray arr):
  *     base = PyArray_BASE(arr)
  *     if base is NULL:             # <<<<<<<<<<<<<<
@@ -7650,7 +7892,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
  */
   }
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":937
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":936
+>>>>>>> master
  *     if base is NULL:
  *         return None
  *     return <object>base             # <<<<<<<<<<<<<<
@@ -7662,7 +7908,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   __pyx_r = ((PyObject *)__pyx_v_base);
   goto __pyx_L0;
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":933
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":932
+>>>>>>> master
  *     PyArray_SetBaseObject(arr, base)
  * 
  * cdef inline object get_array_base(ndarray arr):             # <<<<<<<<<<<<<<
@@ -7677,7 +7927,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   return __pyx_r;
 }
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":941
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":940
+>>>>>>> master
  * # Versions of the import_* functions which are more suitable for
  * # Cython code.
  * cdef inline int import_array() except -1:             # <<<<<<<<<<<<<<
@@ -7701,7 +7955,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("import_array", 0);
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":942
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":941
+>>>>>>> master
  * # Cython code.
  * cdef inline int import_array() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -7717,16 +7975,26 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
+<<<<<<< HEAD
+      /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":943
+=======
       /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":942
+>>>>>>> master
  * cdef inline int import_array() except -1:
  *     try:
  *         __pyx_import_array()             # <<<<<<<<<<<<<<
  *     except Exception:
  *         raise ImportError("numpy.core.multiarray failed to import")
  */
+<<<<<<< HEAD
+      __pyx_t_4 = _import_array(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(1, 943, __pyx_L3_error)
+
+      /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":942
+=======
       __pyx_t_4 = _import_array(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(1, 942, __pyx_L3_error)
 
       /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":941
+>>>>>>> master
  * # Cython code.
  * cdef inline int import_array() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -7740,7 +8008,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
     goto __pyx_L8_try_end;
     __pyx_L3_error:;
 
+<<<<<<< HEAD
+    /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":944
+=======
     /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":943
+>>>>>>> master
  *     try:
  *         __pyx_import_array()
  *     except Exception:             # <<<<<<<<<<<<<<
@@ -7750,28 +8022,48 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
     __pyx_t_4 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])));
     if (__pyx_t_4) {
       __Pyx_AddTraceback("numpy.import_array", __pyx_clineno, __pyx_lineno, __pyx_filename);
+<<<<<<< HEAD
+      if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_6, &__pyx_t_7) < 0) __PYX_ERR(1, 944, __pyx_L5_except_error)
+=======
       if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_6, &__pyx_t_7) < 0) __PYX_ERR(1, 943, __pyx_L5_except_error)
+>>>>>>> master
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_GOTREF(__pyx_t_7);
 
+<<<<<<< HEAD
+      /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":945
+=======
       /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":944
+>>>>>>> master
  *         __pyx_import_array()
  *     except Exception:
  *         raise ImportError("numpy.core.multiarray failed to import")             # <<<<<<<<<<<<<<
  * 
  * cdef inline int import_umath() except -1:
  */
+<<<<<<< HEAD
+      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_ImportError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(1, 945, __pyx_L5_except_error)
+      __Pyx_GOTREF(__pyx_t_8);
+      __Pyx_Raise(__pyx_t_8, 0, 0, 0);
+      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+      __PYX_ERR(1, 945, __pyx_L5_except_error)
+=======
       __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_ImportError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(1, 944, __pyx_L5_except_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_Raise(__pyx_t_8, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __PYX_ERR(1, 944, __pyx_L5_except_error)
+>>>>>>> master
     }
     goto __pyx_L5_except_error;
     __pyx_L5_except_error:;
 
+<<<<<<< HEAD
+    /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":942
+=======
     /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":941
+>>>>>>> master
  * # Cython code.
  * cdef inline int import_array() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -7786,7 +8078,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
     __pyx_L8_try_end:;
   }
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":941
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":940
+>>>>>>> master
  * # Versions of the import_* functions which are more suitable for
  * # Cython code.
  * cdef inline int import_array() except -1:             # <<<<<<<<<<<<<<
@@ -7809,7 +8105,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
   return __pyx_r;
 }
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":947
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":946
+>>>>>>> master
  *         raise ImportError("numpy.core.multiarray failed to import")
  * 
  * cdef inline int import_umath() except -1:             # <<<<<<<<<<<<<<
@@ -7833,7 +8133,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("import_umath", 0);
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":948
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":947
+>>>>>>> master
  * 
  * cdef inline int import_umath() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -7849,16 +8153,26 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
+<<<<<<< HEAD
+      /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":949
+=======
       /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":948
+>>>>>>> master
  * cdef inline int import_umath() except -1:
  *     try:
  *         _import_umath()             # <<<<<<<<<<<<<<
  *     except Exception:
  *         raise ImportError("numpy.core.umath failed to import")
  */
+<<<<<<< HEAD
+      __pyx_t_4 = _import_umath(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(1, 949, __pyx_L3_error)
+
+      /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":948
+=======
       __pyx_t_4 = _import_umath(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(1, 948, __pyx_L3_error)
 
       /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":947
+>>>>>>> master
  * 
  * cdef inline int import_umath() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -7872,7 +8186,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     goto __pyx_L8_try_end;
     __pyx_L3_error:;
 
+<<<<<<< HEAD
+    /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":950
+=======
     /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":949
+>>>>>>> master
  *     try:
  *         _import_umath()
  *     except Exception:             # <<<<<<<<<<<<<<
@@ -7882,28 +8200,48 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     __pyx_t_4 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])));
     if (__pyx_t_4) {
       __Pyx_AddTraceback("numpy.import_umath", __pyx_clineno, __pyx_lineno, __pyx_filename);
+<<<<<<< HEAD
+      if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_6, &__pyx_t_7) < 0) __PYX_ERR(1, 950, __pyx_L5_except_error)
+=======
       if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_6, &__pyx_t_7) < 0) __PYX_ERR(1, 949, __pyx_L5_except_error)
+>>>>>>> master
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_GOTREF(__pyx_t_7);
 
+<<<<<<< HEAD
+      /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":951
+=======
       /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":950
+>>>>>>> master
  *         _import_umath()
  *     except Exception:
  *         raise ImportError("numpy.core.umath failed to import")             # <<<<<<<<<<<<<<
  * 
  * cdef inline int import_ufunc() except -1:
  */
+<<<<<<< HEAD
+      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_ImportError, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(1, 951, __pyx_L5_except_error)
+      __Pyx_GOTREF(__pyx_t_8);
+      __Pyx_Raise(__pyx_t_8, 0, 0, 0);
+      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+      __PYX_ERR(1, 951, __pyx_L5_except_error)
+=======
       __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_ImportError, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(1, 950, __pyx_L5_except_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_Raise(__pyx_t_8, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __PYX_ERR(1, 950, __pyx_L5_except_error)
+>>>>>>> master
     }
     goto __pyx_L5_except_error;
     __pyx_L5_except_error:;
 
+<<<<<<< HEAD
+    /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":948
+=======
     /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":947
+>>>>>>> master
  * 
  * cdef inline int import_umath() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -7918,7 +8256,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     __pyx_L8_try_end:;
   }
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":947
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":946
+>>>>>>> master
  *         raise ImportError("numpy.core.multiarray failed to import")
  * 
  * cdef inline int import_umath() except -1:             # <<<<<<<<<<<<<<
@@ -7941,7 +8283,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
   return __pyx_r;
 }
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":953
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":952
+>>>>>>> master
  *         raise ImportError("numpy.core.umath failed to import")
  * 
  * cdef inline int import_ufunc() except -1:             # <<<<<<<<<<<<<<
@@ -7965,7 +8311,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("import_ufunc", 0);
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":954
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":953
+>>>>>>> master
  * 
  * cdef inline int import_ufunc() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -7981,16 +8331,26 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
+<<<<<<< HEAD
+      /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":955
+=======
       /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":954
+>>>>>>> master
  * cdef inline int import_ufunc() except -1:
  *     try:
  *         _import_umath()             # <<<<<<<<<<<<<<
  *     except Exception:
  *         raise ImportError("numpy.core.umath failed to import")
  */
+<<<<<<< HEAD
+      __pyx_t_4 = _import_umath(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(1, 955, __pyx_L3_error)
+
+      /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":954
+=======
       __pyx_t_4 = _import_umath(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(1, 954, __pyx_L3_error)
 
       /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":953
+>>>>>>> master
  * 
  * cdef inline int import_ufunc() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -8004,7 +8364,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     goto __pyx_L8_try_end;
     __pyx_L3_error:;
 
+<<<<<<< HEAD
+    /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":956
+=======
     /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":955
+>>>>>>> master
  *     try:
  *         _import_umath()
  *     except Exception:             # <<<<<<<<<<<<<<
@@ -8014,28 +8378,48 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     __pyx_t_4 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])));
     if (__pyx_t_4) {
       __Pyx_AddTraceback("numpy.import_ufunc", __pyx_clineno, __pyx_lineno, __pyx_filename);
+<<<<<<< HEAD
+      if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_6, &__pyx_t_7) < 0) __PYX_ERR(1, 956, __pyx_L5_except_error)
+=======
       if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_6, &__pyx_t_7) < 0) __PYX_ERR(1, 955, __pyx_L5_except_error)
+>>>>>>> master
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_GOTREF(__pyx_t_7);
 
+<<<<<<< HEAD
+      /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":957
+=======
       /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":956
+>>>>>>> master
  *         _import_umath()
  *     except Exception:
  *         raise ImportError("numpy.core.umath failed to import")             # <<<<<<<<<<<<<<
  * 
  * cdef extern from *:
  */
+<<<<<<< HEAD
+      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_ImportError, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(1, 957, __pyx_L5_except_error)
+      __Pyx_GOTREF(__pyx_t_8);
+      __Pyx_Raise(__pyx_t_8, 0, 0, 0);
+      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+      __PYX_ERR(1, 957, __pyx_L5_except_error)
+=======
       __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_ImportError, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(1, 956, __pyx_L5_except_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_Raise(__pyx_t_8, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __PYX_ERR(1, 956, __pyx_L5_except_error)
+>>>>>>> master
     }
     goto __pyx_L5_except_error;
     __pyx_L5_except_error:;
 
+<<<<<<< HEAD
+    /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":954
+=======
     /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":953
+>>>>>>> master
  * 
  * cdef inline int import_ufunc() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -8050,7 +8434,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     __pyx_L8_try_end:;
   }
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":953
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":952
+>>>>>>> master
  *         raise ImportError("numpy.core.umath failed to import")
  * 
  * cdef inline int import_ufunc() except -1:             # <<<<<<<<<<<<<<
@@ -8073,7 +8461,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
   return __pyx_r;
 }
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":967
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":966
+>>>>>>> master
  * 
  * 
  * cdef inline bint is_timedelta64_object(object obj):             # <<<<<<<<<<<<<<
@@ -8086,7 +8478,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_timedelta64_object(PyObject *__pyx_v_
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("is_timedelta64_object", 0);
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":979
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":978
+>>>>>>> master
  *     bool
  *     """
  *     return PyObject_TypeCheck(obj, &PyTimedeltaArrType_Type)             # <<<<<<<<<<<<<<
@@ -8096,7 +8492,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_timedelta64_object(PyObject *__pyx_v_
   __pyx_r = PyObject_TypeCheck(__pyx_v_obj, (&PyTimedeltaArrType_Type));
   goto __pyx_L0;
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":967
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":966
+>>>>>>> master
  * 
  * 
  * cdef inline bint is_timedelta64_object(object obj):             # <<<<<<<<<<<<<<
@@ -8110,7 +8510,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_timedelta64_object(PyObject *__pyx_v_
   return __pyx_r;
 }
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":982
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":981
+>>>>>>> master
  * 
  * 
  * cdef inline bint is_datetime64_object(object obj):             # <<<<<<<<<<<<<<
@@ -8123,7 +8527,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_datetime64_object(PyObject *__pyx_v_o
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("is_datetime64_object", 0);
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":994
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":993
+>>>>>>> master
  *     bool
  *     """
  *     return PyObject_TypeCheck(obj, &PyDatetimeArrType_Type)             # <<<<<<<<<<<<<<
@@ -8133,7 +8541,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_datetime64_object(PyObject *__pyx_v_o
   __pyx_r = PyObject_TypeCheck(__pyx_v_obj, (&PyDatetimeArrType_Type));
   goto __pyx_L0;
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":982
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":981
+>>>>>>> master
  * 
  * 
  * cdef inline bint is_datetime64_object(object obj):             # <<<<<<<<<<<<<<
@@ -8147,7 +8559,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_datetime64_object(PyObject *__pyx_v_o
   return __pyx_r;
 }
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":997
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":996
+>>>>>>> master
  * 
  * 
  * cdef inline npy_datetime get_datetime64_value(object obj) nogil:             # <<<<<<<<<<<<<<
@@ -8158,7 +8574,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_datetime64_object(PyObject *__pyx_v_o
 static CYTHON_INLINE npy_datetime __pyx_f_5numpy_get_datetime64_value(PyObject *__pyx_v_obj) {
   npy_datetime __pyx_r;
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":1004
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":1003
+>>>>>>> master
  *     also needed.  That can be found using `get_datetime64_unit`.
  *     """
  *     return (<PyDatetimeScalarObject*>obj).obval             # <<<<<<<<<<<<<<
@@ -8168,7 +8588,11 @@ static CYTHON_INLINE npy_datetime __pyx_f_5numpy_get_datetime64_value(PyObject *
   __pyx_r = ((PyDatetimeScalarObject *)__pyx_v_obj)->obval;
   goto __pyx_L0;
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":997
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":996
+>>>>>>> master
  * 
  * 
  * cdef inline npy_datetime get_datetime64_value(object obj) nogil:             # <<<<<<<<<<<<<<
@@ -8181,7 +8605,11 @@ static CYTHON_INLINE npy_datetime __pyx_f_5numpy_get_datetime64_value(PyObject *
   return __pyx_r;
 }
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":1007
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":1006
+>>>>>>> master
  * 
  * 
  * cdef inline npy_timedelta get_timedelta64_value(object obj) nogil:             # <<<<<<<<<<<<<<
@@ -8192,7 +8620,11 @@ static CYTHON_INLINE npy_datetime __pyx_f_5numpy_get_datetime64_value(PyObject *
 static CYTHON_INLINE npy_timedelta __pyx_f_5numpy_get_timedelta64_value(PyObject *__pyx_v_obj) {
   npy_timedelta __pyx_r;
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":1011
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":1010
+>>>>>>> master
  *     returns the int64 value underlying scalar numpy timedelta64 object
  *     """
  *     return (<PyTimedeltaScalarObject*>obj).obval             # <<<<<<<<<<<<<<
@@ -8202,7 +8634,11 @@ static CYTHON_INLINE npy_timedelta __pyx_f_5numpy_get_timedelta64_value(PyObject
   __pyx_r = ((PyTimedeltaScalarObject *)__pyx_v_obj)->obval;
   goto __pyx_L0;
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":1007
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":1006
+>>>>>>> master
  * 
  * 
  * cdef inline npy_timedelta get_timedelta64_value(object obj) nogil:             # <<<<<<<<<<<<<<
@@ -8215,7 +8651,11 @@ static CYTHON_INLINE npy_timedelta __pyx_f_5numpy_get_timedelta64_value(PyObject
   return __pyx_r;
 }
 
+<<<<<<< HEAD
+/* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":1014
+=======
 /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":1013
+>>>>>>> master
  * 
  * 
  * cdef inline NPY_DATETIMEUNIT get_datetime64_unit(object obj) nogil:             # <<<<<<<<<<<<<<
@@ -8226,7 +8666,11 @@ static CYTHON_INLINE npy_timedelta __pyx_f_5numpy_get_timedelta64_value(PyObject
 static CYTHON_INLINE NPY_DATETIMEUNIT __pyx_f_5numpy_get_datetime64_unit(PyObject *__pyx_v_obj) {
   NPY_DATETIMEUNIT __pyx_r;
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":1018
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":1017
+>>>>>>> master
  *     returns the unit part of the dtype for a numpy datetime64 object.
  *     """
  *     return <NPY_DATETIMEUNIT>(<PyDatetimeScalarObject*>obj).obmeta.base             # <<<<<<<<<<<<<<
@@ -8234,7 +8678,11 @@ static CYTHON_INLINE NPY_DATETIMEUNIT __pyx_f_5numpy_get_datetime64_unit(PyObjec
   __pyx_r = ((NPY_DATETIMEUNIT)((PyDatetimeScalarObject *)__pyx_v_obj)->obmeta.base);
   goto __pyx_L0;
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":1014
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":1013
+>>>>>>> master
  * 
  * 
  * cdef inline NPY_DATETIMEUNIT get_datetime64_unit(object obj) nogil:             # <<<<<<<<<<<<<<
@@ -22268,6 +22716,15 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
   __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(0, 34, __pyx_L1_error)
   __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 106, __pyx_L1_error)
+<<<<<<< HEAD
+  __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(1, 945, __pyx_L1_error)
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(2, 133, __pyx_L1_error)
+  __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(2, 148, __pyx_L1_error)
+  __pyx_builtin_enumerate = __Pyx_GetBuiltinName(__pyx_n_s_enumerate); if (!__pyx_builtin_enumerate) __PYX_ERR(2, 151, __pyx_L1_error)
+  __pyx_builtin_Ellipsis = __Pyx_GetBuiltinName(__pyx_n_s_Ellipsis); if (!__pyx_builtin_Ellipsis) __PYX_ERR(2, 404, __pyx_L1_error)
+  __pyx_builtin_id = __Pyx_GetBuiltinName(__pyx_n_s_id); if (!__pyx_builtin_id) __PYX_ERR(2, 613, __pyx_L1_error)
+  __pyx_builtin_IndexError = __Pyx_GetBuiltinName(__pyx_n_s_IndexError); if (!__pyx_builtin_IndexError) __PYX_ERR(2, 832, __pyx_L1_error)
+=======
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(1, 944, __pyx_L1_error)
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(2, 134, __pyx_L1_error)
   __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(2, 149, __pyx_L1_error)
@@ -22275,6 +22732,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
   __pyx_builtin_Ellipsis = __Pyx_GetBuiltinName(__pyx_n_s_Ellipsis); if (!__pyx_builtin_Ellipsis) __PYX_ERR(2, 406, __pyx_L1_error)
   __pyx_builtin_id = __Pyx_GetBuiltinName(__pyx_n_s_id); if (!__pyx_builtin_id) __PYX_ERR(2, 615, __pyx_L1_error)
   __pyx_builtin_IndexError = __Pyx_GetBuiltinName(__pyx_n_s_IndexError); if (!__pyx_builtin_IndexError) __PYX_ERR(2, 834, __pyx_L1_error)
+>>>>>>> master
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -22295,25 +22753,41 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
+<<<<<<< HEAD
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":945
+=======
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":944
+>>>>>>> master
  *         __pyx_import_array()
  *     except Exception:
  *         raise ImportError("numpy.core.multiarray failed to import")             # <<<<<<<<<<<<<<
  * 
  * cdef inline int import_umath() except -1:
  */
+<<<<<<< HEAD
+  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_s_numpy_core_multiarray_failed_to); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(1, 945, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__2);
+  __Pyx_GIVEREF(__pyx_tuple__2);
+
+  /* "../../../../../scratch/data/andras/miniconda3/envs/mda2/lib/python3.9/site-packages/numpy/__init__.pxd":951
+=======
   __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_s_numpy_core_multiarray_failed_to); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(1, 944, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
   /* "../../../../../scratch/data/florian/anaconda3/envs/mdapy311/lib/python3.11/site-packages/numpy/__init__.pxd":950
+>>>>>>> master
  *         _import_umath()
  *     except Exception:
  *         raise ImportError("numpy.core.umath failed to import")             # <<<<<<<<<<<<<<
  * 
  * cdef inline int import_ufunc() except -1:
  */
+<<<<<<< HEAD
+  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_s_numpy_core_umath_failed_to_impor); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(1, 951, __pyx_L1_error)
+=======
   __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_s_numpy_core_umath_failed_to_impor); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(1, 950, __pyx_L1_error)
+>>>>>>> master
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
 
