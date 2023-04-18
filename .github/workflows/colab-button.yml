@@ -1,0 +1,69 @@
+name: Add Colab Button
+
+on:
+  push:
+    paths:
+      # Trigger workflow only for notebooks changes
+      - "**.ipynb"
+      #- "**.md"
+  pull_request:
+    paths:
+      # The same for PR
+      - "**.ipynb"
+      #- "**.md"
+  workflow_dispatch:
+
+jobs:
+  add_badge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: pip install nbformat
+      - name: Add badge markdown cell
+        run: |
+          python .github/workflows/add_badge.py
+          echo "${{steps.response.outputs.result}}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit and Push
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Add {{ badge }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+  add_colab_button:
+    needs: add_badge
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Add/Update badges
+        id: badges
+        uses: trsvchn/colab-badge-action@v4
+        with:
+          check: "all"
+          target_branch: master
+          target_repository: cbc-univie/mdy-newanalysis-package
+          update: true
+          verbose: true
+      - name: Install dependencies
+        run: pip install nbformat
+      - name: Convert html badge to markdown badge
+      # sphinx cannot handle html badge in documentation
+        run: python .github/workflows/html2md.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      # After that we have to commit and push changes
+      # Note: this step requires GitHub token
+      - name: Commit and Push
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Add Colab Button"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # And that's it!

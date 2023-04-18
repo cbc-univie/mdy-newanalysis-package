@@ -44,13 +44,11 @@ def velcomByResidue(double [:,:] vels, double [:] masses, int nres, int [:] apr,
 
     Calculates the center-of-mass velocities for a given selection.
 
-    ####
-    NOTE
-    ####
-    Don't call this function directly, use the AtomGroup interface instead!
-    E.g. for an atom selection 'sel', call 
+    NOTE:
+        Don't call this function directly, use the AtomGroup interface instead!
+        E.g. for an atom selection 'sel', call 
 
-    velcom = sel.velcomByResidue()    
+        velcom = sel.velcomByResidue()    
     """
 
     cdef double [:,:] velcom = np.zeros((nres,3))
@@ -76,14 +74,11 @@ def comByResidue(double [:,:] coor, double [:] masses, int nres, int [:] apr, in
 
     Calculates the center-of-mass coordinates for a given selection.
 
-    ####
-    NOTE
-    ####
-    Don't call this function directly, use the AtomGroup interface instead!
-    E.g. for an atom selection 'sel', call 
+    NOTE:
+        Don't call this function directly, use the AtomGroup interface instead!
+        E.g. for an atom selection 'sel', call 
 
-    com = sel.comByResidue()    
-
+        com = sel.comByResidue()    
     """
 
     cdef double [:,:] com = np.zeros((nres,3))
@@ -110,13 +105,11 @@ def dipByResidue(double [:,:] coor, double [:] charges, double [:] masses, int n
     Calculates the molecular dipole moments, each referenced to the respective center of mass, 
     for a given selection.
 
-    ####
-    NOTE
-    ####
-    Don't call this function directly, use the AtomGroup interface instead!
-    E.g. for an atom selection 'sel', call 
+    NOTE:
+        Don't call this function directly, use the AtomGroup interface instead!
+        E.g. for an atom selection 'sel', call 
 
-    dip = sel.dipByResidue()    
+        dip = sel.dipByResidue()    
     """
     cdef double [:,:] dip = np.zeros((nres,3))
     cdef int i, j, k, actr
@@ -704,16 +697,20 @@ def calcEnergyAASep(np.ndarray[np.float64_t,ndim=2,mode="c"] xyz,
                  isolute, nmolecules, cat_first, cat_last, an_first, an_last,
                  np.ndarray[np.int32_t, ndim=1] octants=None):
     """
-    energy, energy_xyz, energy_octant = calcEnergyAA(xyz, charges, atoms_per_residue, residue_first_atom, 
-                                                     ds, octants, isolute, nmolecules,
-                                                     cat_first, cat_last, an_first, an_last, octants=None)
-
     Calculates the solvation energy of a solute in an ionic liquid for a given frame.
+
     The data is returned in three decompositions:
         -) Voronoi shell-resolved
+
         -) x/y/z axis-resolved
+
         -) octant-resolved for the first shell
-    
+
+    :Example:
+
+    energy, energy_xyz, energy_octant = calcEnergyAA(xyz, charges, atoms_per_residue, residue_first_atom, \
+                                                     ds, octants, isolute, nmolecules, \
+                                                     cat_first, cat_last, an_first, an_last, octants=None)
     """
 
     cdef double *cxyz    = <double *> xyz.data

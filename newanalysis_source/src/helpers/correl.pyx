@@ -32,28 +32,35 @@ def correlateParallel(np.ndarray[np.float64_t,ndim=2] data1,
     Takes two data sets and calculates column-wise correlation functions in parallel and sums them up afterwards. The result is written into the out array.
 
     Args:
-        data1 .. numpy array, float64, ndim=2
-        data2 .. numpy array, float64, ndim=2
-        out   .. numpy array, float64, ndim=1
-        ltc   .. type of long tail correction used
+        data1: numpy array, float64, ndim=2
+        data2: numpy array, float64, ndim=2
+        out:   numpy array, float64, ndim=1
+        ltc:   type of long tail correction used
                  0 = none (default)
                  1 = the average of the time series is subtracted from it before the correlation
                  2 = the result is modified
 
-    Usage example: dipole autocorrelation function
+    :Example: dipole autocorrelation function
         correlateParallel(dipoles, dipoles, mu0mut)
 
     NOTE: 
         for this to work, the data arrays have to be organised as follows:
         
-        |x1|y1|z1|x2|y2|z2|...|xn|yn|zn
-      ---------------------------------
-      t1|
-      t2|
-      . |           ........
-      . |
-      . |
-      tm|
+        +--+--+--+--+--+--+--+---+--+--+--+
+        |  |x1|y1|z1|x2|y2|z2|...|xn|yn|zn|
+        +==+==+==+==+==+==+==+===+==+==+==+
+        |t1|  |  |  |  |  |  |   |  |  |  |
+        +--+--+--+--+--+--+--+---+--+--+--+
+        |t2|  |  |  |  |  |  |   |  |  |  |
+        +--+--+--+--+--+--+--+---+--+--+--+
+        |. |  |  |  |  |  |  |   |  |  |  | 
+        +--+--+--+--+--+--+--+---+--+--+--+
+        |. |  |  |  |  |  |  |   |  |  |  |
+        +--+--+--+--+--+--+--+---+--+--+--+
+        |. |  |  |  |  |  |  |   |  |  |  |
+        +--+--+--+--+--+--+--+---+--+--+--+
+        |tm|  |  |  |  |  |  |   |  |  |  |
+        +--+--+--+--+--+--+--+---+--+--+--+
 
         Each column is the x/y/z component of each particle, each row is a time step.
     """
