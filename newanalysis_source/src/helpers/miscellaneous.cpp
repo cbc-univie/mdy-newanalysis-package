@@ -626,8 +626,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__newanalysis__helpers
-#define __PYX_HAVE_API__newanalysis__helpers
+#define __PYX_HAVE__newanalysis__miscellaneous
+#define __PYX_HAVE_API__newanalysis__miscellaneous
 /* Early includes */
 #include <string.h>
 #include <stdio.h>
@@ -2309,7 +2309,7 @@ static PyTypeObject *__pyx_ptype_5numpy_ufunc = 0;
 
 /* Module declarations from 'libc.math' */
 
-/* Module declarations from 'newanalysis.helpers' */
+/* Module declarations from 'newanalysis.miscellaneous' */
 static PyTypeObject *__pyx_array_type = 0;
 static PyTypeObject *__pyx_MemviewEnum_type = 0;
 static PyTypeObject *__pyx_memoryview_type = 0;
@@ -2357,11 +2357,11 @@ static PyObject *__pyx_unpickle_Enum__set_state(struct __pyx_MemviewEnum_obj *, 
 static __Pyx_TypeInfo __Pyx_TypeInfo_double = { "double", NULL, sizeof(double), { 0 }, 0, 'R', 0, 0 };
 static __Pyx_TypeInfo __Pyx_TypeInfo_char = { "char", NULL, sizeof(char), { 0 }, 0, 'H', IS_UNSIGNED(char), 0 };
 static __Pyx_TypeInfo __Pyx_TypeInfo_int = { "int", NULL, sizeof(int), { 0 }, 0, IS_UNSIGNED(int) ? 'U' : 'I', IS_UNSIGNED(int), 0 };
-#define __Pyx_MODULE_NAME "newanalysis.helpers"
-extern int __pyx_module_is_main_newanalysis__helpers;
-int __pyx_module_is_main_newanalysis__helpers = 0;
+#define __Pyx_MODULE_NAME "newanalysis.miscellaneous"
+extern int __pyx_module_is_main_newanalysis__miscellaneous;
+int __pyx_module_is_main_newanalysis__miscellaneous = 0;
 
-/* Implementation of 'newanalysis.helpers' */
+/* Implementation of 'newanalysis.miscellaneous' */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ImportError;
 static PyObject *__pyx_builtin_ValueError;
@@ -2737,7 +2737,6 @@ static const char __pyx_k_atomicIndDipPerAtom[] = "atomicIndDipPerAtom";
 static const char __pyx_k_calcDistanceDelauny[] = "calcDistanceDelauny";
 static const char __pyx_k_deriveIndDipPerAtom[] = "deriveIndDipPerAtom";
 static const char __pyx_k_n_particle_surround[] = "n_particle_surround";
-static const char __pyx_k_newanalysis_helpers[] = "newanalysis.helpers";
 static const char __pyx_k_number_of_particles[] = "number_of_particles";
 static const char __pyx_k_prev_atomic_dipoles[] = "prev_atomic_dipoles";
 static const char __pyx_k_sumVennMDCageSingle[] = "sumVennMDCageSingle";
@@ -2769,6 +2768,7 @@ static const char __pyx_k_Invalid_shape_in_axis_d_d[] = "Invalid shape in axis %
 static const char __pyx_k_calcDipTenCollectiveCross[] = "calcDipTenCollectiveCross";
 static const char __pyx_k_crossCorrelateMultiVector[] = "crossCorrelateMultiVector";
 static const char __pyx_k_inv_atom_polarizabilities[] = "inv_atom_polarizabilities";
+static const char __pyx_k_newanalysis_miscellaneous[] = "newanalysis.miscellaneous";
 static const char __pyx_k_sortCollectiveDipNNShells[] = "sortCollectiveDipNNShells";
 static const char __pyx_k_calcDistanceDelaunyMindist[] = "calcDistanceDelaunyMindist";
 static const char __pyx_k_crossCorrelateSingleVector[] = "crossCorrelateSingleVector";
@@ -3082,7 +3082,7 @@ static PyObject *__pyx_n_s_name_2;
 static PyObject *__pyx_n_s_ndim;
 static PyObject *__pyx_n_s_new;
 static PyObject *__pyx_n_s_new_2;
-static PyObject *__pyx_n_s_newanalysis_helpers;
+static PyObject *__pyx_n_s_newanalysis_miscellaneous;
 static PyObject *__pyx_n_s_nmol;
 static PyObject *__pyx_kp_s_no_default___reduce___due_to_non;
 static PyObject *__pyx_n_s_noe_task;
@@ -3257,70 +3257,70 @@ static PyObject *__pyx_n_s_writeKirkwoodHistogramShellwise;
 static PyObject *__pyx_n_s_writeMrHistogram;
 static PyObject *__pyx_n_s_x;
 static PyObject *__pyx_n_s_zeros;
-static PyObject *__pyx_pf_11newanalysis_7helpers_testParallelism(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_n_iterations); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_2countHBonds(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor_surr, __Pyx_memviewslice __pyx_v_coor_oh2, int __pyx_v_nres_surr, double __pyx_v_maxdist, double __pyx_v_cos_angle); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_4structureFactorDipTen(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coors, __Pyx_memviewslice __pyx_v_histogram, int __pyx_v_bin_dist, int __pyx_v_segs, double __pyx_v_boxlength); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_6structureFactorCharge(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coors, __Pyx_memviewslice __pyx_v_charges, __Pyx_memviewslice __pyx_v_histogram, int __pyx_v_bin_dist, int __pyx_v_segs, double __pyx_v_boxlength); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_8accumulateShellwiseGFunction(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkte, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dataset, __Pyx_memviewslice __pyx_v_histogram, __Pyx_memviewslice __pyx_v_norm, int __pyx_v_maxshell, double __pyx_v_histo_min, double __pyx_v_histo_max, double __pyx_v_boxlength); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_10accumulateNMShellwiseGFunction(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED __Pyx_memviewslice __pyx_v_coor1, CYTHON_UNUSED __Pyx_memviewslice __pyx_v_coor2, __Pyx_memviewslice __pyx_v_dataset, __Pyx_memviewslice __pyx_v_histogram, int __pyx_v_particle_first, int __pyx_v_n_particles, int __pyx_v_max_distance, int __pyx_v_segments_per_angstroem); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_12sumUpByShell(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_timeseries_shellwise, __Pyx_memviewslice __pyx_v_ds); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_14countVennShellOccupation(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_data, int __pyx_v_n_particles, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_16countMultiShell(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_data, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2, __Pyx_memviewslice __pyx_v_ds3, __Pyx_memviewslice __pyx_v_ds4, __Pyx_memviewslice __pyx_v_ds5); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_18atomicIndDip(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coors, __Pyx_memviewslice __pyx_v_charges, __Pyx_memviewslice __pyx_v_alpha, __Pyx_memviewslice __pyx_v_coors_ind, __Pyx_memviewslice __pyx_v_prev_atomic_dipoles, __Pyx_memviewslice __pyx_v_atomic_dipoles, double __pyx_v_boxlength); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_20atomicIndDipPerAtom(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_idx, __Pyx_memviewslice __pyx_v_coors, __Pyx_memviewslice __pyx_v_charges, __Pyx_memviewslice __pyx_v_alpha, __Pyx_memviewslice __pyx_v_coors_ind, __Pyx_memviewslice __pyx_v_prev_atomic_dipoles, __Pyx_memviewslice __pyx_v_atomic_dipoles, double __pyx_v_boxlength); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_22kronecker(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_a, int __pyx_v_b); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_24deriveIndDip(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coors_ind, __Pyx_memviewslice __pyx_v_vel_ind, __Pyx_memviewslice __pyx_v_atomic_dipoles, __Pyx_memviewslice __pyx_v_derived_atomic_dipoles, double __pyx_v_boxlength, CYTHON_UNUSED int __pyx_v_new); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_26deriveIndDipPerAtom(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_idx, __Pyx_memviewslice __pyx_v_coors_ind, __Pyx_memviewslice __pyx_v_vel_ind, __Pyx_memviewslice __pyx_v_atomic_dipoles, __Pyx_memviewslice __pyx_v_derived_atomic_dipoles, double __pyx_v_boxlength, CYTHON_UNUSED int __pyx_v_new); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_28norm(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_30unfold(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_ref, __Pyx_memviewslice __pyx_v_new, __Pyx_memviewslice __pyx_v_run, double __pyx_v_boxl); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_32min_dist(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_res1, __Pyx_memviewslice __pyx_v_res2, double __pyx_v_boxl); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_34dipTen(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coo1, __Pyx_memviewslice __pyx_v_coo2); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_10selfobject___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, int __pyx_v_p, __Pyx_memviewslice __pyx_v_p_coor, int __pyx_v_apr_emim_h, int __pyx_v_n_pairs_h, __Pyx_memviewslice __pyx_v_emim_h); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_10pairobject___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, int __pyx_v_p1, int __pyx_v_p2, __Pyx_memviewslice __pyx_v_p1_coor, __Pyx_memviewslice __pyx_v_p2_coor, int __pyx_v_apr_emim_h, int __pyx_v_n_pairs_h, __Pyx_memviewslice __pyx_v_emim_h); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_8noe_task___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, int __pyx_v_apr_emim_h, __Pyx_memviewslice __pyx_v_emim_h, int __pyx_v_n_pairs_h, int __pyx_v_n_self_pairs_h, int __pyx_v_max_distance, int __pyx_v_n_res_emim, int __pyx_v_apr_pair, __Pyx_memviewslice __pyx_v_coors); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_8noe_task_2pairiter(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, __Pyx_memviewslice __pyx_v_run); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_36getBestIndex(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_coor); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_38getBestIndices(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dip, int __pyx_v_count); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_40writeMrHistogram(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dip, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_antagonist, __Pyx_memviewslice __pyx_v_histogram, double __pyx_v_max_distance, int __pyx_v_segments_per_angstroem, int __pyx_v_order); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_42writeKirkwoodHistogram(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_aufpunkt_dipole, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dip, __Pyx_memviewslice __pyx_v_histogram, double __pyx_v_max_distance, int __pyx_v_segments_per_angstroem, int __pyx_v_order); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_44writeKirkwoodHistogramShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_aufpunkt_dipole, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dip, __Pyx_memviewslice __pyx_v_histogram, __Pyx_memviewslice __pyx_v_norm, __Pyx_memviewslice __pyx_v_dataset, double __pyx_v_max_distance, int __pyx_v_segments_per_angstroem, int __pyx_v_order); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_46writeKirkwoodHistogramShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkte, __Pyx_memviewslice __pyx_v_aufpunkt_dipole, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dip, __Pyx_memviewslice __pyx_v_histogram, __Pyx_memviewslice __pyx_v_norm, __Pyx_memviewslice __pyx_v_dataset, double __pyx_v_max_distance, int __pyx_v_segments_per_angstroem, int __pyx_v_order); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_48writeKirkwoodHistogram2D(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_aufpunkt_dipole, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dip, __Pyx_memviewslice __pyx_v_histogram, double __pyx_v_max_distance, int __pyx_v_segments_per_angstroem, int __pyx_v_segments_per_pi, int __pyx_v_order); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_50getBondTable(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_bond_table, int __pyx_v_cutoff); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_52sumVennMDCageSingle(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_mdcage_timeseries, __Pyx_memviewslice __pyx_v_dipoles, __Pyx_memviewslice __pyx_v_dataset1, __Pyx_memviewslice __pyx_v_dataset2, int __pyx_v_maxshell1, int __pyx_v_maxshell2, int __pyx_v_frame); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_54sumMultiMDCageSingle(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_mdcage_ts, __Pyx_memviewslice __pyx_v_dip_wat, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2, __Pyx_memviewslice __pyx_v_ds3, __Pyx_memviewslice __pyx_v_ds4, __Pyx_memviewslice __pyx_v_ds5, int __pyx_v_maxshell, int __pyx_v_frame); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_56multiVecShellCorrelate(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_rotTs, __Pyx_memviewslice __pyx_v_ds1, long __pyx_v_nshells1, long __pyx_v_maxdt, long __pyx_v_startingpoints); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_58multiVecVennShellCorrelate(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_rotTs, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2, long __pyx_v_nshells1, long __pyx_v_nshells2, long __pyx_v_maxdt, long __pyx_v_startingpoints); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_60rotationMatrixVennShellCorrelate(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_rotTs, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2, long __pyx_v_nshells1, long __pyx_v_nshells2, long __pyx_v_maxdt, long __pyx_v_startingpoints); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_62rotationMatrixMultiShellCorrelate(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_rotTs, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2, __Pyx_memviewslice __pyx_v_ds3, __Pyx_memviewslice __pyx_v_ds4, __Pyx_memviewslice __pyx_v_ds5, long __pyx_v_nshells, long __pyx_v_maxdt, long __pyx_v_startingpoints); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_64collectiveDipolesCutoff(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dipoles, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_dip_inside, __Pyx_memviewslice __pyx_v_dip_outside, double __pyx_v_cutoff); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_66shellHistograms(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_histograms, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_coors, __Pyx_memviewslice __pyx_v_ds, int __pyx_v_maxshell, double __pyx_v_max_distance, int __pyx_v_segs_per_angstroem); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_68correlateSingleVector(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_result, int __pyx_v_order); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_70crossCorrelateSingleVector(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries1, __Pyx_memviewslice __pyx_v_timeseries2, __Pyx_memviewslice __pyx_v_result, int __pyx_v_both_directions, int __pyx_v_order); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_72correlateMultiVector(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_result, int __pyx_v_order); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_74correlateMultiVectorShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_dataset, __Pyx_memviewslice __pyx_v_result, int __pyx_v_maxshell, int __pyx_v_order); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_76correlateMultiVectorVennShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_dataset1, __Pyx_memviewslice __pyx_v_dataset2, __Pyx_memviewslice __pyx_v_result, int __pyx_v_maxshell1, int __pyx_v_maxshell2, int __pyx_v_order); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_78crossCorrelateMultiVector(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries1, __Pyx_memviewslice __pyx_v_timeseries2, __Pyx_memviewslice __pyx_v_result, int __pyx_v_both_directions, int __pyx_v_order); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_80correlateSingleParticleMuShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_result, __Pyx_memviewslice __pyx_v_dataset, int __pyx_v_number_of_startingpoints); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_82correlateSingleParticleMuVennShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_result, __Pyx_memviewslice __pyx_v_dataset1, __Pyx_memviewslice __pyx_v_dataset2, int __pyx_v_number_of_startingpoints); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_84vanHoveSingleVector(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_histogram); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_86vanHoveMultiVector(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_histogram); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_88sortCollectiveDipNNShells(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_ds, __Pyx_memviewslice __pyx_v_dip_wat, __Pyx_memviewslice __pyx_v_dip_shell); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_90sortCollectiveDipNNShellsInt(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_ds, __Pyx_memviewslice __pyx_v_dip_wat, __Pyx_memviewslice __pyx_v_dip_shell); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_92calcDipTenCollective(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_results); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_94calcDipTenCollectivePerAtom(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_idx, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_results); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_96calcDipTenCollectiveCross(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor1, __Pyx_memviewslice __pyx_v_coor2, __Pyx_memviewslice __pyx_v_results); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_98calcDipTenCollectiveNNShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_ds, __Pyx_memviewslice __pyx_v_results); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_100calcDipTenCollectiveNNShellwiseSelf(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_f2c, __Pyx_memviewslice __pyx_v_ds, int __pyx_v_ds_idx, __Pyx_memviewslice __pyx_v_results); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_102calcDipTenCollectiveNNShellwiseCross(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor1, __Pyx_memviewslice __pyx_v_coor2, __Pyx_memviewslice __pyx_v_f2c, __Pyx_memviewslice __pyx_v_ds, int __pyx_v_ds1_idx, int __pyx_v_ds2_idx, __Pyx_memviewslice __pyx_v_results); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_104calcDipTenCollective1NShellwiseSelf(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_ds, __Pyx_memviewslice __pyx_v_results); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_106calcDipTenCollective1NShellwiseCross(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor1, __Pyx_memviewslice __pyx_v_coor2, __Pyx_memviewslice __pyx_v_ds, __Pyx_memviewslice __pyx_v_results); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_108calcDipTenCollectiveShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_ds, int __pyx_v_maxshell, __Pyx_memviewslice __pyx_v_results); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_110calcDipTenCollectiveVennShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2, int __pyx_v_maxshell1, int __pyx_v_maxshell2, __Pyx_memviewslice __pyx_v_results); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_112calcDistanceDelaunyMindist(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, double __pyx_v_boxlength, int __pyx_v_number_of_shells, double __pyx_v_bin_width); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_114calcDistanceDelauny(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, int __pyx_v_number_of_shells, double __pyx_v_bin_width); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_116minDistTesselation(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_dataset, __Pyx_memviewslice __pyx_v_coor_core, __Pyx_memviewslice __pyx_v_coor_surround, double __pyx_v_binwidth); /* proto */
-static PyObject *__pyx_pf_11newanalysis_7helpers_118getPolarizabilityMatrix(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_inv_atom_polarizabilities, __Pyx_memviewslice __pyx_v_matrix); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_testParallelism(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_n_iterations); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_2countHBonds(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor_surr, __Pyx_memviewslice __pyx_v_coor_oh2, int __pyx_v_nres_surr, double __pyx_v_maxdist, double __pyx_v_cos_angle); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_4structureFactorDipTen(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coors, __Pyx_memviewslice __pyx_v_histogram, int __pyx_v_bin_dist, int __pyx_v_segs, double __pyx_v_boxlength); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_6structureFactorCharge(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coors, __Pyx_memviewslice __pyx_v_charges, __Pyx_memviewslice __pyx_v_histogram, int __pyx_v_bin_dist, int __pyx_v_segs, double __pyx_v_boxlength); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_8accumulateShellwiseGFunction(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkte, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dataset, __Pyx_memviewslice __pyx_v_histogram, __Pyx_memviewslice __pyx_v_norm, int __pyx_v_maxshell, double __pyx_v_histo_min, double __pyx_v_histo_max, double __pyx_v_boxlength); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_10accumulateNMShellwiseGFunction(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED __Pyx_memviewslice __pyx_v_coor1, CYTHON_UNUSED __Pyx_memviewslice __pyx_v_coor2, __Pyx_memviewslice __pyx_v_dataset, __Pyx_memviewslice __pyx_v_histogram, int __pyx_v_particle_first, int __pyx_v_n_particles, int __pyx_v_max_distance, int __pyx_v_segments_per_angstroem); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_12sumUpByShell(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_timeseries_shellwise, __Pyx_memviewslice __pyx_v_ds); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_14countVennShellOccupation(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_data, int __pyx_v_n_particles, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_16countMultiShell(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_data, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2, __Pyx_memviewslice __pyx_v_ds3, __Pyx_memviewslice __pyx_v_ds4, __Pyx_memviewslice __pyx_v_ds5); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_18atomicIndDip(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coors, __Pyx_memviewslice __pyx_v_charges, __Pyx_memviewslice __pyx_v_alpha, __Pyx_memviewslice __pyx_v_coors_ind, __Pyx_memviewslice __pyx_v_prev_atomic_dipoles, __Pyx_memviewslice __pyx_v_atomic_dipoles, double __pyx_v_boxlength); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_20atomicIndDipPerAtom(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_idx, __Pyx_memviewslice __pyx_v_coors, __Pyx_memviewslice __pyx_v_charges, __Pyx_memviewslice __pyx_v_alpha, __Pyx_memviewslice __pyx_v_coors_ind, __Pyx_memviewslice __pyx_v_prev_atomic_dipoles, __Pyx_memviewslice __pyx_v_atomic_dipoles, double __pyx_v_boxlength); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_22kronecker(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_a, int __pyx_v_b); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_24deriveIndDip(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coors_ind, __Pyx_memviewslice __pyx_v_vel_ind, __Pyx_memviewslice __pyx_v_atomic_dipoles, __Pyx_memviewslice __pyx_v_derived_atomic_dipoles, double __pyx_v_boxlength, CYTHON_UNUSED int __pyx_v_new); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_26deriveIndDipPerAtom(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_idx, __Pyx_memviewslice __pyx_v_coors_ind, __Pyx_memviewslice __pyx_v_vel_ind, __Pyx_memviewslice __pyx_v_atomic_dipoles, __Pyx_memviewslice __pyx_v_derived_atomic_dipoles, double __pyx_v_boxlength, CYTHON_UNUSED int __pyx_v_new); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_28norm(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_30unfold(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_ref, __Pyx_memviewslice __pyx_v_new, __Pyx_memviewslice __pyx_v_run, double __pyx_v_boxl); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_32min_dist(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_res1, __Pyx_memviewslice __pyx_v_res2, double __pyx_v_boxl); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_34dipTen(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coo1, __Pyx_memviewslice __pyx_v_coo2); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_10selfobject___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, int __pyx_v_p, __Pyx_memviewslice __pyx_v_p_coor, int __pyx_v_apr_emim_h, int __pyx_v_n_pairs_h, __Pyx_memviewslice __pyx_v_emim_h); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_10pairobject___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, int __pyx_v_p1, int __pyx_v_p2, __Pyx_memviewslice __pyx_v_p1_coor, __Pyx_memviewslice __pyx_v_p2_coor, int __pyx_v_apr_emim_h, int __pyx_v_n_pairs_h, __Pyx_memviewslice __pyx_v_emim_h); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_8noe_task___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, int __pyx_v_apr_emim_h, __Pyx_memviewslice __pyx_v_emim_h, int __pyx_v_n_pairs_h, int __pyx_v_n_self_pairs_h, int __pyx_v_max_distance, int __pyx_v_n_res_emim, int __pyx_v_apr_pair, __Pyx_memviewslice __pyx_v_coors); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_8noe_task_2pairiter(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, __Pyx_memviewslice __pyx_v_run); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_36getBestIndex(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_coor); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_38getBestIndices(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dip, int __pyx_v_count); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_40writeMrHistogram(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dip, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_antagonist, __Pyx_memviewslice __pyx_v_histogram, double __pyx_v_max_distance, int __pyx_v_segments_per_angstroem, int __pyx_v_order); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_42writeKirkwoodHistogram(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_aufpunkt_dipole, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dip, __Pyx_memviewslice __pyx_v_histogram, double __pyx_v_max_distance, int __pyx_v_segments_per_angstroem, int __pyx_v_order); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_44writeKirkwoodHistogramShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_aufpunkt_dipole, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dip, __Pyx_memviewslice __pyx_v_histogram, __Pyx_memviewslice __pyx_v_norm, __Pyx_memviewslice __pyx_v_dataset, double __pyx_v_max_distance, int __pyx_v_segments_per_angstroem, int __pyx_v_order); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_46writeKirkwoodHistogramShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkte, __Pyx_memviewslice __pyx_v_aufpunkt_dipole, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dip, __Pyx_memviewslice __pyx_v_histogram, __Pyx_memviewslice __pyx_v_norm, __Pyx_memviewslice __pyx_v_dataset, double __pyx_v_max_distance, int __pyx_v_segments_per_angstroem, int __pyx_v_order); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_48writeKirkwoodHistogram2D(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_aufpunkt_dipole, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dip, __Pyx_memviewslice __pyx_v_histogram, double __pyx_v_max_distance, int __pyx_v_segments_per_angstroem, int __pyx_v_segments_per_pi, int __pyx_v_order); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_50getBondTable(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_bond_table, int __pyx_v_cutoff); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_52sumVennMDCageSingle(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_mdcage_timeseries, __Pyx_memviewslice __pyx_v_dipoles, __Pyx_memviewslice __pyx_v_dataset1, __Pyx_memviewslice __pyx_v_dataset2, int __pyx_v_maxshell1, int __pyx_v_maxshell2, int __pyx_v_frame); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_54sumMultiMDCageSingle(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_mdcage_ts, __Pyx_memviewslice __pyx_v_dip_wat, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2, __Pyx_memviewslice __pyx_v_ds3, __Pyx_memviewslice __pyx_v_ds4, __Pyx_memviewslice __pyx_v_ds5, int __pyx_v_maxshell, int __pyx_v_frame); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_56multiVecShellCorrelate(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_rotTs, __Pyx_memviewslice __pyx_v_ds1, long __pyx_v_nshells1, long __pyx_v_maxdt, long __pyx_v_startingpoints); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_58multiVecVennShellCorrelate(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_rotTs, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2, long __pyx_v_nshells1, long __pyx_v_nshells2, long __pyx_v_maxdt, long __pyx_v_startingpoints); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_60rotationMatrixVennShellCorrelate(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_rotTs, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2, long __pyx_v_nshells1, long __pyx_v_nshells2, long __pyx_v_maxdt, long __pyx_v_startingpoints); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_62rotationMatrixMultiShellCorrelate(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_rotTs, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2, __Pyx_memviewslice __pyx_v_ds3, __Pyx_memviewslice __pyx_v_ds4, __Pyx_memviewslice __pyx_v_ds5, long __pyx_v_nshells, long __pyx_v_maxdt, long __pyx_v_startingpoints); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_64collectiveDipolesCutoff(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dipoles, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_dip_inside, __Pyx_memviewslice __pyx_v_dip_outside, double __pyx_v_cutoff); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_66shellHistograms(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_histograms, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_coors, __Pyx_memviewslice __pyx_v_ds, int __pyx_v_maxshell, double __pyx_v_max_distance, int __pyx_v_segs_per_angstroem); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_68correlateSingleVector(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_result, int __pyx_v_order); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_70crossCorrelateSingleVector(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries1, __Pyx_memviewslice __pyx_v_timeseries2, __Pyx_memviewslice __pyx_v_result, int __pyx_v_both_directions, int __pyx_v_order); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_72correlateMultiVector(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_result, int __pyx_v_order); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_74correlateMultiVectorShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_dataset, __Pyx_memviewslice __pyx_v_result, int __pyx_v_maxshell, int __pyx_v_order); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_76correlateMultiVectorVennShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_dataset1, __Pyx_memviewslice __pyx_v_dataset2, __Pyx_memviewslice __pyx_v_result, int __pyx_v_maxshell1, int __pyx_v_maxshell2, int __pyx_v_order); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_78crossCorrelateMultiVector(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries1, __Pyx_memviewslice __pyx_v_timeseries2, __Pyx_memviewslice __pyx_v_result, int __pyx_v_both_directions, int __pyx_v_order); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_80correlateSingleParticleMuShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_result, __Pyx_memviewslice __pyx_v_dataset, int __pyx_v_number_of_startingpoints); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_82correlateSingleParticleMuVennShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_result, __Pyx_memviewslice __pyx_v_dataset1, __Pyx_memviewslice __pyx_v_dataset2, int __pyx_v_number_of_startingpoints); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_84vanHoveSingleVector(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_histogram); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_86vanHoveMultiVector(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_histogram); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_88sortCollectiveDipNNShells(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_ds, __Pyx_memviewslice __pyx_v_dip_wat, __Pyx_memviewslice __pyx_v_dip_shell); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_90sortCollectiveDipNNShellsInt(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_ds, __Pyx_memviewslice __pyx_v_dip_wat, __Pyx_memviewslice __pyx_v_dip_shell); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_92calcDipTenCollective(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_results); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_94calcDipTenCollectivePerAtom(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_idx, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_results); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_96calcDipTenCollectiveCross(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor1, __Pyx_memviewslice __pyx_v_coor2, __Pyx_memviewslice __pyx_v_results); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_98calcDipTenCollectiveNNShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_ds, __Pyx_memviewslice __pyx_v_results); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_100calcDipTenCollectiveNNShellwiseSelf(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_f2c, __Pyx_memviewslice __pyx_v_ds, int __pyx_v_ds_idx, __Pyx_memviewslice __pyx_v_results); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_102calcDipTenCollectiveNNShellwiseCross(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor1, __Pyx_memviewslice __pyx_v_coor2, __Pyx_memviewslice __pyx_v_f2c, __Pyx_memviewslice __pyx_v_ds, int __pyx_v_ds1_idx, int __pyx_v_ds2_idx, __Pyx_memviewslice __pyx_v_results); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_104calcDipTenCollective1NShellwiseSelf(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_ds, __Pyx_memviewslice __pyx_v_results); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_106calcDipTenCollective1NShellwiseCross(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor1, __Pyx_memviewslice __pyx_v_coor2, __Pyx_memviewslice __pyx_v_ds, __Pyx_memviewslice __pyx_v_results); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_108calcDipTenCollectiveShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_ds, int __pyx_v_maxshell, __Pyx_memviewslice __pyx_v_results); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_110calcDipTenCollectiveVennShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2, int __pyx_v_maxshell1, int __pyx_v_maxshell2, __Pyx_memviewslice __pyx_v_results); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_112calcDistanceDelaunyMindist(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, double __pyx_v_boxlength, int __pyx_v_number_of_shells, double __pyx_v_bin_width); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_114calcDistanceDelauny(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, int __pyx_v_number_of_shells, double __pyx_v_bin_width); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_116minDistTesselation(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_dataset, __Pyx_memviewslice __pyx_v_coor_core, __Pyx_memviewslice __pyx_v_coor_surround, double __pyx_v_binwidth); /* proto */
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_118getPolarizabilityMatrix(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_inv_atom_polarizabilities, __Pyx_memviewslice __pyx_v_matrix); /* proto */
 static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array___cinit__(struct __pyx_array_obj *__pyx_v_self, PyObject *__pyx_v_shape, Py_ssize_t __pyx_v_itemsize, PyObject *__pyx_v_format, PyObject *__pyx_v_mode, int __pyx_v_allocate_buffer); /* proto */
 static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array_2__getbuffer__(struct __pyx_array_obj *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_array___pyx_pf_15View_dot_MemoryView_5array_4__dealloc__(struct __pyx_array_obj *__pyx_v_self); /* proto */
@@ -3546,9 +3546,9 @@ static PyObject *__pyx_codeobj__157;
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_1testParallelism(PyObject *__pyx_self, PyObject *__pyx_arg_n_iterations); /*proto*/
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_1testParallelism = {"testParallelism", (PyCFunction)__pyx_pw_11newanalysis_7helpers_1testParallelism, METH_O, 0};
-static PyObject *__pyx_pw_11newanalysis_7helpers_1testParallelism(PyObject *__pyx_self, PyObject *__pyx_arg_n_iterations) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_1testParallelism(PyObject *__pyx_self, PyObject *__pyx_arg_n_iterations); /*proto*/
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_1testParallelism = {"testParallelism", (PyCFunction)__pyx_pw_11newanalysis_13miscellaneous_1testParallelism, METH_O, 0};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_1testParallelism(PyObject *__pyx_self, PyObject *__pyx_arg_n_iterations) {
   int __pyx_v_n_iterations;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
@@ -3561,18 +3561,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_1testParallelism(PyObject *__py
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.testParallelism", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.testParallelism", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_testParallelism(__pyx_self, ((int)__pyx_v_n_iterations));
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_testParallelism(__pyx_self, ((int)__pyx_v_n_iterations));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_testParallelism(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_n_iterations) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_testParallelism(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_n_iterations) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("testParallelism", 0);
@@ -3621,9 +3621,9 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_testParallelism(CYTHON_UNUSED P
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_3countHBonds(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_3countHBonds = {"countHBonds", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_3countHBonds, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_11newanalysis_7helpers_3countHBonds(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_3countHBonds(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_3countHBonds = {"countHBonds", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_3countHBonds, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_3countHBonds(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_coor_surr = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_coor_oh2 = { 0, 0, { 0 }, { 0 }, { 0 } };
   int __pyx_v_nres_surr;
@@ -3714,18 +3714,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_3countHBonds(PyObject *__pyx_se
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("countHBonds", 0, 4, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 74, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.countHBonds", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.countHBonds", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_2countHBonds(__pyx_self, __pyx_v_coor_surr, __pyx_v_coor_oh2, __pyx_v_nres_surr, __pyx_v_maxdist, __pyx_v_cos_angle);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_2countHBonds(__pyx_self, __pyx_v_coor_surr, __pyx_v_coor_oh2, __pyx_v_nres_surr, __pyx_v_maxdist, __pyx_v_cos_angle);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_2countHBonds(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor_surr, __Pyx_memviewslice __pyx_v_coor_oh2, int __pyx_v_nres_surr, double __pyx_v_maxdist, double __pyx_v_cos_angle) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_2countHBonds(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor_surr, __Pyx_memviewslice __pyx_v_coor_oh2, int __pyx_v_nres_surr, double __pyx_v_maxdist, double __pyx_v_cos_angle) {
   int __pyx_v_sites_per_res;
   int __pyx_v_nsurr;
   int __pyx_v_nwat;
@@ -4237,7 +4237,7 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_2countHBonds(CYTHON_UNUSED PyOb
                             goto __pyx_L18;
                             __pyx_L18:;
                             #ifdef _OPENMP
-                            #pragma omp critical(__pyx_parallel_lastprivates0)
+                            #pragma omp critical(__pyx_parallel_lastprivates7)
                             #endif /* _OPENMP */
                             {
                                 __pyx_parallel_temp0 = __pyx_v_cosine;
@@ -4407,7 +4407,7 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_2countHBonds(CYTHON_UNUSED PyOb
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __PYX_XDEC_MEMVIEW(&__pyx_t_6, 1);
-  __Pyx_AddTraceback("newanalysis.helpers.countHBonds", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.countHBonds", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_hbond, 1);
@@ -4427,9 +4427,9 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_2countHBonds(CYTHON_UNUSED PyOb
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_5structureFactorDipTen(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_5structureFactorDipTen = {"structureFactorDipTen", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_5structureFactorDipTen, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_11newanalysis_7helpers_5structureFactorDipTen(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_5structureFactorDipTen(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_5structureFactorDipTen = {"structureFactorDipTen", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_5structureFactorDipTen, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_5structureFactorDipTen(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_coors = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_histogram = { 0, 0, { 0 }, { 0 }, { 0 } };
   int __pyx_v_bin_dist;
@@ -4513,18 +4513,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_5structureFactorDipTen(PyObject
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("structureFactorDipTen", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 114, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.structureFactorDipTen", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.structureFactorDipTen", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_4structureFactorDipTen(__pyx_self, __pyx_v_coors, __pyx_v_histogram, __pyx_v_bin_dist, __pyx_v_segs, __pyx_v_boxlength);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_4structureFactorDipTen(__pyx_self, __pyx_v_coors, __pyx_v_histogram, __pyx_v_bin_dist, __pyx_v_segs, __pyx_v_boxlength);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_4structureFactorDipTen(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coors, __Pyx_memviewslice __pyx_v_histogram, int __pyx_v_bin_dist, int __pyx_v_segs, double __pyx_v_boxlength) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_4structureFactorDipTen(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coors, __Pyx_memviewslice __pyx_v_histogram, int __pyx_v_bin_dist, int __pyx_v_segs, double __pyx_v_boxlength) {
   int __pyx_v_n_particles;
   int __pyx_v_pair_1_par_1;
   int __pyx_v_pair_1_par_2;
@@ -5112,7 +5112,7 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_4structureFactorDipTen(CYTHON_U
   __Pyx_XDECREF(__pyx_t_13);
   __Pyx_XDECREF(__pyx_t_14);
   __Pyx_XDECREF(__pyx_t_15);
-  __Pyx_AddTraceback("newanalysis.helpers.structureFactorDipTen", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.structureFactorDipTen", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_coors, 1);
@@ -5131,9 +5131,9 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_4structureFactorDipTen(CYTHON_U
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_7structureFactorCharge(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_7structureFactorCharge = {"structureFactorCharge", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_7structureFactorCharge, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_11newanalysis_7helpers_7structureFactorCharge(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_7structureFactorCharge(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_7structureFactorCharge = {"structureFactorCharge", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_7structureFactorCharge, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_7structureFactorCharge(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_coors = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_charges = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_histogram = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -5228,18 +5228,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_7structureFactorCharge(PyObject
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("structureFactorCharge", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 168, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.structureFactorCharge", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.structureFactorCharge", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_6structureFactorCharge(__pyx_self, __pyx_v_coors, __pyx_v_charges, __pyx_v_histogram, __pyx_v_bin_dist, __pyx_v_segs, __pyx_v_boxlength);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_6structureFactorCharge(__pyx_self, __pyx_v_coors, __pyx_v_charges, __pyx_v_histogram, __pyx_v_bin_dist, __pyx_v_segs, __pyx_v_boxlength);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_6structureFactorCharge(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coors, __Pyx_memviewslice __pyx_v_charges, __Pyx_memviewslice __pyx_v_histogram, int __pyx_v_bin_dist, int __pyx_v_segs, double __pyx_v_boxlength) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_6structureFactorCharge(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coors, __Pyx_memviewslice __pyx_v_charges, __Pyx_memviewslice __pyx_v_histogram, int __pyx_v_bin_dist, int __pyx_v_segs, double __pyx_v_boxlength) {
   int __pyx_v_n_particles;
   int __pyx_v_pair_1_par_1;
   int __pyx_v_pair_1_par_2;
@@ -5865,7 +5865,7 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_6structureFactorCharge(CYTHON_U
   __Pyx_XDECREF(__pyx_t_13);
   __Pyx_XDECREF(__pyx_t_14);
   __Pyx_XDECREF(__pyx_t_15);
-  __Pyx_AddTraceback("newanalysis.helpers.structureFactorCharge", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.structureFactorCharge", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_coors, 1);
@@ -5885,10 +5885,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_6structureFactorCharge(CYTHON_U
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_9accumulateShellwiseGFunction(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_8accumulateShellwiseGFunction[] = "\n    aufpunkte   ... (n_aufpunkte, 3)\n    coor        ... (n_particles, 3)\n    dataset     ... (n_particles)\n    histogram   ... (number_of_shells, number_of_datapoints)\n    norm        ... (number_of_shells)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_9accumulateShellwiseGFunction = {"accumulateShellwiseGFunction", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_9accumulateShellwiseGFunction, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_8accumulateShellwiseGFunction};
-static PyObject *__pyx_pw_11newanalysis_7helpers_9accumulateShellwiseGFunction(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_9accumulateShellwiseGFunction(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_8accumulateShellwiseGFunction[] = "\n    aufpunkte   ... (n_aufpunkte, 3)\n    coor        ... (n_particles, 3)\n    dataset     ... (n_particles)\n    histogram   ... (number_of_shells, number_of_datapoints)\n    norm        ... (number_of_shells)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_9accumulateShellwiseGFunction = {"accumulateShellwiseGFunction", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_9accumulateShellwiseGFunction, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_8accumulateShellwiseGFunction};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_9accumulateShellwiseGFunction(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_aufpunkte = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_coor = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_dataset = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -6016,18 +6016,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_9accumulateShellwiseGFunction(P
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("accumulateShellwiseGFunction", 1, 9, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 226, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.accumulateShellwiseGFunction", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.accumulateShellwiseGFunction", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_8accumulateShellwiseGFunction(__pyx_self, __pyx_v_aufpunkte, __pyx_v_coor, __pyx_v_dataset, __pyx_v_histogram, __pyx_v_norm, __pyx_v_maxshell, __pyx_v_histo_min, __pyx_v_histo_max, __pyx_v_boxlength);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_8accumulateShellwiseGFunction(__pyx_self, __pyx_v_aufpunkte, __pyx_v_coor, __pyx_v_dataset, __pyx_v_histogram, __pyx_v_norm, __pyx_v_maxshell, __pyx_v_histo_min, __pyx_v_histo_max, __pyx_v_boxlength);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_8accumulateShellwiseGFunction(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkte, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dataset, __Pyx_memviewslice __pyx_v_histogram, __Pyx_memviewslice __pyx_v_norm, int __pyx_v_maxshell, double __pyx_v_histo_min, double __pyx_v_histo_max, double __pyx_v_boxlength) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_8accumulateShellwiseGFunction(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkte, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dataset, __Pyx_memviewslice __pyx_v_histogram, __Pyx_memviewslice __pyx_v_norm, int __pyx_v_maxshell, double __pyx_v_histo_min, double __pyx_v_histo_max, double __pyx_v_boxlength) {
   int __pyx_v_n_aufpunkte;
   int __pyx_v_n_particles;
   int __pyx_v_number_of_datapoints;
@@ -6124,9 +6124,9 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_8accumulateShellwiseGFunction(C
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_11accumulateNMShellwiseGFunction(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_11accumulateNMShellwiseGFunction = {"accumulateNMShellwiseGFunction", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_11accumulateNMShellwiseGFunction, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_11newanalysis_7helpers_11accumulateNMShellwiseGFunction(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_11accumulateNMShellwiseGFunction(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_11accumulateNMShellwiseGFunction = {"accumulateNMShellwiseGFunction", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_11accumulateNMShellwiseGFunction, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_11accumulateNMShellwiseGFunction(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   CYTHON_UNUSED __Pyx_memviewslice __pyx_v_coor1 = { 0, 0, { 0 }, { 0 }, { 0 } };
   CYTHON_UNUSED __Pyx_memviewslice __pyx_v_coor2 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_dataset = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -6243,18 +6243,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_11accumulateNMShellwiseGFunctio
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("accumulateNMShellwiseGFunction", 1, 8, 8, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 242, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.accumulateNMShellwiseGFunction", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.accumulateNMShellwiseGFunction", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_10accumulateNMShellwiseGFunction(__pyx_self, __pyx_v_coor1, __pyx_v_coor2, __pyx_v_dataset, __pyx_v_histogram, __pyx_v_particle_first, __pyx_v_n_particles, __pyx_v_max_distance, __pyx_v_segments_per_angstroem);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_10accumulateNMShellwiseGFunction(__pyx_self, __pyx_v_coor1, __pyx_v_coor2, __pyx_v_dataset, __pyx_v_histogram, __pyx_v_particle_first, __pyx_v_n_particles, __pyx_v_max_distance, __pyx_v_segments_per_angstroem);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_10accumulateNMShellwiseGFunction(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED __Pyx_memviewslice __pyx_v_coor1, CYTHON_UNUSED __Pyx_memviewslice __pyx_v_coor2, __Pyx_memviewslice __pyx_v_dataset, __Pyx_memviewslice __pyx_v_histogram, int __pyx_v_particle_first, int __pyx_v_n_particles, int __pyx_v_max_distance, int __pyx_v_segments_per_angstroem) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_10accumulateNMShellwiseGFunction(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED __Pyx_memviewslice __pyx_v_coor1, CYTHON_UNUSED __Pyx_memviewslice __pyx_v_coor2, __Pyx_memviewslice __pyx_v_dataset, __Pyx_memviewslice __pyx_v_histogram, int __pyx_v_particle_first, int __pyx_v_n_particles, int __pyx_v_max_distance, int __pyx_v_segments_per_angstroem) {
   int __pyx_v_particle1;
   int __pyx_v_particle2;
   int __pyx_v_point1;
@@ -6432,10 +6432,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_10accumulateNMShellwiseGFunctio
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_13sumUpByShell(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_12sumUpByShell[] = "\n    timeseries           ... (n_frames, n_particles, 3)\n    timeseries_shellwise ... (n_shells, n_frames,    3)\n    ds                   ... (n_frames, n_particles)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_13sumUpByShell = {"sumUpByShell", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_13sumUpByShell, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_12sumUpByShell};
-static PyObject *__pyx_pw_11newanalysis_7helpers_13sumUpByShell(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_13sumUpByShell(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_12sumUpByShell[] = "\n    timeseries           ... (n_frames, n_particles, 3)\n    timeseries_shellwise ... (n_shells, n_frames,    3)\n    ds                   ... (n_frames, n_particles)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_13sumUpByShell = {"sumUpByShell", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_13sumUpByShell, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_12sumUpByShell};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_13sumUpByShell(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_timeseries = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_timeseries_shellwise = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_ds = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -6497,18 +6497,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_13sumUpByShell(PyObject *__pyx_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("sumUpByShell", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 260, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.sumUpByShell", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.sumUpByShell", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_12sumUpByShell(__pyx_self, __pyx_v_timeseries, __pyx_v_timeseries_shellwise, __pyx_v_ds);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_12sumUpByShell(__pyx_self, __pyx_v_timeseries, __pyx_v_timeseries_shellwise, __pyx_v_ds);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_12sumUpByShell(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_timeseries_shellwise, __Pyx_memviewslice __pyx_v_ds) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_12sumUpByShell(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_timeseries_shellwise, __Pyx_memviewslice __pyx_v_ds) {
   int __pyx_v_n_frames;
   int __pyx_v_n_particles;
   int __pyx_v_n_shells;
@@ -6791,7 +6791,7 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_12sumUpByShell(CYTHON_UNUSED Py
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.sumUpByShell", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.sumUpByShell", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_timeseries, 1);
@@ -6811,10 +6811,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_12sumUpByShell(CYTHON_UNUSED Py
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_15countVennShellOccupation(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_14countVennShellOccupation[] = "\n    data    ... (n_shells1, n_shells2)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_15countVennShellOccupation = {"countVennShellOccupation", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_15countVennShellOccupation, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_14countVennShellOccupation};
-static PyObject *__pyx_pw_11newanalysis_7helpers_15countVennShellOccupation(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_15countVennShellOccupation(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_14countVennShellOccupation[] = "\n    data    ... (n_shells1, n_shells2)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_15countVennShellOccupation = {"countVennShellOccupation", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_15countVennShellOccupation, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_14countVennShellOccupation};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_15countVennShellOccupation(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_data = { 0, 0, { 0 }, { 0 }, { 0 } };
   int __pyx_v_n_particles;
   __Pyx_memviewslice __pyx_v_ds1 = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -6887,18 +6887,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_15countVennShellOccupation(PyOb
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("countVennShellOccupation", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 281, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.countVennShellOccupation", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.countVennShellOccupation", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_14countVennShellOccupation(__pyx_self, __pyx_v_data, __pyx_v_n_particles, __pyx_v_ds1, __pyx_v_ds2);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_14countVennShellOccupation(__pyx_self, __pyx_v_data, __pyx_v_n_particles, __pyx_v_ds1, __pyx_v_ds2);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_14countVennShellOccupation(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_data, int __pyx_v_n_particles, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_14countVennShellOccupation(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_data, int __pyx_v_n_particles, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2) {
   int __pyx_v_n_shells1;
   int __pyx_v_n_shells2;
   int __pyx_v_wat;
@@ -7047,7 +7047,7 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_14countVennShellOccupation(CYTH
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.countVennShellOccupation", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.countVennShellOccupation", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_data, 1);
@@ -7067,10 +7067,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_14countVennShellOccupation(CYTH
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_17countMultiShell(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_16countMultiShell[] = "\n    data    ... (nshells, max_cardinality {==5})\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_17countMultiShell = {"countMultiShell", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_17countMultiShell, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_16countMultiShell};
-static PyObject *__pyx_pw_11newanalysis_7helpers_17countMultiShell(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_17countMultiShell(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_16countMultiShell[] = "\n    data    ... (nshells, max_cardinality {==5})\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_17countMultiShell = {"countMultiShell", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_17countMultiShell, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_16countMultiShell};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_17countMultiShell(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_data = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_ds1 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_ds2 = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -7165,18 +7165,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_17countMultiShell(PyObject *__p
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("countMultiShell", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 299, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.countMultiShell", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.countMultiShell", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_16countMultiShell(__pyx_self, __pyx_v_data, __pyx_v_ds1, __pyx_v_ds2, __pyx_v_ds3, __pyx_v_ds4, __pyx_v_ds5);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_16countMultiShell(__pyx_self, __pyx_v_data, __pyx_v_ds1, __pyx_v_ds2, __pyx_v_ds3, __pyx_v_ds4, __pyx_v_ds5);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_16countMultiShell(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_data, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2, __Pyx_memviewslice __pyx_v_ds3, __Pyx_memviewslice __pyx_v_ds4, __Pyx_memviewslice __pyx_v_ds5) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_16countMultiShell(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_data, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2, __Pyx_memviewslice __pyx_v_ds3, __Pyx_memviewslice __pyx_v_ds4, __Pyx_memviewslice __pyx_v_ds5) {
   int __pyx_v_n_shells;
   int __pyx_v_n_particles;
   int __pyx_v_shell_01;
@@ -7534,7 +7534,7 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_16countMultiShell(CYTHON_UNUSED
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.countMultiShell", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.countMultiShell", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_data, 1);
@@ -7557,10 +7557,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_16countMultiShell(CYTHON_UNUSED
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_19atomicIndDip(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_18atomicIndDip[] = "\n    coors          ... (N_all, 3)\n    charges        ... (N_all)\n    alpha          ... (N_ind)\n    coors_ind      ... (N_ind, 3)\n    atomic_dipoles ... (N_ind, 3)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_19atomicIndDip = {"atomicIndDip", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_19atomicIndDip, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_18atomicIndDip};
-static PyObject *__pyx_pw_11newanalysis_7helpers_19atomicIndDip(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_19atomicIndDip(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_18atomicIndDip[] = "\n    coors          ... (N_all, 3)\n    charges        ... (N_all)\n    alpha          ... (N_ind)\n    coors_ind      ... (N_ind, 3)\n    atomic_dipoles ... (N_ind, 3)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_19atomicIndDip = {"atomicIndDip", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_19atomicIndDip, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_18atomicIndDip};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_19atomicIndDip(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_coors = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_charges = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_alpha = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -7666,18 +7666,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_19atomicIndDip(PyObject *__pyx_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("atomicIndDip", 1, 7, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 353, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.atomicIndDip", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.atomicIndDip", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_18atomicIndDip(__pyx_self, __pyx_v_coors, __pyx_v_charges, __pyx_v_alpha, __pyx_v_coors_ind, __pyx_v_prev_atomic_dipoles, __pyx_v_atomic_dipoles, __pyx_v_boxlength);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_18atomicIndDip(__pyx_self, __pyx_v_coors, __pyx_v_charges, __pyx_v_alpha, __pyx_v_coors_ind, __pyx_v_prev_atomic_dipoles, __pyx_v_atomic_dipoles, __pyx_v_boxlength);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_18atomicIndDip(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coors, __Pyx_memviewslice __pyx_v_charges, __Pyx_memviewslice __pyx_v_alpha, __Pyx_memviewslice __pyx_v_coors_ind, __Pyx_memviewslice __pyx_v_prev_atomic_dipoles, __Pyx_memviewslice __pyx_v_atomic_dipoles, double __pyx_v_boxlength) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_18atomicIndDip(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coors, __Pyx_memviewslice __pyx_v_charges, __Pyx_memviewslice __pyx_v_alpha, __Pyx_memviewslice __pyx_v_coors_ind, __Pyx_memviewslice __pyx_v_prev_atomic_dipoles, __Pyx_memviewslice __pyx_v_atomic_dipoles, double __pyx_v_boxlength) {
   int __pyx_v_n_particles_all;
   int __pyx_v_n_particles_ind;
   PyObject *__pyx_r = NULL;
@@ -7771,10 +7771,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_18atomicIndDip(CYTHON_UNUSED Py
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_21atomicIndDipPerAtom(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_20atomicIndDipPerAtom[] = "\n    coors          ... (N_all, 3)\n    charges        ... (N_all)\n    alpha          ... (N_ind)\n    coors_ind      ... (N_ind, 3)\n    atomic_dipoles ... (N_ind, 3)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_21atomicIndDipPerAtom = {"atomicIndDipPerAtom", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_21atomicIndDipPerAtom, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_20atomicIndDipPerAtom};
-static PyObject *__pyx_pw_11newanalysis_7helpers_21atomicIndDipPerAtom(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_21atomicIndDipPerAtom(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_20atomicIndDipPerAtom[] = "\n    coors          ... (N_all, 3)\n    charges        ... (N_all)\n    alpha          ... (N_ind)\n    coors_ind      ... (N_ind, 3)\n    atomic_dipoles ... (N_ind, 3)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_21atomicIndDipPerAtom = {"atomicIndDipPerAtom", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_21atomicIndDipPerAtom, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_20atomicIndDipPerAtom};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_21atomicIndDipPerAtom(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_v_idx;
   __Pyx_memviewslice __pyx_v_coors = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_charges = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -7891,18 +7891,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_21atomicIndDipPerAtom(PyObject 
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("atomicIndDipPerAtom", 1, 8, 8, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 427, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.atomicIndDipPerAtom", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.atomicIndDipPerAtom", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_20atomicIndDipPerAtom(__pyx_self, __pyx_v_idx, __pyx_v_coors, __pyx_v_charges, __pyx_v_alpha, __pyx_v_coors_ind, __pyx_v_prev_atomic_dipoles, __pyx_v_atomic_dipoles, __pyx_v_boxlength);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_20atomicIndDipPerAtom(__pyx_self, __pyx_v_idx, __pyx_v_coors, __pyx_v_charges, __pyx_v_alpha, __pyx_v_coors_ind, __pyx_v_prev_atomic_dipoles, __pyx_v_atomic_dipoles, __pyx_v_boxlength);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_20atomicIndDipPerAtom(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_idx, __Pyx_memviewslice __pyx_v_coors, __Pyx_memviewslice __pyx_v_charges, __Pyx_memviewslice __pyx_v_alpha, __Pyx_memviewslice __pyx_v_coors_ind, __Pyx_memviewslice __pyx_v_prev_atomic_dipoles, __Pyx_memviewslice __pyx_v_atomic_dipoles, double __pyx_v_boxlength) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_20atomicIndDipPerAtom(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_idx, __Pyx_memviewslice __pyx_v_coors, __Pyx_memviewslice __pyx_v_charges, __Pyx_memviewslice __pyx_v_alpha, __Pyx_memviewslice __pyx_v_coors_ind, __Pyx_memviewslice __pyx_v_prev_atomic_dipoles, __Pyx_memviewslice __pyx_v_atomic_dipoles, double __pyx_v_boxlength) {
   int __pyx_v_n_particles_all;
   int __pyx_v_n_particles_ind;
   PyObject *__pyx_r = NULL;
@@ -7996,9 +7996,9 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_20atomicIndDipPerAtom(CYTHON_UN
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_23kronecker(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_23kronecker = {"kronecker", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_23kronecker, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_11newanalysis_7helpers_23kronecker(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_23kronecker(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_23kronecker = {"kronecker", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_23kronecker, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_23kronecker(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_v_a;
   int __pyx_v_b;
   int __pyx_lineno = 0;
@@ -8049,18 +8049,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_23kronecker(PyObject *__pyx_sel
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("kronecker", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 441, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.kronecker", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.kronecker", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_22kronecker(__pyx_self, __pyx_v_a, __pyx_v_b);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_22kronecker(__pyx_self, __pyx_v_a, __pyx_v_b);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_22kronecker(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_a, int __pyx_v_b) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_22kronecker(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_a, int __pyx_v_b) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -8117,10 +8117,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_22kronecker(CYTHON_UNUSED PyObj
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_25deriveIndDip(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_24deriveIndDip[] = "\n    coors_ind              ... (N_ind, 3)\n    vel_ind                ... (N_ind, 3)\n    atomic_dipoles         ... (N_ind, 3)\n    derived_atomic_dipoles ... (N_ind, 3)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_25deriveIndDip = {"deriveIndDip", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_25deriveIndDip, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_24deriveIndDip};
-static PyObject *__pyx_pw_11newanalysis_7helpers_25deriveIndDip(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_25deriveIndDip(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_24deriveIndDip[] = "\n    coors_ind              ... (N_ind, 3)\n    vel_ind                ... (N_ind, 3)\n    atomic_dipoles         ... (N_ind, 3)\n    derived_atomic_dipoles ... (N_ind, 3)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_25deriveIndDip = {"deriveIndDip", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_25deriveIndDip, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_24deriveIndDip};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_25deriveIndDip(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_coors_ind = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_vel_ind = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_atomic_dipoles = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -8222,18 +8222,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_25deriveIndDip(PyObject *__pyx_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("deriveIndDip", 0, 5, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 447, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.deriveIndDip", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.deriveIndDip", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_24deriveIndDip(__pyx_self, __pyx_v_coors_ind, __pyx_v_vel_ind, __pyx_v_atomic_dipoles, __pyx_v_derived_atomic_dipoles, __pyx_v_boxlength, __pyx_v_new);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_24deriveIndDip(__pyx_self, __pyx_v_coors_ind, __pyx_v_vel_ind, __pyx_v_atomic_dipoles, __pyx_v_derived_atomic_dipoles, __pyx_v_boxlength, __pyx_v_new);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_24deriveIndDip(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coors_ind, __Pyx_memviewslice __pyx_v_vel_ind, __Pyx_memviewslice __pyx_v_atomic_dipoles, __Pyx_memviewslice __pyx_v_derived_atomic_dipoles, double __pyx_v_boxlength, CYTHON_UNUSED int __pyx_v_new) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_24deriveIndDip(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coors_ind, __Pyx_memviewslice __pyx_v_vel_ind, __Pyx_memviewslice __pyx_v_atomic_dipoles, __Pyx_memviewslice __pyx_v_derived_atomic_dipoles, double __pyx_v_boxlength, CYTHON_UNUSED int __pyx_v_new) {
   int __pyx_v_n_ind_particles;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -8309,10 +8309,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_24deriveIndDip(CYTHON_UNUSED Py
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_27deriveIndDipPerAtom(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_26deriveIndDipPerAtom[] = "\n    coors_ind              ... (N_ind, 3)\n    vel_ind                ... (N_ind, 3)\n    atomic_dipoles         ... (N_ind, 3)\n    derived_atomic_dipoles ... (N_ind, 3)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_27deriveIndDipPerAtom = {"deriveIndDipPerAtom", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_27deriveIndDipPerAtom, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_26deriveIndDipPerAtom};
-static PyObject *__pyx_pw_11newanalysis_7helpers_27deriveIndDipPerAtom(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_27deriveIndDipPerAtom(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_26deriveIndDipPerAtom[] = "\n    coors_ind              ... (N_ind, 3)\n    vel_ind                ... (N_ind, 3)\n    atomic_dipoles         ... (N_ind, 3)\n    derived_atomic_dipoles ... (N_ind, 3)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_27deriveIndDipPerAtom = {"deriveIndDipPerAtom", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_27deriveIndDipPerAtom, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_26deriveIndDipPerAtom};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_27deriveIndDipPerAtom(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_v_idx;
   __Pyx_memviewslice __pyx_v_coors_ind = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_vel_ind = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -8425,18 +8425,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_27deriveIndDipPerAtom(PyObject 
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("deriveIndDipPerAtom", 0, 6, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 511, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.deriveIndDipPerAtom", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.deriveIndDipPerAtom", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_26deriveIndDipPerAtom(__pyx_self, __pyx_v_idx, __pyx_v_coors_ind, __pyx_v_vel_ind, __pyx_v_atomic_dipoles, __pyx_v_derived_atomic_dipoles, __pyx_v_boxlength, __pyx_v_new);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_26deriveIndDipPerAtom(__pyx_self, __pyx_v_idx, __pyx_v_coors_ind, __pyx_v_vel_ind, __pyx_v_atomic_dipoles, __pyx_v_derived_atomic_dipoles, __pyx_v_boxlength, __pyx_v_new);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_26deriveIndDipPerAtom(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_idx, __Pyx_memviewslice __pyx_v_coors_ind, __Pyx_memviewslice __pyx_v_vel_ind, __Pyx_memviewslice __pyx_v_atomic_dipoles, __Pyx_memviewslice __pyx_v_derived_atomic_dipoles, double __pyx_v_boxlength, CYTHON_UNUSED int __pyx_v_new) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_26deriveIndDipPerAtom(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_idx, __Pyx_memviewslice __pyx_v_coors_ind, __Pyx_memviewslice __pyx_v_vel_ind, __Pyx_memviewslice __pyx_v_atomic_dipoles, __Pyx_memviewslice __pyx_v_derived_atomic_dipoles, double __pyx_v_boxlength, CYTHON_UNUSED int __pyx_v_new) {
   int __pyx_v_n_ind_particles;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -8512,9 +8512,9 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_26deriveIndDipPerAtom(CYTHON_UN
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_29norm(PyObject *__pyx_self, PyObject *__pyx_arg_x); /*proto*/
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_29norm = {"norm", (PyCFunction)__pyx_pw_11newanalysis_7helpers_29norm, METH_O, 0};
-static PyObject *__pyx_pw_11newanalysis_7helpers_29norm(PyObject *__pyx_self, PyObject *__pyx_arg_x) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_29norm(PyObject *__pyx_self, PyObject *__pyx_arg_x); /*proto*/
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_29norm = {"norm", (PyCFunction)__pyx_pw_11newanalysis_13miscellaneous_29norm, METH_O, 0};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_29norm(PyObject *__pyx_self, PyObject *__pyx_arg_x) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
@@ -8527,18 +8527,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_29norm(PyObject *__pyx_self, Py
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.norm", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.norm", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_28norm(__pyx_self, __pyx_v_x);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_28norm(__pyx_self, __pyx_v_x);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_28norm(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_28norm(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x) {
   double __pyx_v_res;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -8657,7 +8657,7 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_28norm(CYTHON_UNUSED PyObject *
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_AddTraceback("newanalysis.helpers.norm", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.norm", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_x, 1);
@@ -8675,9 +8675,9 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_28norm(CYTHON_UNUSED PyObject *
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_31unfold(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_31unfold = {"unfold", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_31unfold, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_11newanalysis_7helpers_31unfold(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_31unfold(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_31unfold = {"unfold", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_31unfold, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_31unfold(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_ref = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_new = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_run = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -8750,18 +8750,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_31unfold(PyObject *__pyx_self, 
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("unfold", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 530, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.unfold", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.unfold", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_30unfold(__pyx_self, __pyx_v_ref, __pyx_v_new, __pyx_v_run, __pyx_v_boxl);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_30unfold(__pyx_self, __pyx_v_ref, __pyx_v_new, __pyx_v_run, __pyx_v_boxl);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_30unfold(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_ref, __Pyx_memviewslice __pyx_v_new, __Pyx_memviewslice __pyx_v_run, double __pyx_v_boxl) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_30unfold(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_ref, __Pyx_memviewslice __pyx_v_new, __Pyx_memviewslice __pyx_v_run, double __pyx_v_boxl) {
   int __pyx_v_i;
   double __pyx_v_D;
   PyObject *__pyx_r = NULL;
@@ -8910,7 +8910,7 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_30unfold(CYTHON_UNUSED PyObject
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_AddTraceback("newanalysis.helpers.unfold", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.unfold", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_ref, 1);
@@ -8930,9 +8930,9 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_30unfold(CYTHON_UNUSED PyObject
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_33min_dist(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_33min_dist = {"min_dist", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_33min_dist, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_11newanalysis_7helpers_33min_dist(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_33min_dist(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_33min_dist = {"min_dist", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_33min_dist, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_33min_dist(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_res1 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_res2 = { 0, 0, { 0 }, { 0 }, { 0 } };
   double __pyx_v_boxl;
@@ -8994,18 +8994,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_33min_dist(PyObject *__pyx_self
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("min_dist", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 543, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.min_dist", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.min_dist", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_32min_dist(__pyx_self, __pyx_v_res1, __pyx_v_res2, __pyx_v_boxl);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_32min_dist(__pyx_self, __pyx_v_res1, __pyx_v_res2, __pyx_v_boxl);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_32min_dist(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_res1, __Pyx_memviewslice __pyx_v_res2, double __pyx_v_boxl) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_32min_dist(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_res1, __Pyx_memviewslice __pyx_v_res2, double __pyx_v_boxl) {
   int __pyx_v_i;
   double __pyx_v_D;
   __Pyx_memviewslice __pyx_v_vec = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -9237,7 +9237,7 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_32min_dist(CYTHON_UNUSED PyObje
   __Pyx_XDECREF(__pyx_t_3);
   __PYX_XDEC_MEMVIEW(&__pyx_t_4, 1);
   __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_AddTraceback("newanalysis.helpers.min_dist", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.min_dist", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_vec, 1);
@@ -9257,9 +9257,9 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_32min_dist(CYTHON_UNUSED PyObje
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_35dipTen(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_35dipTen = {"dipTen", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_35dipTen, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_11newanalysis_7helpers_35dipTen(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_35dipTen(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_35dipTen = {"dipTen", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_35dipTen, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_35dipTen(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_coo1 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_coo2 = { 0, 0, { 0 }, { 0 }, { 0 } };
   int __pyx_lineno = 0;
@@ -9310,18 +9310,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_35dipTen(PyObject *__pyx_self, 
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("dipTen", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 560, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.dipTen", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.dipTen", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_34dipTen(__pyx_self, __pyx_v_coo1, __pyx_v_coo2);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_34dipTen(__pyx_self, __pyx_v_coo1, __pyx_v_coo2);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_34dipTen(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coo1, __Pyx_memviewslice __pyx_v_coo2) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_34dipTen(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coo1, __Pyx_memviewslice __pyx_v_coo2) {
   __Pyx_memviewslice __pyx_v_rv = { 0, 0, { 0 }, { 0 }, { 0 } };
   double __pyx_v_r2;
   double __pyx_v_f1;
@@ -9667,7 +9667,7 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_34dipTen(CYTHON_UNUSED PyObject
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_11);
-  __Pyx_AddTraceback("newanalysis.helpers.dipTen", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.dipTen", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_rv, 1);
@@ -9688,9 +9688,9 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_34dipTen(CYTHON_UNUSED PyObject
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_10selfobject_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_10selfobject_1__init__ = {"__init__", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_10selfobject_1__init__, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_11newanalysis_7helpers_10selfobject_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_10selfobject_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_10selfobject_1__init__ = {"__init__", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_10selfobject_1__init__, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_10selfobject_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   int __pyx_v_p;
   __Pyx_memviewslice __pyx_v_p_coor = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -9785,18 +9785,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_10selfobject_1__init__(PyObject
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__init__", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 580, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.selfobject.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.selfobject.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_10selfobject___init__(__pyx_self, __pyx_v_self, __pyx_v_p, __pyx_v_p_coor, __pyx_v_apr_emim_h, __pyx_v_n_pairs_h, __pyx_v_emim_h);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_10selfobject___init__(__pyx_self, __pyx_v_self, __pyx_v_p, __pyx_v_p_coor, __pyx_v_apr_emim_h, __pyx_v_n_pairs_h, __pyx_v_emim_h);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_10selfobject___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, int __pyx_v_p, __Pyx_memviewslice __pyx_v_p_coor, int __pyx_v_apr_emim_h, int __pyx_v_n_pairs_h, __Pyx_memviewslice __pyx_v_emim_h) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_10selfobject___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, int __pyx_v_p, __Pyx_memviewslice __pyx_v_p_coor, int __pyx_v_apr_emim_h, int __pyx_v_n_pairs_h, __Pyx_memviewslice __pyx_v_emim_h) {
   __Pyx_memviewslice __pyx_v_pl = { 0, 0, { 0 }, { 0 }, { 0 } };
   PyObject *__pyx_v_i = 0;
   PyObject *__pyx_v_j = 0;
@@ -11341,7 +11341,7 @@ __pyx_t_12 = __pyx_memoryview_fromslice(__pyx_t_6, 1, (PyObject *(*)(char *)) __
   __Pyx_XDECREF(__pyx_t_16);
   __Pyx_XDECREF(__pyx_t_18);
   __Pyx_XDECREF(__pyx_t_19);
-  __Pyx_AddTraceback("newanalysis.helpers.selfobject.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.selfobject.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_pl, 1);
@@ -11367,9 +11367,9 @@ __pyx_t_12 = __pyx_memoryview_fromslice(__pyx_t_6, 1, (PyObject *(*)(char *)) __
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_10pairobject_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_10pairobject_1__init__ = {"__init__", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_10pairobject_1__init__, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_11newanalysis_7helpers_10pairobject_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_10pairobject_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_10pairobject_1__init__ = {"__init__", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_10pairobject_1__init__, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_10pairobject_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   int __pyx_v_p1;
   int __pyx_v_p2;
@@ -11486,18 +11486,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_10pairobject_1__init__(PyObject
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__init__", 1, 8, 8, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 640, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.pairobject.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.pairobject.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_10pairobject___init__(__pyx_self, __pyx_v_self, __pyx_v_p1, __pyx_v_p2, __pyx_v_p1_coor, __pyx_v_p2_coor, __pyx_v_apr_emim_h, __pyx_v_n_pairs_h, __pyx_v_emim_h);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_10pairobject___init__(__pyx_self, __pyx_v_self, __pyx_v_p1, __pyx_v_p2, __pyx_v_p1_coor, __pyx_v_p2_coor, __pyx_v_apr_emim_h, __pyx_v_n_pairs_h, __pyx_v_emim_h);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_10pairobject___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, int __pyx_v_p1, int __pyx_v_p2, __Pyx_memviewslice __pyx_v_p1_coor, __Pyx_memviewslice __pyx_v_p2_coor, int __pyx_v_apr_emim_h, int __pyx_v_n_pairs_h, __Pyx_memviewslice __pyx_v_emim_h) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_10pairobject___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, int __pyx_v_p1, int __pyx_v_p2, __Pyx_memviewslice __pyx_v_p1_coor, __Pyx_memviewslice __pyx_v_p2_coor, int __pyx_v_apr_emim_h, int __pyx_v_n_pairs_h, __Pyx_memviewslice __pyx_v_emim_h) {
   __Pyx_memviewslice __pyx_v_p1l = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_p2l = { 0, 0, { 0 }, { 0 }, { 0 } };
   int __pyx_v_i;
@@ -13071,7 +13071,7 @@ __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_t_6, 1, (PyObject *(*)(char *)) __p
   __PYX_XDEC_MEMVIEW(&__pyx_t_14, 1);
   __Pyx_XDECREF(__pyx_t_20);
   __Pyx_XDECREF(__pyx_t_21);
-  __Pyx_AddTraceback("newanalysis.helpers.pairobject.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.pairobject.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_p1l, 1);
@@ -13097,9 +13097,9 @@ __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_t_6, 1, (PyObject *(*)(char *)) __p
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_8noe_task_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_8noe_task_1__init__ = {"__init__", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_8noe_task_1__init__, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_11newanalysis_7helpers_8noe_task_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_8noe_task_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_8noe_task_1__init__ = {"__init__", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_8noe_task_1__init__, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_8noe_task_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   int __pyx_v_apr_emim_h;
   __Pyx_memviewslice __pyx_v_emim_h = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -13227,18 +13227,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_8noe_task_1__init__(PyObject *_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__init__", 1, 9, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 713, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.noe_task.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.noe_task.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_8noe_task___init__(__pyx_self, __pyx_v_self, __pyx_v_apr_emim_h, __pyx_v_emim_h, __pyx_v_n_pairs_h, __pyx_v_n_self_pairs_h, __pyx_v_max_distance, __pyx_v_n_res_emim, __pyx_v_apr_pair, __pyx_v_coors);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_8noe_task___init__(__pyx_self, __pyx_v_self, __pyx_v_apr_emim_h, __pyx_v_emim_h, __pyx_v_n_pairs_h, __pyx_v_n_self_pairs_h, __pyx_v_max_distance, __pyx_v_n_res_emim, __pyx_v_apr_pair, __pyx_v_coors);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_8noe_task___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, int __pyx_v_apr_emim_h, __Pyx_memviewslice __pyx_v_emim_h, int __pyx_v_n_pairs_h, int __pyx_v_n_self_pairs_h, int __pyx_v_max_distance, int __pyx_v_n_res_emim, int __pyx_v_apr_pair, __Pyx_memviewslice __pyx_v_coors) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_8noe_task___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, int __pyx_v_apr_emim_h, __Pyx_memviewslice __pyx_v_emim_h, int __pyx_v_n_pairs_h, int __pyx_v_n_self_pairs_h, int __pyx_v_max_distance, int __pyx_v_n_res_emim, int __pyx_v_apr_pair, __Pyx_memviewslice __pyx_v_coors) {
   int __pyx_v_i;
   int __pyx_v_j;
   int __pyx_v_atom;
@@ -13898,7 +13898,7 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_8noe_task___init__(CYTHON_UNUSE
   __Pyx_XDECREF(__pyx_t_22);
   __Pyx_XDECREF(__pyx_t_27);
   __Pyx_XDECREF(__pyx_t_28);
-  __Pyx_AddTraceback("newanalysis.helpers.noe_task.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.noe_task.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_coor_i, 1);
@@ -13919,9 +13919,9 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_8noe_task___init__(CYTHON_UNUSE
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_8noe_task_3pairiter(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_8noe_task_3pairiter = {"pairiter", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_8noe_task_3pairiter, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_11newanalysis_7helpers_8noe_task_3pairiter(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_8noe_task_3pairiter(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_8noe_task_3pairiter = {"pairiter", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_8noe_task_3pairiter, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_8noe_task_3pairiter(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   __Pyx_memviewslice __pyx_v_run = { 0, 0, { 0 }, { 0 }, { 0 } };
   int __pyx_lineno = 0;
@@ -13972,18 +13972,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_8noe_task_3pairiter(PyObject *_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("pairiter", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 749, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.noe_task.pairiter", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.noe_task.pairiter", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_8noe_task_2pairiter(__pyx_self, __pyx_v_self, __pyx_v_run);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_8noe_task_2pairiter(__pyx_self, __pyx_v_self, __pyx_v_run);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_8noe_task_2pairiter(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, __Pyx_memviewslice __pyx_v_run) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_8noe_task_2pairiter(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, __Pyx_memviewslice __pyx_v_run) {
   __Pyx_memviewslice __pyx_v_cl = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_dipt_t = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_p1l = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -15221,7 +15221,7 @@ __pyx_t_22 = __pyx_memoryview_fromslice(__pyx_t_6, 1, (PyObject *(*)(char *)) __
   __Pyx_XDECREF(__pyx_t_22);
   __Pyx_XDECREF(__pyx_t_23);
   __Pyx_XDECREF(__pyx_t_24);
-  __Pyx_AddTraceback("newanalysis.helpers.noe_task.pairiter", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.noe_task.pairiter", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_cl, 1);
@@ -15252,10 +15252,10 @@ __pyx_t_22 = __pyx_memoryview_fromslice(__pyx_t_6, 1, (PyObject *(*)(char *)) __
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_37getBestIndex(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_36getBestIndex[] = "\n    getBestIndex(point, coor)\n\n    This function takes a point in space and a set of coordinates. It returns the index of the particle in the set closest to said point.\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_37getBestIndex = {"getBestIndex", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_37getBestIndex, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_36getBestIndex};
-static PyObject *__pyx_pw_11newanalysis_7helpers_37getBestIndex(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_37getBestIndex(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_36getBestIndex[] = "\n    getBestIndex(point, coor)\n\n    This function takes a point in space and a set of coordinates. It returns the index of the particle in the set closest to said point.\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_37getBestIndex = {"getBestIndex", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_37getBestIndex, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_36getBestIndex};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_37getBestIndex(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_aufpunkt = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_coor = { 0, 0, { 0 }, { 0 }, { 0 } };
   int __pyx_lineno = 0;
@@ -15306,18 +15306,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_37getBestIndex(PyObject *__pyx_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("getBestIndex", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 810, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.getBestIndex", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.getBestIndex", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_36getBestIndex(__pyx_self, __pyx_v_aufpunkt, __pyx_v_coor);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_36getBestIndex(__pyx_self, __pyx_v_aufpunkt, __pyx_v_coor);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_36getBestIndex(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_coor) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_36getBestIndex(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_coor) {
   int __pyx_v_particles;
   int __pyx_v_best_index;
   PyObject *__pyx_r = NULL;
@@ -15380,7 +15380,7 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_36getBestIndex(CYTHON_UNUSED Py
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("newanalysis.helpers.getBestIndex", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.getBestIndex", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_aufpunkt, 1);
@@ -15399,10 +15399,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_36getBestIndex(CYTHON_UNUSED Py
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_39getBestIndices(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_38getBestIndices[] = "\n    coor ... (n_particles, 3)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_39getBestIndices = {"getBestIndices", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_39getBestIndices, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_38getBestIndices};
-static PyObject *__pyx_pw_11newanalysis_7helpers_39getBestIndices(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_39getBestIndices(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_38getBestIndices[] = "\n    coor ... (n_particles, 3)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_39getBestIndices = {"getBestIndices", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_39getBestIndices, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_38getBestIndices};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_39getBestIndices(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_aufpunkt = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_coor = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_dip = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -15475,18 +15475,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_39getBestIndices(PyObject *__py
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("getBestIndices", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 824, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.getBestIndices", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.getBestIndices", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_38getBestIndices(__pyx_self, __pyx_v_aufpunkt, __pyx_v_coor, __pyx_v_dip, __pyx_v_count);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_38getBestIndices(__pyx_self, __pyx_v_aufpunkt, __pyx_v_coor, __pyx_v_dip, __pyx_v_count);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_38getBestIndices(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dip, int __pyx_v_count) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_38getBestIndices(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dip, int __pyx_v_count) {
   int __pyx_v_n_particles;
   int __pyx_v_point;
   int __pyx_v_ctr;
@@ -15988,7 +15988,7 @@ if (unlikely(__pyx_memoryview_copy_contents(__pyx_t_6, __pyx_t_21, 1, 1, 0) < 0)
   __PYX_XDEC_MEMVIEW(&__pyx_t_6, 1);
   __PYX_XDEC_MEMVIEW(&__pyx_t_7, 1);
   __PYX_XDEC_MEMVIEW(&__pyx_t_21, 1);
-  __Pyx_AddTraceback("newanalysis.helpers.getBestIndices", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.getBestIndices", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_distances, 1);
@@ -16012,10 +16012,10 @@ if (unlikely(__pyx_memoryview_copy_contents(__pyx_t_6, __pyx_t_21, 1, 1, 0) < 0)
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_41writeMrHistogram(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_40writeMrHistogram[] = "\n    coor        ... (number_of_particles, 3)\n    dip         ... (number_of_particles, 3)\n    aufpunkt    ... (3)\n    antagonist  ... (3)\n    histogram   ... (max_distance * segments_per_angstroem)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_41writeMrHistogram = {"writeMrHistogram", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_41writeMrHistogram, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_40writeMrHistogram};
-static PyObject *__pyx_pw_11newanalysis_7helpers_41writeMrHistogram(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_41writeMrHistogram(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_40writeMrHistogram[] = "\n    coor        ... (number_of_particles, 3)\n    dip         ... (number_of_particles, 3)\n    aufpunkt    ... (3)\n    antagonist  ... (3)\n    histogram   ... (max_distance * segments_per_angstroem)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_41writeMrHistogram = {"writeMrHistogram", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_41writeMrHistogram, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_40writeMrHistogram};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_41writeMrHistogram(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_coor = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_dip = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_aufpunkt = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -16139,18 +16139,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_41writeMrHistogram(PyObject *__
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("writeMrHistogram", 0, 7, 8, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 853, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.writeMrHistogram", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.writeMrHistogram", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_40writeMrHistogram(__pyx_self, __pyx_v_coor, __pyx_v_dip, __pyx_v_aufpunkt, __pyx_v_antagonist, __pyx_v_histogram, __pyx_v_max_distance, __pyx_v_segments_per_angstroem, __pyx_v_order);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_40writeMrHistogram(__pyx_self, __pyx_v_coor, __pyx_v_dip, __pyx_v_aufpunkt, __pyx_v_antagonist, __pyx_v_histogram, __pyx_v_max_distance, __pyx_v_segments_per_angstroem, __pyx_v_order);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_40writeMrHistogram(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dip, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_antagonist, __Pyx_memviewslice __pyx_v_histogram, double __pyx_v_max_distance, int __pyx_v_segments_per_angstroem, int __pyx_v_order) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_40writeMrHistogram(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dip, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_antagonist, __Pyx_memviewslice __pyx_v_histogram, double __pyx_v_max_distance, int __pyx_v_segments_per_angstroem, int __pyx_v_order) {
   int __pyx_v_number_of_particles;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -16224,9 +16224,9 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_40writeMrHistogram(CYTHON_UNUSE
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_43writeKirkwoodHistogram(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_43writeKirkwoodHistogram = {"writeKirkwoodHistogram", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_43writeKirkwoodHistogram, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_11newanalysis_7helpers_43writeKirkwoodHistogram(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_43writeKirkwoodHistogram(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_43writeKirkwoodHistogram = {"writeKirkwoodHistogram", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_43writeKirkwoodHistogram, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_43writeKirkwoodHistogram(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_aufpunkt = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_aufpunkt_dipole = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_coor = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -16350,18 +16350,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_43writeKirkwoodHistogram(PyObje
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("writeKirkwoodHistogram", 0, 7, 8, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 866, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.writeKirkwoodHistogram", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.writeKirkwoodHistogram", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_42writeKirkwoodHistogram(__pyx_self, __pyx_v_aufpunkt, __pyx_v_aufpunkt_dipole, __pyx_v_coor, __pyx_v_dip, __pyx_v_histogram, __pyx_v_max_distance, __pyx_v_segments_per_angstroem, __pyx_v_order);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_42writeKirkwoodHistogram(__pyx_self, __pyx_v_aufpunkt, __pyx_v_aufpunkt_dipole, __pyx_v_coor, __pyx_v_dip, __pyx_v_histogram, __pyx_v_max_distance, __pyx_v_segments_per_angstroem, __pyx_v_order);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_42writeKirkwoodHistogram(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_aufpunkt_dipole, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dip, __Pyx_memviewslice __pyx_v_histogram, double __pyx_v_max_distance, int __pyx_v_segments_per_angstroem, int __pyx_v_order) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_42writeKirkwoodHistogram(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_aufpunkt_dipole, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dip, __Pyx_memviewslice __pyx_v_histogram, double __pyx_v_max_distance, int __pyx_v_segments_per_angstroem, int __pyx_v_order) {
   int __pyx_v_particles;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -16435,10 +16435,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_42writeKirkwoodHistogram(CYTHON
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_45writeKirkwoodHistogramShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_44writeKirkwoodHistogramShellwise[] = "\n    aufpunkt        ... (3)\n    aufpunkt_dipole ... (3)\n    coor            ... (number_of_particles, 3)\n    dip             ... (number_of_particles, 3)\n    histogram       ... (maxshell, max_distance*segments_per_angstroem)\n    norm            ... (maxshell)\n    dataset         ... (number_of_particles)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_45writeKirkwoodHistogramShellwise = {"writeKirkwoodHistogramShellwise", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_45writeKirkwoodHistogramShellwise, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_44writeKirkwoodHistogramShellwise};
-static PyObject *__pyx_pw_11newanalysis_7helpers_45writeKirkwoodHistogramShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_45writeKirkwoodHistogramShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_44writeKirkwoodHistogramShellwise[] = "\n    aufpunkt        ... (3)\n    aufpunkt_dipole ... (3)\n    coor            ... (number_of_particles, 3)\n    dip             ... (number_of_particles, 3)\n    histogram       ... (maxshell, max_distance*segments_per_angstroem)\n    norm            ... (maxshell)\n    dataset         ... (number_of_particles)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_45writeKirkwoodHistogramShellwise = {"writeKirkwoodHistogramShellwise", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_45writeKirkwoodHistogramShellwise, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_44writeKirkwoodHistogramShellwise};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_45writeKirkwoodHistogramShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_aufpunkt = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_aufpunkt_dipole = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_coor = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -16584,18 +16584,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_45writeKirkwoodHistogramShellwi
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("writeKirkwoodHistogramShellwise", 0, 9, 10, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 872, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.writeKirkwoodHistogramShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.writeKirkwoodHistogramShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_44writeKirkwoodHistogramShellwise(__pyx_self, __pyx_v_aufpunkt, __pyx_v_aufpunkt_dipole, __pyx_v_coor, __pyx_v_dip, __pyx_v_histogram, __pyx_v_norm, __pyx_v_dataset, __pyx_v_max_distance, __pyx_v_segments_per_angstroem, __pyx_v_order);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_44writeKirkwoodHistogramShellwise(__pyx_self, __pyx_v_aufpunkt, __pyx_v_aufpunkt_dipole, __pyx_v_coor, __pyx_v_dip, __pyx_v_histogram, __pyx_v_norm, __pyx_v_dataset, __pyx_v_max_distance, __pyx_v_segments_per_angstroem, __pyx_v_order);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_44writeKirkwoodHistogramShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_aufpunkt_dipole, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dip, __Pyx_memviewslice __pyx_v_histogram, __Pyx_memviewslice __pyx_v_norm, __Pyx_memviewslice __pyx_v_dataset, double __pyx_v_max_distance, int __pyx_v_segments_per_angstroem, int __pyx_v_order) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_44writeKirkwoodHistogramShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_aufpunkt_dipole, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dip, __Pyx_memviewslice __pyx_v_histogram, __Pyx_memviewslice __pyx_v_norm, __Pyx_memviewslice __pyx_v_dataset, double __pyx_v_max_distance, int __pyx_v_segments_per_angstroem, int __pyx_v_order) {
   int __pyx_v_particles;
   int __pyx_v_maxshell;
   int __pyx_v_i;
@@ -16823,7 +16823,7 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_44writeKirkwoodHistogramShellwi
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.writeKirkwoodHistogramShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.writeKirkwoodHistogramShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_aufpunkt, 1);
@@ -16847,10 +16847,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_44writeKirkwoodHistogramShellwi
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_47writeKirkwoodHistogramShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_46writeKirkwoodHistogramShellwise[] = "\n    aufpunkt        ... (number_aufpunkte, 3)\n    aufpunkt_dipole ... (number_aufpunkte, 3)\n    coor            ... (number_of_particles, 3)\n    dip             ... (number_of_particles, 3)\n    histogram       ... (maxshell, max_distance*segments_per_angstroem)\n    norm            ... (maxshell)\n    dataset         ... (number_of_particles)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_47writeKirkwoodHistogramShellwise = {"writeKirkwoodHistogramShellwise", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_47writeKirkwoodHistogramShellwise, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_46writeKirkwoodHistogramShellwise};
-static PyObject *__pyx_pw_11newanalysis_7helpers_47writeKirkwoodHistogramShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_47writeKirkwoodHistogramShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_46writeKirkwoodHistogramShellwise[] = "\n    aufpunkt        ... (number_aufpunkte, 3)\n    aufpunkt_dipole ... (number_aufpunkte, 3)\n    coor            ... (number_of_particles, 3)\n    dip             ... (number_of_particles, 3)\n    histogram       ... (maxshell, max_distance*segments_per_angstroem)\n    norm            ... (maxshell)\n    dataset         ... (number_of_particles)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_47writeKirkwoodHistogramShellwise = {"writeKirkwoodHistogramShellwise", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_47writeKirkwoodHistogramShellwise, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_46writeKirkwoodHistogramShellwise};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_47writeKirkwoodHistogramShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_aufpunkte = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_aufpunkt_dipole = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_coor = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -16996,18 +16996,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_47writeKirkwoodHistogramShellwi
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("writeKirkwoodHistogramShellwise", 0, 9, 10, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 895, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.writeKirkwoodHistogramShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.writeKirkwoodHistogramShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_46writeKirkwoodHistogramShellwise(__pyx_self, __pyx_v_aufpunkte, __pyx_v_aufpunkt_dipole, __pyx_v_coor, __pyx_v_dip, __pyx_v_histogram, __pyx_v_norm, __pyx_v_dataset, __pyx_v_max_distance, __pyx_v_segments_per_angstroem, __pyx_v_order);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_46writeKirkwoodHistogramShellwise(__pyx_self, __pyx_v_aufpunkte, __pyx_v_aufpunkt_dipole, __pyx_v_coor, __pyx_v_dip, __pyx_v_histogram, __pyx_v_norm, __pyx_v_dataset, __pyx_v_max_distance, __pyx_v_segments_per_angstroem, __pyx_v_order);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_46writeKirkwoodHistogramShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkte, __Pyx_memviewslice __pyx_v_aufpunkt_dipole, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dip, __Pyx_memviewslice __pyx_v_histogram, __Pyx_memviewslice __pyx_v_norm, __Pyx_memviewslice __pyx_v_dataset, double __pyx_v_max_distance, int __pyx_v_segments_per_angstroem, int __pyx_v_order) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_46writeKirkwoodHistogramShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkte, __Pyx_memviewslice __pyx_v_aufpunkt_dipole, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dip, __Pyx_memviewslice __pyx_v_histogram, __Pyx_memviewslice __pyx_v_norm, __Pyx_memviewslice __pyx_v_dataset, double __pyx_v_max_distance, int __pyx_v_segments_per_angstroem, int __pyx_v_order) {
   int __pyx_v_number_aufpunkte;
   int __pyx_v_particles;
   int __pyx_v_maxshell;
@@ -17400,7 +17400,7 @@ __PYX_XDEC_MEMVIEW(&__pyx_v_aufpunkt_dipol, 1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __PYX_XDEC_MEMVIEW(&__pyx_t_4, 1);
-  __Pyx_AddTraceback("newanalysis.helpers.writeKirkwoodHistogramShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.writeKirkwoodHistogramShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_aufpunkt, 1);
@@ -17426,9 +17426,9 @@ __PYX_XDEC_MEMVIEW(&__pyx_v_aufpunkt_dipol, 1);
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_49writeKirkwoodHistogram2D(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_49writeKirkwoodHistogram2D = {"writeKirkwoodHistogram2D", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_49writeKirkwoodHistogram2D, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_11newanalysis_7helpers_49writeKirkwoodHistogram2D(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_49writeKirkwoodHistogram2D(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_49writeKirkwoodHistogram2D = {"writeKirkwoodHistogram2D", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_49writeKirkwoodHistogram2D, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_49writeKirkwoodHistogram2D(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_aufpunkt = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_aufpunkt_dipole = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_coor = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -17563,18 +17563,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_49writeKirkwoodHistogram2D(PyOb
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("writeKirkwoodHistogram2D", 0, 8, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 926, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.writeKirkwoodHistogram2D", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.writeKirkwoodHistogram2D", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_48writeKirkwoodHistogram2D(__pyx_self, __pyx_v_aufpunkt, __pyx_v_aufpunkt_dipole, __pyx_v_coor, __pyx_v_dip, __pyx_v_histogram, __pyx_v_max_distance, __pyx_v_segments_per_angstroem, __pyx_v_segments_per_pi, __pyx_v_order);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_48writeKirkwoodHistogram2D(__pyx_self, __pyx_v_aufpunkt, __pyx_v_aufpunkt_dipole, __pyx_v_coor, __pyx_v_dip, __pyx_v_histogram, __pyx_v_max_distance, __pyx_v_segments_per_angstroem, __pyx_v_segments_per_pi, __pyx_v_order);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_48writeKirkwoodHistogram2D(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_aufpunkt_dipole, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dip, __Pyx_memviewslice __pyx_v_histogram, double __pyx_v_max_distance, int __pyx_v_segments_per_angstroem, int __pyx_v_segments_per_pi, int __pyx_v_order) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_48writeKirkwoodHistogram2D(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_aufpunkt_dipole, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dip, __Pyx_memviewslice __pyx_v_histogram, double __pyx_v_max_distance, int __pyx_v_segments_per_angstroem, int __pyx_v_segments_per_pi, int __pyx_v_order) {
   int __pyx_v_particles;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -17651,10 +17651,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_48writeKirkwoodHistogram2D(CYTH
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_51getBondTable(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_50getBondTable[] = "\n    coor        ... (n_particles, 3)\n    bond_table  ... (n_particles, n_particles)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_51getBondTable = {"getBondTable", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_51getBondTable, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_50getBondTable};
-static PyObject *__pyx_pw_11newanalysis_7helpers_51getBondTable(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_51getBondTable(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_50getBondTable[] = "\n    coor        ... (n_particles, 3)\n    bond_table  ... (n_particles, n_particles)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_51getBondTable = {"getBondTable", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_51getBondTable, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_50getBondTable};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_51getBondTable(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_coor = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_bond_table = { 0, 0, { 0 }, { 0 }, { 0 } };
   int __pyx_v_cutoff;
@@ -17723,18 +17723,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_51getBondTable(PyObject *__pyx_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("getBondTable", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 933, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.getBondTable", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.getBondTable", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_50getBondTable(__pyx_self, __pyx_v_coor, __pyx_v_bond_table, __pyx_v_cutoff);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_50getBondTable(__pyx_self, __pyx_v_coor, __pyx_v_bond_table, __pyx_v_cutoff);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_50getBondTable(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_bond_table, int __pyx_v_cutoff) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_50getBondTable(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_bond_table, int __pyx_v_cutoff) {
   int __pyx_v_n_particles;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -17796,9 +17796,9 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_50getBondTable(CYTHON_UNUSED Py
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_53sumVennMDCageSingle(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_53sumVennMDCageSingle = {"sumVennMDCageSingle", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_53sumVennMDCageSingle, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_11newanalysis_7helpers_53sumVennMDCageSingle(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_53sumVennMDCageSingle(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_53sumVennMDCageSingle = {"sumVennMDCageSingle", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_53sumVennMDCageSingle, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_53sumVennMDCageSingle(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_mdcage_timeseries = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_dipoles = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_dataset1 = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -17904,18 +17904,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_53sumVennMDCageSingle(PyObject 
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("sumVennMDCageSingle", 1, 7, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 955, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.sumVennMDCageSingle", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.sumVennMDCageSingle", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_52sumVennMDCageSingle(__pyx_self, __pyx_v_mdcage_timeseries, __pyx_v_dipoles, __pyx_v_dataset1, __pyx_v_dataset2, __pyx_v_maxshell1, __pyx_v_maxshell2, __pyx_v_frame);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_52sumVennMDCageSingle(__pyx_self, __pyx_v_mdcage_timeseries, __pyx_v_dipoles, __pyx_v_dataset1, __pyx_v_dataset2, __pyx_v_maxshell1, __pyx_v_maxshell2, __pyx_v_frame);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_52sumVennMDCageSingle(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_mdcage_timeseries, __Pyx_memviewslice __pyx_v_dipoles, __Pyx_memviewslice __pyx_v_dataset1, __Pyx_memviewslice __pyx_v_dataset2, int __pyx_v_maxshell1, int __pyx_v_maxshell2, int __pyx_v_frame) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_52sumVennMDCageSingle(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_mdcage_timeseries, __Pyx_memviewslice __pyx_v_dipoles, __Pyx_memviewslice __pyx_v_dataset1, __Pyx_memviewslice __pyx_v_dataset2, int __pyx_v_maxshell1, int __pyx_v_maxshell2, int __pyx_v_frame) {
   int __pyx_v_w;
   int __pyx_v_shell1;
   int __pyx_v_shell2;
@@ -18096,9 +18096,9 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_52sumVennMDCageSingle(CYTHON_UN
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_55sumMultiMDCageSingle(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_55sumMultiMDCageSingle = {"sumMultiMDCageSingle", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_55sumMultiMDCageSingle, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_11newanalysis_7helpers_55sumMultiMDCageSingle(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_55sumMultiMDCageSingle(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_55sumMultiMDCageSingle = {"sumMultiMDCageSingle", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_55sumMultiMDCageSingle, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_55sumMultiMDCageSingle(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_mdcage_ts = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_dip_wat = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_ds1 = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -18226,18 +18226,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_55sumMultiMDCageSingle(PyObject
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("sumMultiMDCageSingle", 1, 9, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 973, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.sumMultiMDCageSingle", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.sumMultiMDCageSingle", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_54sumMultiMDCageSingle(__pyx_self, __pyx_v_mdcage_ts, __pyx_v_dip_wat, __pyx_v_ds1, __pyx_v_ds2, __pyx_v_ds3, __pyx_v_ds4, __pyx_v_ds5, __pyx_v_maxshell, __pyx_v_frame);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_54sumMultiMDCageSingle(__pyx_self, __pyx_v_mdcage_ts, __pyx_v_dip_wat, __pyx_v_ds1, __pyx_v_ds2, __pyx_v_ds3, __pyx_v_ds4, __pyx_v_ds5, __pyx_v_maxshell, __pyx_v_frame);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_54sumMultiMDCageSingle(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_mdcage_ts, __Pyx_memviewslice __pyx_v_dip_wat, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2, __Pyx_memviewslice __pyx_v_ds3, __Pyx_memviewslice __pyx_v_ds4, __Pyx_memviewslice __pyx_v_ds5, int __pyx_v_maxshell, int __pyx_v_frame) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_54sumMultiMDCageSingle(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_mdcage_ts, __Pyx_memviewslice __pyx_v_dip_wat, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2, __Pyx_memviewslice __pyx_v_ds3, __Pyx_memviewslice __pyx_v_ds4, __Pyx_memviewslice __pyx_v_ds5, int __pyx_v_maxshell, int __pyx_v_frame) {
   int __pyx_v_w;
   int __pyx_v_shell;
   int __pyx_v_i;
@@ -18494,10 +18494,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_54sumMultiMDCageSingle(CYTHON_U
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_57multiVecShellCorrelate(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_56multiVecShellCorrelate[] = "\n    rotTs              ... (nmol, n (time length), 3D)\n    (,self,cross)coor  ... (shell1, n (time length))\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_57multiVecShellCorrelate = {"multiVecShellCorrelate", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_57multiVecShellCorrelate, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_56multiVecShellCorrelate};
-static PyObject *__pyx_pw_11newanalysis_7helpers_57multiVecShellCorrelate(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_57multiVecShellCorrelate(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_56multiVecShellCorrelate[] = "\n    rotTs              ... (nmol, n (time length), 3D)\n    (,self,cross)coor  ... (shell1, n (time length))\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_57multiVecShellCorrelate = {"multiVecShellCorrelate", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_57multiVecShellCorrelate, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_56multiVecShellCorrelate};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_57multiVecShellCorrelate(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_rotTs = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_ds1 = { 0, 0, { 0 }, { 0 }, { 0 } };
   long __pyx_v_nshells1;
@@ -18581,18 +18581,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_57multiVecShellCorrelate(PyObje
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("multiVecShellCorrelate", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 995, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.multiVecShellCorrelate", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.multiVecShellCorrelate", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_56multiVecShellCorrelate(__pyx_self, __pyx_v_rotTs, __pyx_v_ds1, __pyx_v_nshells1, __pyx_v_maxdt, __pyx_v_startingpoints);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_56multiVecShellCorrelate(__pyx_self, __pyx_v_rotTs, __pyx_v_ds1, __pyx_v_nshells1, __pyx_v_maxdt, __pyx_v_startingpoints);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_56multiVecShellCorrelate(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_rotTs, __Pyx_memviewslice __pyx_v_ds1, long __pyx_v_nshells1, long __pyx_v_maxdt, long __pyx_v_startingpoints) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_56multiVecShellCorrelate(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_rotTs, __Pyx_memviewslice __pyx_v_ds1, long __pyx_v_nshells1, long __pyx_v_maxdt, long __pyx_v_startingpoints) {
   long __pyx_v_nmol;
   long __pyx_v_n;
   long __pyx_v_startskip;
@@ -19449,7 +19449,7 @@ __pyx_t_1 = __Pyx_MemoryView_Len(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_25);
   __Pyx_XDECREF(__pyx_t_26);
-  __Pyx_AddTraceback("newanalysis.helpers.multiVecShellCorrelate", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.multiVecShellCorrelate", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_corr, 1);
@@ -19474,10 +19474,10 @@ __pyx_t_1 = __Pyx_MemoryView_Len(__pyx_t_2);
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_59multiVecVennShellCorrelate(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_58multiVecVennShellCorrelate[] = "\n    rotTs              ... (nmol, n (time length), 3D)\n    (,self,cross)coor  ... (shell1, shell2, n (time length))\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_59multiVecVennShellCorrelate = {"multiVecVennShellCorrelate", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_59multiVecVennShellCorrelate, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_58multiVecVennShellCorrelate};
-static PyObject *__pyx_pw_11newanalysis_7helpers_59multiVecVennShellCorrelate(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_59multiVecVennShellCorrelate(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_58multiVecVennShellCorrelate[] = "\n    rotTs              ... (nmol, n (time length), 3D)\n    (,self,cross)coor  ... (shell1, shell2, n (time length))\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_59multiVecVennShellCorrelate = {"multiVecVennShellCorrelate", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_59multiVecVennShellCorrelate, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_58multiVecVennShellCorrelate};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_59multiVecVennShellCorrelate(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_rotTs = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_ds1 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_ds2 = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -19583,18 +19583,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_59multiVecVennShellCorrelate(Py
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("multiVecVennShellCorrelate", 1, 7, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1052, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.multiVecVennShellCorrelate", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.multiVecVennShellCorrelate", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_58multiVecVennShellCorrelate(__pyx_self, __pyx_v_rotTs, __pyx_v_ds1, __pyx_v_ds2, __pyx_v_nshells1, __pyx_v_nshells2, __pyx_v_maxdt, __pyx_v_startingpoints);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_58multiVecVennShellCorrelate(__pyx_self, __pyx_v_rotTs, __pyx_v_ds1, __pyx_v_ds2, __pyx_v_nshells1, __pyx_v_nshells2, __pyx_v_maxdt, __pyx_v_startingpoints);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_58multiVecVennShellCorrelate(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_rotTs, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2, long __pyx_v_nshells1, long __pyx_v_nshells2, long __pyx_v_maxdt, long __pyx_v_startingpoints) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_58multiVecVennShellCorrelate(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_rotTs, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2, long __pyx_v_nshells1, long __pyx_v_nshells2, long __pyx_v_maxdt, long __pyx_v_startingpoints) {
   long __pyx_v_nmol;
   long __pyx_v_n;
   long __pyx_v_startskip;
@@ -20654,7 +20654,7 @@ __pyx_t_1 = __Pyx_MemoryView_Len(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_9);
   __PYX_XDEC_MEMVIEW(&__pyx_t_10, 1);
   __Pyx_XDECREF(__pyx_t_31);
-  __Pyx_AddTraceback("newanalysis.helpers.multiVecVennShellCorrelate", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.multiVecVennShellCorrelate", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_corr, 1);
@@ -20680,9 +20680,9 @@ __pyx_t_1 = __Pyx_MemoryView_Len(__pyx_t_2);
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_61rotationMatrixVennShellCorrelate(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_61rotationMatrixVennShellCorrelate = {"rotationMatrixVennShellCorrelate", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_61rotationMatrixVennShellCorrelate, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_11newanalysis_7helpers_61rotationMatrixVennShellCorrelate(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_61rotationMatrixVennShellCorrelate(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_61rotationMatrixVennShellCorrelate = {"rotationMatrixVennShellCorrelate", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_61rotationMatrixVennShellCorrelate, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_61rotationMatrixVennShellCorrelate(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_rotTs = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_ds1 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_ds2 = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -20788,18 +20788,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_61rotationMatrixVennShellCorrel
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("rotationMatrixVennShellCorrelate", 1, 7, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1112, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.rotationMatrixVennShellCorrelate", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.rotationMatrixVennShellCorrelate", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_60rotationMatrixVennShellCorrelate(__pyx_self, __pyx_v_rotTs, __pyx_v_ds1, __pyx_v_ds2, __pyx_v_nshells1, __pyx_v_nshells2, __pyx_v_maxdt, __pyx_v_startingpoints);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_60rotationMatrixVennShellCorrelate(__pyx_self, __pyx_v_rotTs, __pyx_v_ds1, __pyx_v_ds2, __pyx_v_nshells1, __pyx_v_nshells2, __pyx_v_maxdt, __pyx_v_startingpoints);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_60rotationMatrixVennShellCorrelate(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_rotTs, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2, long __pyx_v_nshells1, long __pyx_v_nshells2, long __pyx_v_maxdt, long __pyx_v_startingpoints) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_60rotationMatrixVennShellCorrelate(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_rotTs, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2, long __pyx_v_nshells1, long __pyx_v_nshells2, long __pyx_v_maxdt, long __pyx_v_startingpoints) {
   long __pyx_v_nmol;
   long __pyx_v_n;
   long __pyx_v_startskip;
@@ -22447,7 +22447,7 @@ __pyx_t_1 = __Pyx_MemoryView_Len(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_9);
   __PYX_XDEC_MEMVIEW(&__pyx_t_10, 1);
   __Pyx_XDECREF(__pyx_t_40);
-  __Pyx_AddTraceback("newanalysis.helpers.rotationMatrixVennShellCorrelate", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.rotationMatrixVennShellCorrelate", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_corr, 1);
@@ -22473,9 +22473,9 @@ __pyx_t_1 = __Pyx_MemoryView_Len(__pyx_t_2);
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_63rotationMatrixMultiShellCorrelate(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_63rotationMatrixMultiShellCorrelate = {"rotationMatrixMultiShellCorrelate", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_63rotationMatrixMultiShellCorrelate, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_11newanalysis_7helpers_63rotationMatrixMultiShellCorrelate(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_63rotationMatrixMultiShellCorrelate(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_63rotationMatrixMultiShellCorrelate = {"rotationMatrixMultiShellCorrelate", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_63rotationMatrixMultiShellCorrelate, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_63rotationMatrixMultiShellCorrelate(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_rotTs = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_ds1 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_ds2 = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -22603,18 +22603,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_63rotationMatrixMultiShellCorre
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("rotationMatrixMultiShellCorrelate", 1, 9, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1200, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.rotationMatrixMultiShellCorrelate", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.rotationMatrixMultiShellCorrelate", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_62rotationMatrixMultiShellCorrelate(__pyx_self, __pyx_v_rotTs, __pyx_v_ds1, __pyx_v_ds2, __pyx_v_ds3, __pyx_v_ds4, __pyx_v_ds5, __pyx_v_nshells, __pyx_v_maxdt, __pyx_v_startingpoints);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_62rotationMatrixMultiShellCorrelate(__pyx_self, __pyx_v_rotTs, __pyx_v_ds1, __pyx_v_ds2, __pyx_v_ds3, __pyx_v_ds4, __pyx_v_ds5, __pyx_v_nshells, __pyx_v_maxdt, __pyx_v_startingpoints);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_62rotationMatrixMultiShellCorrelate(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_rotTs, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2, __Pyx_memviewslice __pyx_v_ds3, __Pyx_memviewslice __pyx_v_ds4, __Pyx_memviewslice __pyx_v_ds5, long __pyx_v_nshells, long __pyx_v_maxdt, long __pyx_v_startingpoints) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_62rotationMatrixMultiShellCorrelate(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_rotTs, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2, __Pyx_memviewslice __pyx_v_ds3, __Pyx_memviewslice __pyx_v_ds4, __Pyx_memviewslice __pyx_v_ds5, long __pyx_v_nshells, long __pyx_v_maxdt, long __pyx_v_startingpoints) {
   long __pyx_v_nmol;
   long __pyx_v_n;
   long __pyx_v_startskip;
@@ -24272,7 +24272,7 @@ __pyx_t_1 = __Pyx_MemoryView_Len(__pyx_t_2);
   __PYX_XDEC_MEMVIEW(&__pyx_t_9, 1);
   __Pyx_XDECREF(__pyx_t_40);
   __Pyx_XDECREF(__pyx_t_41);
-  __Pyx_AddTraceback("newanalysis.helpers.rotationMatrixMultiShellCorrelate", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.rotationMatrixMultiShellCorrelate", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_corr, 1);
@@ -24301,9 +24301,9 @@ __pyx_t_1 = __Pyx_MemoryView_Len(__pyx_t_2);
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_65collectiveDipolesCutoff(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_65collectiveDipolesCutoff = {"collectiveDipolesCutoff", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_65collectiveDipolesCutoff, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_11newanalysis_7helpers_65collectiveDipolesCutoff(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_65collectiveDipolesCutoff(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_65collectiveDipolesCutoff = {"collectiveDipolesCutoff", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_65collectiveDipolesCutoff, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_65collectiveDipolesCutoff(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_coor = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_dipoles = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_aufpunkt = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -24398,18 +24398,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_65collectiveDipolesCutoff(PyObj
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("collectiveDipolesCutoff", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1292, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.collectiveDipolesCutoff", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.collectiveDipolesCutoff", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_64collectiveDipolesCutoff(__pyx_self, __pyx_v_coor, __pyx_v_dipoles, __pyx_v_aufpunkt, __pyx_v_dip_inside, __pyx_v_dip_outside, __pyx_v_cutoff);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_64collectiveDipolesCutoff(__pyx_self, __pyx_v_coor, __pyx_v_dipoles, __pyx_v_aufpunkt, __pyx_v_dip_inside, __pyx_v_dip_outside, __pyx_v_cutoff);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_64collectiveDipolesCutoff(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dipoles, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_dip_inside, __Pyx_memviewslice __pyx_v_dip_outside, double __pyx_v_cutoff) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_64collectiveDipolesCutoff(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_dipoles, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_dip_inside, __Pyx_memviewslice __pyx_v_dip_outside, double __pyx_v_cutoff) {
   int __pyx_v_particles;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -24483,9 +24483,9 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_64collectiveDipolesCutoff(CYTHO
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_67shellHistograms(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_67shellHistograms = {"shellHistograms", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_67shellHistograms, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_11newanalysis_7helpers_67shellHistograms(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_67shellHistograms(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_67shellHistograms = {"shellHistograms", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_67shellHistograms, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_67shellHistograms(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_histograms = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_aufpunkt = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_coors = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -24591,18 +24591,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_67shellHistograms(PyObject *__p
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("shellHistograms", 1, 7, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1300, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.shellHistograms", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.shellHistograms", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_66shellHistograms(__pyx_self, __pyx_v_histograms, __pyx_v_aufpunkt, __pyx_v_coors, __pyx_v_ds, __pyx_v_maxshell, __pyx_v_max_distance, __pyx_v_segs_per_angstroem);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_66shellHistograms(__pyx_self, __pyx_v_histograms, __pyx_v_aufpunkt, __pyx_v_coors, __pyx_v_ds, __pyx_v_maxshell, __pyx_v_max_distance, __pyx_v_segs_per_angstroem);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_66shellHistograms(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_histograms, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_coors, __Pyx_memviewslice __pyx_v_ds, int __pyx_v_maxshell, double __pyx_v_max_distance, int __pyx_v_segs_per_angstroem) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_66shellHistograms(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_histograms, __Pyx_memviewslice __pyx_v_aufpunkt, __Pyx_memviewslice __pyx_v_coors, __Pyx_memviewslice __pyx_v_ds, int __pyx_v_maxshell, double __pyx_v_max_distance, int __pyx_v_segs_per_angstroem) {
   int __pyx_v_i;
   int __pyx_v_shell;
   int __pyx_v_bin_dist;
@@ -24794,7 +24794,7 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_66shellHistograms(CYTHON_UNUSED
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_17);
-  __Pyx_AddTraceback("newanalysis.helpers.shellHistograms", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.shellHistograms", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_histograms, 1);
@@ -24815,10 +24815,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_66shellHistograms(CYTHON_UNUSED
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_69correlateSingleVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_68correlateSingleVector[] = "\n    Correlate the timeseries of a single vector (e.g. collective dipole, one single particle, etc...)\n    timeseries  ... (number_of_frames, 3)\n    result      ... (number_of_frames)\n    order       ... Which order of Lagrangian Polynom (1-6 available)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_69correlateSingleVector = {"correlateSingleVector", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_69correlateSingleVector, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_68correlateSingleVector};
-static PyObject *__pyx_pw_11newanalysis_7helpers_69correlateSingleVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_69correlateSingleVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_68correlateSingleVector[] = "\n    Correlate the timeseries of a single vector (e.g. collective dipole, one single particle, etc...)\n    timeseries  ... (number_of_frames, 3)\n    result      ... (number_of_frames)\n    order       ... Which order of Lagrangian Polynom (1-6 available)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_69correlateSingleVector = {"correlateSingleVector", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_69correlateSingleVector, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_68correlateSingleVector};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_69correlateSingleVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_timeseries = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_result = { 0, 0, { 0 }, { 0 }, { 0 } };
   int __pyx_v_order;
@@ -24887,18 +24887,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_69correlateSingleVector(PyObjec
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("correlateSingleVector", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1345, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.correlateSingleVector", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.correlateSingleVector", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_68correlateSingleVector(__pyx_self, __pyx_v_timeseries, __pyx_v_result, __pyx_v_order);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_68correlateSingleVector(__pyx_self, __pyx_v_timeseries, __pyx_v_result, __pyx_v_order);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_68correlateSingleVector(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_result, int __pyx_v_order) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_68correlateSingleVector(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_result, int __pyx_v_order) {
   int __pyx_v_number_of_frames;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -24957,10 +24957,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_68correlateSingleVector(CYTHON_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_71crossCorrelateSingleVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_70crossCorrelateSingleVector[] = "\n    Correlate the timeseries of two different single vectors (e.g. collective dipole, one single particle, etc...)\n    ATTN: Both timeseries need to be equally long! #TODO: Aendern?\n\n    timeseries1     ... (number_of_frames1, 3)\n    timeseries2     ... (number_of_frames2, 3)\n    result          ... (number_of_frames)\n    both_directions ... Do you want to cross-correlate both vectors, that is <A(0) B(t)> + <B(0) A(t)> yes/no.\n    order           ... Which order of Lagrangian Polynom (1-6 available)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_71crossCorrelateSingleVector = {"crossCorrelateSingleVector", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_71crossCorrelateSingleVector, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_70crossCorrelateSingleVector};
-static PyObject *__pyx_pw_11newanalysis_7helpers_71crossCorrelateSingleVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_71crossCorrelateSingleVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_70crossCorrelateSingleVector[] = "\n    Correlate the timeseries of two different single vectors (e.g. collective dipole, one single particle, etc...)\n    ATTN: Both timeseries need to be equally long! #TODO: Aendern?\n\n    timeseries1     ... (number_of_frames1, 3)\n    timeseries2     ... (number_of_frames2, 3)\n    result          ... (number_of_frames)\n    both_directions ... Do you want to cross-correlate both vectors, that is <A(0) B(t)> + <B(0) A(t)> yes/no.\n    order           ... Which order of Lagrangian Polynom (1-6 available)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_71crossCorrelateSingleVector = {"crossCorrelateSingleVector", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_71crossCorrelateSingleVector, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_70crossCorrelateSingleVector};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_71crossCorrelateSingleVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_timeseries1 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_timeseries2 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_result = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -25056,18 +25056,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_71crossCorrelateSingleVector(Py
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("crossCorrelateSingleVector", 0, 3, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1357, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.crossCorrelateSingleVector", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.crossCorrelateSingleVector", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_70crossCorrelateSingleVector(__pyx_self, __pyx_v_timeseries1, __pyx_v_timeseries2, __pyx_v_result, __pyx_v_both_directions, __pyx_v_order);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_70crossCorrelateSingleVector(__pyx_self, __pyx_v_timeseries1, __pyx_v_timeseries2, __pyx_v_result, __pyx_v_both_directions, __pyx_v_order);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_70crossCorrelateSingleVector(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries1, __Pyx_memviewslice __pyx_v_timeseries2, __Pyx_memviewslice __pyx_v_result, int __pyx_v_both_directions, int __pyx_v_order) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_70crossCorrelateSingleVector(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries1, __Pyx_memviewslice __pyx_v_timeseries2, __Pyx_memviewslice __pyx_v_result, int __pyx_v_both_directions, int __pyx_v_order) {
   int __pyx_v_number_of_frames1;
   int __pyx_v_number_of_frames2;
   PyObject *__pyx_r = NULL;
@@ -25143,10 +25143,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_70crossCorrelateSingleVector(CY
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_73correlateMultiVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_72correlateMultiVector[] = "\n    Correlate the timeseries of multiple vectors (e.g. single-particle dynamics of a collection of dipoles,...)\n    timeseries  ... (number_of_particles, number_of_frames, 3)\n    result      ... (number_of_frames)\n    order       ... Which order of Lagrangian Polynom (1-6 available)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_73correlateMultiVector = {"correlateMultiVector", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_73correlateMultiVector, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_72correlateMultiVector};
-static PyObject *__pyx_pw_11newanalysis_7helpers_73correlateMultiVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_73correlateMultiVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_72correlateMultiVector[] = "\n    Correlate the timeseries of multiple vectors (e.g. single-particle dynamics of a collection of dipoles,...)\n    timeseries  ... (number_of_particles, number_of_frames, 3)\n    result      ... (number_of_frames)\n    order       ... Which order of Lagrangian Polynom (1-6 available)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_73correlateMultiVector = {"correlateMultiVector", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_73correlateMultiVector, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_72correlateMultiVector};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_73correlateMultiVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_timeseries = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_result = { 0, 0, { 0 }, { 0 }, { 0 } };
   int __pyx_v_order;
@@ -25215,18 +25215,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_73correlateMultiVector(PyObject
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("correlateMultiVector", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1374, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.correlateMultiVector", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.correlateMultiVector", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_72correlateMultiVector(__pyx_self, __pyx_v_timeseries, __pyx_v_result, __pyx_v_order);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_72correlateMultiVector(__pyx_self, __pyx_v_timeseries, __pyx_v_result, __pyx_v_order);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_72correlateMultiVector(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_result, int __pyx_v_order) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_72correlateMultiVector(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_result, int __pyx_v_order) {
   int __pyx_v_number_of_particles;
   int __pyx_v_number_of_frames;
   PyObject *__pyx_r = NULL;
@@ -25298,10 +25298,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_72correlateMultiVector(CYTHON_U
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_75correlateMultiVectorShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_74correlateMultiVectorShellwise[] = "\n    timeseries  ... (number_of_particles, number_of_frames, 3)\n    dataset     ... (number_of_frames, number_of_particles)\n    result      ... (number_of_shells, number_of_frames)\n    order       ... Which order of Lagrangian Polynom (1-6 available)  \n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_75correlateMultiVectorShellwise = {"correlateMultiVectorShellwise", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_75correlateMultiVectorShellwise, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_74correlateMultiVectorShellwise};
-static PyObject *__pyx_pw_11newanalysis_7helpers_75correlateMultiVectorShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_75correlateMultiVectorShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_74correlateMultiVectorShellwise[] = "\n    timeseries  ... (number_of_particles, number_of_frames, 3)\n    dataset     ... (number_of_frames, number_of_particles)\n    result      ... (number_of_shells, number_of_frames)\n    order       ... Which order of Lagrangian Polynom (1-6 available)  \n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_75correlateMultiVectorShellwise = {"correlateMultiVectorShellwise", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_75correlateMultiVectorShellwise, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_74correlateMultiVectorShellwise};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_75correlateMultiVectorShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_timeseries = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_dataset = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_result = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -25392,18 +25392,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_75correlateMultiVectorShellwise
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("correlateMultiVectorShellwise", 0, 4, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1387, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.correlateMultiVectorShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.correlateMultiVectorShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_74correlateMultiVectorShellwise(__pyx_self, __pyx_v_timeseries, __pyx_v_dataset, __pyx_v_result, __pyx_v_maxshell, __pyx_v_order);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_74correlateMultiVectorShellwise(__pyx_self, __pyx_v_timeseries, __pyx_v_dataset, __pyx_v_result, __pyx_v_maxshell, __pyx_v_order);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_74correlateMultiVectorShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_dataset, __Pyx_memviewslice __pyx_v_result, int __pyx_v_maxshell, int __pyx_v_order) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_74correlateMultiVectorShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_dataset, __Pyx_memviewslice __pyx_v_result, int __pyx_v_maxshell, int __pyx_v_order) {
   int __pyx_v_number_of_particles;
   int __pyx_v_number_of_frames;
   PyObject *__pyx_r = NULL;
@@ -25485,10 +25485,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_74correlateMultiVectorShellwise
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_77correlateMultiVectorVennShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_76correlateMultiVectorVennShellwise[] = "\n    timeseries  ... (number_of_particles, number_of_frames, 3)\n    dataset1    ... (number_of_frames, number_of_particles)\n    dataset2    ... (number_of_frames, number_of_particles)\n    result      ... (number_of_shells1, number_of_shells2, number_of_frames)\n    order       ... Which order of Lagrangian Polynom (1-6 available)  \n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_77correlateMultiVectorVennShellwise = {"correlateMultiVectorVennShellwise", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_77correlateMultiVectorVennShellwise, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_76correlateMultiVectorVennShellwise};
-static PyObject *__pyx_pw_11newanalysis_7helpers_77correlateMultiVectorVennShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_77correlateMultiVectorVennShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_76correlateMultiVectorVennShellwise[] = "\n    timeseries  ... (number_of_particles, number_of_frames, 3)\n    dataset1    ... (number_of_frames, number_of_particles)\n    dataset2    ... (number_of_frames, number_of_particles)\n    result      ... (number_of_shells1, number_of_shells2, number_of_frames)\n    order       ... Which order of Lagrangian Polynom (1-6 available)  \n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_77correlateMultiVectorVennShellwise = {"correlateMultiVectorVennShellwise", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_77correlateMultiVectorVennShellwise, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_76correlateMultiVectorVennShellwise};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_77correlateMultiVectorVennShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_timeseries = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_dataset1 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_dataset2 = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -25601,18 +25601,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_77correlateMultiVectorVennShell
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("correlateMultiVectorVennShellwise", 0, 6, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1399, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.correlateMultiVectorVennShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.correlateMultiVectorVennShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_76correlateMultiVectorVennShellwise(__pyx_self, __pyx_v_timeseries, __pyx_v_dataset1, __pyx_v_dataset2, __pyx_v_result, __pyx_v_maxshell1, __pyx_v_maxshell2, __pyx_v_order);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_76correlateMultiVectorVennShellwise(__pyx_self, __pyx_v_timeseries, __pyx_v_dataset1, __pyx_v_dataset2, __pyx_v_result, __pyx_v_maxshell1, __pyx_v_maxshell2, __pyx_v_order);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_76correlateMultiVectorVennShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_dataset1, __Pyx_memviewslice __pyx_v_dataset2, __Pyx_memviewslice __pyx_v_result, int __pyx_v_maxshell1, int __pyx_v_maxshell2, int __pyx_v_order) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_76correlateMultiVectorVennShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_dataset1, __Pyx_memviewslice __pyx_v_dataset2, __Pyx_memviewslice __pyx_v_result, int __pyx_v_maxshell1, int __pyx_v_maxshell2, int __pyx_v_order) {
   int __pyx_v_number_of_particles;
   int __pyx_v_number_of_frames;
   PyObject *__pyx_r = NULL;
@@ -25742,7 +25742,7 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_76correlateMultiVectorVennShell
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.correlateMultiVectorVennShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.correlateMultiVectorVennShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_timeseries, 1);
@@ -25763,10 +25763,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_76correlateMultiVectorVennShell
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_79crossCorrelateMultiVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_78crossCorrelateMultiVector[] = "\n    Correlate the timeseries of multiple vectors (e.g. single-particle dynamics of a collection of dipoles,...)\n    ATTN: Both timeseries need to be equally long and contain the equal amount of particles! #TODO: Aendern?\n\n    timeseries1      ... (number_of_particles, number_of_frames, 3)\n    timeseries2      ... (number_of_particles, number_of_frames, 3)\n    result           ... (number_of_frames)\n    both_directions  ... Do you want to cross-correlate both vectors, that is <A(0) B(t)> + <B(0) A(t)> yes/no.\n    order            ... Which order of Lagrangian Polynom (1-6 available)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_79crossCorrelateMultiVector = {"crossCorrelateMultiVector", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_79crossCorrelateMultiVector, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_78crossCorrelateMultiVector};
-static PyObject *__pyx_pw_11newanalysis_7helpers_79crossCorrelateMultiVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_79crossCorrelateMultiVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_78crossCorrelateMultiVector[] = "\n    Correlate the timeseries of multiple vectors (e.g. single-particle dynamics of a collection of dipoles,...)\n    ATTN: Both timeseries need to be equally long and contain the equal amount of particles! #TODO: Aendern?\n\n    timeseries1      ... (number_of_particles, number_of_frames, 3)\n    timeseries2      ... (number_of_particles, number_of_frames, 3)\n    result           ... (number_of_frames)\n    both_directions  ... Do you want to cross-correlate both vectors, that is <A(0) B(t)> + <B(0) A(t)> yes/no.\n    order            ... Which order of Lagrangian Polynom (1-6 available)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_79crossCorrelateMultiVector = {"crossCorrelateMultiVector", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_79crossCorrelateMultiVector, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_78crossCorrelateMultiVector};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_79crossCorrelateMultiVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_timeseries1 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_timeseries2 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_result = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -25862,18 +25862,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_79crossCorrelateMultiVector(PyO
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("crossCorrelateMultiVector", 0, 3, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1413, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.crossCorrelateMultiVector", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.crossCorrelateMultiVector", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_78crossCorrelateMultiVector(__pyx_self, __pyx_v_timeseries1, __pyx_v_timeseries2, __pyx_v_result, __pyx_v_both_directions, __pyx_v_order);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_78crossCorrelateMultiVector(__pyx_self, __pyx_v_timeseries1, __pyx_v_timeseries2, __pyx_v_result, __pyx_v_both_directions, __pyx_v_order);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_78crossCorrelateMultiVector(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries1, __Pyx_memviewslice __pyx_v_timeseries2, __Pyx_memviewslice __pyx_v_result, int __pyx_v_both_directions, int __pyx_v_order) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_78crossCorrelateMultiVector(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries1, __Pyx_memviewslice __pyx_v_timeseries2, __Pyx_memviewslice __pyx_v_result, int __pyx_v_both_directions, int __pyx_v_order) {
   int __pyx_v_number_of_particles;
   int __pyx_v_number_of_frames1;
   int __pyx_v_number_of_frames2;
@@ -25965,10 +25965,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_78crossCorrelateMultiVector(CYT
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_81correlateSingleParticleMuShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_80correlateSingleParticleMuShellwise[] = "\n    timeseries... (N_particle, number_of_frames, mu)\n    result    ... (N_shell, correlation_length)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_81correlateSingleParticleMuShellwise = {"correlateSingleParticleMuShellwise", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_81correlateSingleParticleMuShellwise, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_80correlateSingleParticleMuShellwise};
-static PyObject *__pyx_pw_11newanalysis_7helpers_81correlateSingleParticleMuShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_81correlateSingleParticleMuShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_80correlateSingleParticleMuShellwise[] = "\n    timeseries... (N_particle, number_of_frames, mu)\n    result    ... (N_shell, correlation_length)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_81correlateSingleParticleMuShellwise = {"correlateSingleParticleMuShellwise", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_81correlateSingleParticleMuShellwise, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_80correlateSingleParticleMuShellwise};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_81correlateSingleParticleMuShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_timeseries = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_result = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_dataset = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -26041,18 +26041,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_81correlateSingleParticleMuShel
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("correlateSingleParticleMuShellwise", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1431, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.correlateSingleParticleMuShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.correlateSingleParticleMuShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_80correlateSingleParticleMuShellwise(__pyx_self, __pyx_v_timeseries, __pyx_v_result, __pyx_v_dataset, __pyx_v_number_of_startingpoints);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_80correlateSingleParticleMuShellwise(__pyx_self, __pyx_v_timeseries, __pyx_v_result, __pyx_v_dataset, __pyx_v_number_of_startingpoints);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_80correlateSingleParticleMuShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_result, __Pyx_memviewslice __pyx_v_dataset, int __pyx_v_number_of_startingpoints) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_80correlateSingleParticleMuShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_result, __Pyx_memviewslice __pyx_v_dataset, int __pyx_v_number_of_startingpoints) {
   int __pyx_v_i;
   int __pyx_v_j;
   int __pyx_v_k;
@@ -26713,7 +26713,7 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_80correlateSingleParticleMuShel
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __PYX_XDEC_MEMVIEW(&__pyx_t_5, 1);
-  __Pyx_AddTraceback("newanalysis.helpers.correlateSingleParticleMuShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.correlateSingleParticleMuShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_sub_correlation, 1);
@@ -26735,10 +26735,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_80correlateSingleParticleMuShel
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_83correlateSingleParticleMuVennShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_82correlateSingleParticleMuVennShellwise[] = "\n    timeseries... (N_particle, number_of_frames, mu)\n    result    ... (N_shell, correlation_length)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_83correlateSingleParticleMuVennShellwise = {"correlateSingleParticleMuVennShellwise", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_83correlateSingleParticleMuVennShellwise, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_82correlateSingleParticleMuVennShellwise};
-static PyObject *__pyx_pw_11newanalysis_7helpers_83correlateSingleParticleMuVennShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_83correlateSingleParticleMuVennShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_82correlateSingleParticleMuVennShellwise[] = "\n    timeseries... (N_particle, number_of_frames, mu)\n    result    ... (N_shell, correlation_length)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_83correlateSingleParticleMuVennShellwise = {"correlateSingleParticleMuVennShellwise", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_83correlateSingleParticleMuVennShellwise, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_82correlateSingleParticleMuVennShellwise};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_83correlateSingleParticleMuVennShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_timeseries = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_result = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_dataset1 = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -26822,18 +26822,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_83correlateSingleParticleMuVenn
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("correlateSingleParticleMuVennShellwise", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1480, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.correlateSingleParticleMuVennShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.correlateSingleParticleMuVennShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_82correlateSingleParticleMuVennShellwise(__pyx_self, __pyx_v_timeseries, __pyx_v_result, __pyx_v_dataset1, __pyx_v_dataset2, __pyx_v_number_of_startingpoints);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_82correlateSingleParticleMuVennShellwise(__pyx_self, __pyx_v_timeseries, __pyx_v_result, __pyx_v_dataset1, __pyx_v_dataset2, __pyx_v_number_of_startingpoints);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_82correlateSingleParticleMuVennShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_result, __Pyx_memviewslice __pyx_v_dataset1, __Pyx_memviewslice __pyx_v_dataset2, int __pyx_v_number_of_startingpoints) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_82correlateSingleParticleMuVennShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_result, __Pyx_memviewslice __pyx_v_dataset1, __Pyx_memviewslice __pyx_v_dataset2, int __pyx_v_number_of_startingpoints) {
   int __pyx_v_i;
   int __pyx_v_j;
   int __pyx_v_k;
@@ -27509,7 +27509,7 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_82correlateSingleParticleMuVenn
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __PYX_XDEC_MEMVIEW(&__pyx_t_6, 1);
-  __Pyx_AddTraceback("newanalysis.helpers.correlateSingleParticleMuVennShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.correlateSingleParticleMuVennShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_counter, 1);
@@ -27531,10 +27531,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_82correlateSingleParticleMuVenn
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_85vanHoveSingleVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_84vanHoveSingleVector[] = "\n    timeseries  ... (correlation_length * 3)\n    histogram   ... (correlation_length * cos_segs)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_85vanHoveSingleVector = {"vanHoveSingleVector", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_85vanHoveSingleVector, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_84vanHoveSingleVector};
-static PyObject *__pyx_pw_11newanalysis_7helpers_85vanHoveSingleVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_85vanHoveSingleVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_84vanHoveSingleVector[] = "\n    timeseries  ... (correlation_length * 3)\n    histogram   ... (correlation_length * cos_segs)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_85vanHoveSingleVector = {"vanHoveSingleVector", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_85vanHoveSingleVector, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_84vanHoveSingleVector};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_85vanHoveSingleVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_timeseries = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_histogram = { 0, 0, { 0 }, { 0 }, { 0 } };
   int __pyx_lineno = 0;
@@ -27585,18 +27585,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_85vanHoveSingleVector(PyObject 
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("vanHoveSingleVector", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1530, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.vanHoveSingleVector", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.vanHoveSingleVector", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_84vanHoveSingleVector(__pyx_self, __pyx_v_timeseries, __pyx_v_histogram);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_84vanHoveSingleVector(__pyx_self, __pyx_v_timeseries, __pyx_v_histogram);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_84vanHoveSingleVector(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_histogram) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_84vanHoveSingleVector(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_histogram) {
   int __pyx_v_correlation_length;
   int __pyx_v_cos_segs;
   PyObject *__pyx_r = NULL;
@@ -27668,10 +27668,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_84vanHoveSingleVector(CYTHON_UN
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_87vanHoveMultiVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_86vanHoveMultiVector[] = "\n    timeseries  ... (n_particles * correlation_length * 3)\n    histogram   ... (correlation_length * cos_segs)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_87vanHoveMultiVector = {"vanHoveMultiVector", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_87vanHoveMultiVector, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_86vanHoveMultiVector};
-static PyObject *__pyx_pw_11newanalysis_7helpers_87vanHoveMultiVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_87vanHoveMultiVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_86vanHoveMultiVector[] = "\n    timeseries  ... (n_particles * correlation_length * 3)\n    histogram   ... (correlation_length * cos_segs)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_87vanHoveMultiVector = {"vanHoveMultiVector", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_87vanHoveMultiVector, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_86vanHoveMultiVector};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_87vanHoveMultiVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_timeseries = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_histogram = { 0, 0, { 0 }, { 0 }, { 0 } };
   int __pyx_lineno = 0;
@@ -27722,18 +27722,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_87vanHoveMultiVector(PyObject *
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("vanHoveMultiVector", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1542, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.vanHoveMultiVector", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.vanHoveMultiVector", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_86vanHoveMultiVector(__pyx_self, __pyx_v_timeseries, __pyx_v_histogram);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_86vanHoveMultiVector(__pyx_self, __pyx_v_timeseries, __pyx_v_histogram);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_86vanHoveMultiVector(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_histogram) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_86vanHoveMultiVector(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_timeseries, __Pyx_memviewslice __pyx_v_histogram) {
   int __pyx_v_n_particles;
   int __pyx_v_correlation_length;
   int __pyx_v_cos_segs;
@@ -27818,10 +27818,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_86vanHoveMultiVector(CYTHON_UNU
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_89sortCollectiveDipNNShells(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_88sortCollectiveDipNNShells[] = "\n    ds        ... (n_particles, n_particles)\n    dip_wat   ... (n_particles, 3)\n    dip_shell ... (n_shells, 3)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_89sortCollectiveDipNNShells = {"sortCollectiveDipNNShells", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_89sortCollectiveDipNNShells, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_88sortCollectiveDipNNShells};
-static PyObject *__pyx_pw_11newanalysis_7helpers_89sortCollectiveDipNNShells(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_89sortCollectiveDipNNShells(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_88sortCollectiveDipNNShells[] = "\n    ds        ... (n_particles, n_particles)\n    dip_wat   ... (n_particles, 3)\n    dip_shell ... (n_shells, 3)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_89sortCollectiveDipNNShells = {"sortCollectiveDipNNShells", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_89sortCollectiveDipNNShells, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_88sortCollectiveDipNNShells};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_89sortCollectiveDipNNShells(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_ds = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_dip_wat = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_dip_shell = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -27883,18 +27883,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_89sortCollectiveDipNNShells(PyO
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("sortCollectiveDipNNShells", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1555, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.sortCollectiveDipNNShells", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.sortCollectiveDipNNShells", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_88sortCollectiveDipNNShells(__pyx_self, __pyx_v_ds, __pyx_v_dip_wat, __pyx_v_dip_shell);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_88sortCollectiveDipNNShells(__pyx_self, __pyx_v_ds, __pyx_v_dip_wat, __pyx_v_dip_shell);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_88sortCollectiveDipNNShells(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_ds, __Pyx_memviewslice __pyx_v_dip_wat, __Pyx_memviewslice __pyx_v_dip_shell) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_88sortCollectiveDipNNShells(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_ds, __Pyx_memviewslice __pyx_v_dip_wat, __Pyx_memviewslice __pyx_v_dip_shell) {
   int __pyx_v_n_particles;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -27963,10 +27963,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_88sortCollectiveDipNNShells(CYT
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_91sortCollectiveDipNNShellsInt(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_90sortCollectiveDipNNShellsInt[] = "\n    ds        ... (n_particles, n_particles)\n    dip_wat   ... (n_particles, 3)\n    dip_shell ... (n_shells, 3)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_91sortCollectiveDipNNShellsInt = {"sortCollectiveDipNNShellsInt", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_91sortCollectiveDipNNShellsInt, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_90sortCollectiveDipNNShellsInt};
-static PyObject *__pyx_pw_11newanalysis_7helpers_91sortCollectiveDipNNShellsInt(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_91sortCollectiveDipNNShellsInt(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_90sortCollectiveDipNNShellsInt[] = "\n    ds        ... (n_particles, n_particles)\n    dip_wat   ... (n_particles, 3)\n    dip_shell ... (n_shells, 3)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_91sortCollectiveDipNNShellsInt = {"sortCollectiveDipNNShellsInt", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_91sortCollectiveDipNNShellsInt, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_90sortCollectiveDipNNShellsInt};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_91sortCollectiveDipNNShellsInt(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_ds = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_dip_wat = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_dip_shell = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -28028,18 +28028,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_91sortCollectiveDipNNShellsInt(
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("sortCollectiveDipNNShellsInt", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1566, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.sortCollectiveDipNNShellsInt", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.sortCollectiveDipNNShellsInt", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_90sortCollectiveDipNNShellsInt(__pyx_self, __pyx_v_ds, __pyx_v_dip_wat, __pyx_v_dip_shell);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_90sortCollectiveDipNNShellsInt(__pyx_self, __pyx_v_ds, __pyx_v_dip_wat, __pyx_v_dip_shell);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_90sortCollectiveDipNNShellsInt(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_ds, __Pyx_memviewslice __pyx_v_dip_wat, __Pyx_memviewslice __pyx_v_dip_shell) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_90sortCollectiveDipNNShellsInt(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_ds, __Pyx_memviewslice __pyx_v_dip_wat, __Pyx_memviewslice __pyx_v_dip_shell) {
   int __pyx_v_n_particles;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -28108,10 +28108,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_90sortCollectiveDipNNShellsInt(
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_93calcDipTenCollective(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_92calcDipTenCollective[] = "\n    coor    ... (n_particles, 3)\n    results ... (6) \n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_93calcDipTenCollective = {"calcDipTenCollective", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_93calcDipTenCollective, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_92calcDipTenCollective};
-static PyObject *__pyx_pw_11newanalysis_7helpers_93calcDipTenCollective(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_93calcDipTenCollective(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_92calcDipTenCollective[] = "\n    coor    ... (n_particles, 3)\n    results ... (6) \n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_93calcDipTenCollective = {"calcDipTenCollective", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_93calcDipTenCollective, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_92calcDipTenCollective};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_93calcDipTenCollective(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_coor = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_results = { 0, 0, { 0 }, { 0 }, { 0 } };
   int __pyx_lineno = 0;
@@ -28162,18 +28162,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_93calcDipTenCollective(PyObject
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("calcDipTenCollective", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1577, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.calcDipTenCollective", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.calcDipTenCollective", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_92calcDipTenCollective(__pyx_self, __pyx_v_coor, __pyx_v_results);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_92calcDipTenCollective(__pyx_self, __pyx_v_coor, __pyx_v_results);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_92calcDipTenCollective(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_results) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_92calcDipTenCollective(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_results) {
   int __pyx_v_n_particles;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -28232,10 +28232,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_92calcDipTenCollective(CYTHON_U
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_95calcDipTenCollectivePerAtom(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_94calcDipTenCollectivePerAtom[] = "\n    coor    ... (n_particles, 3)\n    results ... (6) \n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_95calcDipTenCollectivePerAtom = {"calcDipTenCollectivePerAtom", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_95calcDipTenCollectivePerAtom, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_94calcDipTenCollectivePerAtom};
-static PyObject *__pyx_pw_11newanalysis_7helpers_95calcDipTenCollectivePerAtom(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_95calcDipTenCollectivePerAtom(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_94calcDipTenCollectivePerAtom[] = "\n    coor    ... (n_particles, 3)\n    results ... (6) \n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_95calcDipTenCollectivePerAtom = {"calcDipTenCollectivePerAtom", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_95calcDipTenCollectivePerAtom, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_94calcDipTenCollectivePerAtom};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_95calcDipTenCollectivePerAtom(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_v_idx;
   __Pyx_memviewslice __pyx_v_coor = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_results = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -28297,18 +28297,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_95calcDipTenCollectivePerAtom(P
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("calcDipTenCollectivePerAtom", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1587, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.calcDipTenCollectivePerAtom", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.calcDipTenCollectivePerAtom", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_94calcDipTenCollectivePerAtom(__pyx_self, __pyx_v_idx, __pyx_v_coor, __pyx_v_results);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_94calcDipTenCollectivePerAtom(__pyx_self, __pyx_v_idx, __pyx_v_coor, __pyx_v_results);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_94calcDipTenCollectivePerAtom(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_idx, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_results) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_94calcDipTenCollectivePerAtom(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_idx, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_results) {
   int __pyx_v_n_particles;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -28367,10 +28367,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_94calcDipTenCollectivePerAtom(C
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_97calcDipTenCollectiveCross(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_96calcDipTenCollectiveCross[] = "\n    coor1   ... (n_particles1, 3)\n    coor2   ... (n_particles2, 3)\n    results ... (6) \n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_97calcDipTenCollectiveCross = {"calcDipTenCollectiveCross", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_97calcDipTenCollectiveCross, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_96calcDipTenCollectiveCross};
-static PyObject *__pyx_pw_11newanalysis_7helpers_97calcDipTenCollectiveCross(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_97calcDipTenCollectiveCross(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_96calcDipTenCollectiveCross[] = "\n    coor1   ... (n_particles1, 3)\n    coor2   ... (n_particles2, 3)\n    results ... (6) \n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_97calcDipTenCollectiveCross = {"calcDipTenCollectiveCross", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_97calcDipTenCollectiveCross, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_96calcDipTenCollectiveCross};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_97calcDipTenCollectiveCross(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_coor1 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_coor2 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_results = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -28432,18 +28432,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_97calcDipTenCollectiveCross(PyO
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("calcDipTenCollectiveCross", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1597, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.calcDipTenCollectiveCross", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.calcDipTenCollectiveCross", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_96calcDipTenCollectiveCross(__pyx_self, __pyx_v_coor1, __pyx_v_coor2, __pyx_v_results);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_96calcDipTenCollectiveCross(__pyx_self, __pyx_v_coor1, __pyx_v_coor2, __pyx_v_results);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_96calcDipTenCollectiveCross(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor1, __Pyx_memviewslice __pyx_v_coor2, __Pyx_memviewslice __pyx_v_results) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_96calcDipTenCollectiveCross(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor1, __Pyx_memviewslice __pyx_v_coor2, __Pyx_memviewslice __pyx_v_results) {
   int __pyx_v_n_particles1;
   int __pyx_v_n_particles2;
   PyObject *__pyx_r = NULL;
@@ -28519,10 +28519,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_96calcDipTenCollectiveCross(CYT
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_99calcDipTenCollectiveNNShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_98calcDipTenCollectiveNNShellwise[] = "\n    coor    ... (n_particles, 3)\n    ds      ... (n_particles, n_particles)\n    results ... (shells, 6)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_99calcDipTenCollectiveNNShellwise = {"calcDipTenCollectiveNNShellwise", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_99calcDipTenCollectiveNNShellwise, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_98calcDipTenCollectiveNNShellwise};
-static PyObject *__pyx_pw_11newanalysis_7helpers_99calcDipTenCollectiveNNShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_99calcDipTenCollectiveNNShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_98calcDipTenCollectiveNNShellwise[] = "\n    coor    ... (n_particles, 3)\n    ds      ... (n_particles, n_particles)\n    results ... (shells, 6)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_99calcDipTenCollectiveNNShellwise = {"calcDipTenCollectiveNNShellwise", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_99calcDipTenCollectiveNNShellwise, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_98calcDipTenCollectiveNNShellwise};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_99calcDipTenCollectiveNNShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_coor = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_ds = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_results = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -28584,18 +28584,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_99calcDipTenCollectiveNNShellwi
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("calcDipTenCollectiveNNShellwise", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1610, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.calcDipTenCollectiveNNShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.calcDipTenCollectiveNNShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_98calcDipTenCollectiveNNShellwise(__pyx_self, __pyx_v_coor, __pyx_v_ds, __pyx_v_results);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_98calcDipTenCollectiveNNShellwise(__pyx_self, __pyx_v_coor, __pyx_v_ds, __pyx_v_results);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_98calcDipTenCollectiveNNShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_ds, __Pyx_memviewslice __pyx_v_results) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_98calcDipTenCollectiveNNShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_ds, __Pyx_memviewslice __pyx_v_results) {
   int __pyx_v_n_particles;
   int __pyx_v_shells;
   PyObject *__pyx_r = NULL;
@@ -28674,10 +28674,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_98calcDipTenCollectiveNNShellwi
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_101calcDipTenCollectiveNNShellwiseSelf(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_100calcDipTenCollectiveNNShellwiseSelf[] = "\n    coor    ... (n_particles, 3)\n    ds      ... (n_particles_tot, n_particles_tot)\n    results ... (shells, 6)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_101calcDipTenCollectiveNNShellwiseSelf = {"calcDipTenCollectiveNNShellwiseSelf", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_101calcDipTenCollectiveNNShellwiseSelf, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_100calcDipTenCollectiveNNShellwiseSelf};
-static PyObject *__pyx_pw_11newanalysis_7helpers_101calcDipTenCollectiveNNShellwiseSelf(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_101calcDipTenCollectiveNNShellwiseSelf(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_100calcDipTenCollectiveNNShellwiseSelf[] = "\n    coor    ... (n_particles, 3)\n    ds      ... (n_particles_tot, n_particles_tot)\n    results ... (shells, 6)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_101calcDipTenCollectiveNNShellwiseSelf = {"calcDipTenCollectiveNNShellwiseSelf", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_101calcDipTenCollectiveNNShellwiseSelf, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_100calcDipTenCollectiveNNShellwiseSelf};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_101calcDipTenCollectiveNNShellwiseSelf(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_coor = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_f2c = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_ds = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -28761,18 +28761,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_101calcDipTenCollectiveNNShellw
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("calcDipTenCollectiveNNShellwiseSelf", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1623, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.calcDipTenCollectiveNNShellwiseSelf", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.calcDipTenCollectiveNNShellwiseSelf", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_100calcDipTenCollectiveNNShellwiseSelf(__pyx_self, __pyx_v_coor, __pyx_v_f2c, __pyx_v_ds, __pyx_v_ds_idx, __pyx_v_results);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_100calcDipTenCollectiveNNShellwiseSelf(__pyx_self, __pyx_v_coor, __pyx_v_f2c, __pyx_v_ds, __pyx_v_ds_idx, __pyx_v_results);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_100calcDipTenCollectiveNNShellwiseSelf(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_f2c, __Pyx_memviewslice __pyx_v_ds, int __pyx_v_ds_idx, __Pyx_memviewslice __pyx_v_results) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_100calcDipTenCollectiveNNShellwiseSelf(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_f2c, __Pyx_memviewslice __pyx_v_ds, int __pyx_v_ds_idx, __Pyx_memviewslice __pyx_v_results) {
   int __pyx_v_n_particles;
   int __pyx_v_n_particles_tot;
   int __pyx_v_shells;
@@ -28865,10 +28865,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_100calcDipTenCollectiveNNShellw
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_103calcDipTenCollectiveNNShellwiseCross(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_102calcDipTenCollectiveNNShellwiseCross[] = "\n    coor1   ... (n_particles1, 3)\n    coor2   ... (n_particles2, 3)\n    ds      ... (n_particles_tot, n_particles_tot)\n    results ... (shells, 6)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_103calcDipTenCollectiveNNShellwiseCross = {"calcDipTenCollectiveNNShellwiseCross", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_103calcDipTenCollectiveNNShellwiseCross, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_102calcDipTenCollectiveNNShellwiseCross};
-static PyObject *__pyx_pw_11newanalysis_7helpers_103calcDipTenCollectiveNNShellwiseCross(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_103calcDipTenCollectiveNNShellwiseCross(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_102calcDipTenCollectiveNNShellwiseCross[] = "\n    coor1   ... (n_particles1, 3)\n    coor2   ... (n_particles2, 3)\n    ds      ... (n_particles_tot, n_particles_tot)\n    results ... (shells, 6)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_103calcDipTenCollectiveNNShellwiseCross = {"calcDipTenCollectiveNNShellwiseCross", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_103calcDipTenCollectiveNNShellwiseCross, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_102calcDipTenCollectiveNNShellwiseCross};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_103calcDipTenCollectiveNNShellwiseCross(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_coor1 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_coor2 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_f2c = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -28974,18 +28974,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_103calcDipTenCollectiveNNShellw
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("calcDipTenCollectiveNNShellwiseCross", 1, 7, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1637, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.calcDipTenCollectiveNNShellwiseCross", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.calcDipTenCollectiveNNShellwiseCross", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_102calcDipTenCollectiveNNShellwiseCross(__pyx_self, __pyx_v_coor1, __pyx_v_coor2, __pyx_v_f2c, __pyx_v_ds, __pyx_v_ds1_idx, __pyx_v_ds2_idx, __pyx_v_results);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_102calcDipTenCollectiveNNShellwiseCross(__pyx_self, __pyx_v_coor1, __pyx_v_coor2, __pyx_v_f2c, __pyx_v_ds, __pyx_v_ds1_idx, __pyx_v_ds2_idx, __pyx_v_results);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_102calcDipTenCollectiveNNShellwiseCross(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor1, __Pyx_memviewslice __pyx_v_coor2, __Pyx_memviewslice __pyx_v_f2c, __Pyx_memviewslice __pyx_v_ds, int __pyx_v_ds1_idx, int __pyx_v_ds2_idx, __Pyx_memviewslice __pyx_v_results) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_102calcDipTenCollectiveNNShellwiseCross(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor1, __Pyx_memviewslice __pyx_v_coor2, __Pyx_memviewslice __pyx_v_f2c, __Pyx_memviewslice __pyx_v_ds, int __pyx_v_ds1_idx, int __pyx_v_ds2_idx, __Pyx_memviewslice __pyx_v_results) {
   int __pyx_v_n_particles1;
   int __pyx_v_n_particles2;
   int __pyx_v_n_particles_tot;
@@ -29095,10 +29095,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_102calcDipTenCollectiveNNShellw
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_105calcDipTenCollective1NShellwiseSelf(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_104calcDipTenCollective1NShellwiseSelf[] = "\n    coor    ... (n_particles, 3)\n    ds      ... (n_particles)\n    results ... (shells, shells, 6)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_105calcDipTenCollective1NShellwiseSelf = {"calcDipTenCollective1NShellwiseSelf", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_105calcDipTenCollective1NShellwiseSelf, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_104calcDipTenCollective1NShellwiseSelf};
-static PyObject *__pyx_pw_11newanalysis_7helpers_105calcDipTenCollective1NShellwiseSelf(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_105calcDipTenCollective1NShellwiseSelf(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_104calcDipTenCollective1NShellwiseSelf[] = "\n    coor    ... (n_particles, 3)\n    ds      ... (n_particles)\n    results ... (shells, shells, 6)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_105calcDipTenCollective1NShellwiseSelf = {"calcDipTenCollective1NShellwiseSelf", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_105calcDipTenCollective1NShellwiseSelf, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_104calcDipTenCollective1NShellwiseSelf};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_105calcDipTenCollective1NShellwiseSelf(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_coor = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_ds = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_results = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -29160,18 +29160,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_105calcDipTenCollective1NShellw
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("calcDipTenCollective1NShellwiseSelf", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1653, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.calcDipTenCollective1NShellwiseSelf", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.calcDipTenCollective1NShellwiseSelf", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_104calcDipTenCollective1NShellwiseSelf(__pyx_self, __pyx_v_coor, __pyx_v_ds, __pyx_v_results);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_104calcDipTenCollective1NShellwiseSelf(__pyx_self, __pyx_v_coor, __pyx_v_ds, __pyx_v_results);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_104calcDipTenCollective1NShellwiseSelf(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_ds, __Pyx_memviewslice __pyx_v_results) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_104calcDipTenCollective1NShellwiseSelf(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_ds, __Pyx_memviewslice __pyx_v_results) {
   int __pyx_v_n_particles;
   int __pyx_v_shells;
   PyObject *__pyx_r = NULL;
@@ -29250,10 +29250,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_104calcDipTenCollective1NShellw
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_107calcDipTenCollective1NShellwiseCross(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_106calcDipTenCollective1NShellwiseCross[] = "\n    coor1   ... (n_particles1, 3)\n    coor2   ... (n_particles2, 3)\n    ds      ... (n_particles1)       #IMPORTANT!\n    results ... (shells, 6)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_107calcDipTenCollective1NShellwiseCross = {"calcDipTenCollective1NShellwiseCross", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_107calcDipTenCollective1NShellwiseCross, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_106calcDipTenCollective1NShellwiseCross};
-static PyObject *__pyx_pw_11newanalysis_7helpers_107calcDipTenCollective1NShellwiseCross(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_107calcDipTenCollective1NShellwiseCross(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_106calcDipTenCollective1NShellwiseCross[] = "\n    coor1   ... (n_particles1, 3)\n    coor2   ... (n_particles2, 3)\n    ds      ... (n_particles1)       #IMPORTANT!\n    results ... (shells, 6)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_107calcDipTenCollective1NShellwiseCross = {"calcDipTenCollective1NShellwiseCross", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_107calcDipTenCollective1NShellwiseCross, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_106calcDipTenCollective1NShellwiseCross};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_107calcDipTenCollective1NShellwiseCross(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_coor1 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_coor2 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_ds = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -29326,18 +29326,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_107calcDipTenCollective1NShellw
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("calcDipTenCollective1NShellwiseCross", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1666, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.calcDipTenCollective1NShellwiseCross", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.calcDipTenCollective1NShellwiseCross", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_106calcDipTenCollective1NShellwiseCross(__pyx_self, __pyx_v_coor1, __pyx_v_coor2, __pyx_v_ds, __pyx_v_results);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_106calcDipTenCollective1NShellwiseCross(__pyx_self, __pyx_v_coor1, __pyx_v_coor2, __pyx_v_ds, __pyx_v_results);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_106calcDipTenCollective1NShellwiseCross(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor1, __Pyx_memviewslice __pyx_v_coor2, __Pyx_memviewslice __pyx_v_ds, __Pyx_memviewslice __pyx_v_results) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_106calcDipTenCollective1NShellwiseCross(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor1, __Pyx_memviewslice __pyx_v_coor2, __Pyx_memviewslice __pyx_v_ds, __Pyx_memviewslice __pyx_v_results) {
   int __pyx_v_n_particles1;
   int __pyx_v_n_particles2;
   int __pyx_v_shells;
@@ -29430,10 +29430,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_106calcDipTenCollective1NShellw
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_109calcDipTenCollectiveShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_108calcDipTenCollectiveShellwise[] = "\n    coor    ... (n_particles, 3)\n    ds      ... (n_particles)\n    results ... (shells, 6)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_109calcDipTenCollectiveShellwise = {"calcDipTenCollectiveShellwise", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_109calcDipTenCollectiveShellwise, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_108calcDipTenCollectiveShellwise};
-static PyObject *__pyx_pw_11newanalysis_7helpers_109calcDipTenCollectiveShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_109calcDipTenCollectiveShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_108calcDipTenCollectiveShellwise[] = "\n    coor    ... (n_particles, 3)\n    ds      ... (n_particles)\n    results ... (shells, 6)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_109calcDipTenCollectiveShellwise = {"calcDipTenCollectiveShellwise", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_109calcDipTenCollectiveShellwise, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_108calcDipTenCollectiveShellwise};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_109calcDipTenCollectiveShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_coor = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_ds = { 0, 0, { 0 }, { 0 }, { 0 } };
   int __pyx_v_maxshell;
@@ -29506,18 +29506,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_109calcDipTenCollectiveShellwis
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("calcDipTenCollectiveShellwise", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1682, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.calcDipTenCollectiveShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.calcDipTenCollectiveShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_108calcDipTenCollectiveShellwise(__pyx_self, __pyx_v_coor, __pyx_v_ds, __pyx_v_maxshell, __pyx_v_results);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_108calcDipTenCollectiveShellwise(__pyx_self, __pyx_v_coor, __pyx_v_ds, __pyx_v_maxshell, __pyx_v_results);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_108calcDipTenCollectiveShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_ds, int __pyx_v_maxshell, __Pyx_memviewslice __pyx_v_results) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_108calcDipTenCollectiveShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_ds, int __pyx_v_maxshell, __Pyx_memviewslice __pyx_v_results) {
   int __pyx_v_n_particles;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -29583,10 +29583,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_108calcDipTenCollectiveShellwis
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_111calcDipTenCollectiveVennShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_110calcDipTenCollectiveVennShellwise[] = "\n    coor    ... (n_particles, 3)\n    ds1     ... (n_particles)\n    ds2     ... (n_particles)\n    results ... (shells1, shells2, n_particles)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_111calcDipTenCollectiveVennShellwise = {"calcDipTenCollectiveVennShellwise", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_111calcDipTenCollectiveVennShellwise, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_110calcDipTenCollectiveVennShellwise};
-static PyObject *__pyx_pw_11newanalysis_7helpers_111calcDipTenCollectiveVennShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_111calcDipTenCollectiveVennShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_110calcDipTenCollectiveVennShellwise[] = "\n    coor    ... (n_particles, 3)\n    ds1     ... (n_particles)\n    ds2     ... (n_particles)\n    results ... (shells1, shells2, n_particles)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_111calcDipTenCollectiveVennShellwise = {"calcDipTenCollectiveVennShellwise", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_111calcDipTenCollectiveVennShellwise, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_110calcDipTenCollectiveVennShellwise};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_111calcDipTenCollectiveVennShellwise(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_coor = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_ds1 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_ds2 = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -29681,18 +29681,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_111calcDipTenCollectiveVennShel
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("calcDipTenCollectiveVennShellwise", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1694, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.calcDipTenCollectiveVennShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.calcDipTenCollectiveVennShellwise", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_110calcDipTenCollectiveVennShellwise(__pyx_self, __pyx_v_coor, __pyx_v_ds1, __pyx_v_ds2, __pyx_v_maxshell1, __pyx_v_maxshell2, __pyx_v_results);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_110calcDipTenCollectiveVennShellwise(__pyx_self, __pyx_v_coor, __pyx_v_ds1, __pyx_v_ds2, __pyx_v_maxshell1, __pyx_v_maxshell2, __pyx_v_results);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_110calcDipTenCollectiveVennShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2, int __pyx_v_maxshell1, int __pyx_v_maxshell2, __Pyx_memviewslice __pyx_v_results) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_110calcDipTenCollectiveVennShellwise(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_ds1, __Pyx_memviewslice __pyx_v_ds2, int __pyx_v_maxshell1, int __pyx_v_maxshell2, __Pyx_memviewslice __pyx_v_results) {
   int __pyx_v_n_particles;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -29765,10 +29765,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_110calcDipTenCollectiveVennShel
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_113calcDistanceDelaunyMindist(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_112calcDistanceDelaunyMindist[] = "\n    coor    ... (n_particles, 3)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_113calcDistanceDelaunyMindist = {"calcDistanceDelaunyMindist", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_113calcDistanceDelaunyMindist, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_112calcDistanceDelaunyMindist};
-static PyObject *__pyx_pw_11newanalysis_7helpers_113calcDistanceDelaunyMindist(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_113calcDistanceDelaunyMindist(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_112calcDistanceDelaunyMindist[] = "\n    coor    ... (n_particles, 3)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_113calcDistanceDelaunyMindist = {"calcDistanceDelaunyMindist", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_113calcDistanceDelaunyMindist, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_112calcDistanceDelaunyMindist};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_113calcDistanceDelaunyMindist(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_coor = { 0, 0, { 0 }, { 0 }, { 0 } };
   double __pyx_v_boxlength;
   int __pyx_v_number_of_shells;
@@ -29848,18 +29848,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_113calcDistanceDelaunyMindist(P
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("calcDistanceDelaunyMindist", 0, 3, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1706, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.calcDistanceDelaunyMindist", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.calcDistanceDelaunyMindist", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_112calcDistanceDelaunyMindist(__pyx_self, __pyx_v_coor, __pyx_v_boxlength, __pyx_v_number_of_shells, __pyx_v_bin_width);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_112calcDistanceDelaunyMindist(__pyx_self, __pyx_v_coor, __pyx_v_boxlength, __pyx_v_number_of_shells, __pyx_v_bin_width);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_112calcDistanceDelaunyMindist(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, double __pyx_v_boxlength, int __pyx_v_number_of_shells, double __pyx_v_bin_width) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_112calcDistanceDelaunyMindist(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, double __pyx_v_boxlength, int __pyx_v_number_of_shells, double __pyx_v_bin_width) {
   int __pyx_v_n_particles;
   __Pyx_memviewslice __pyx_v_delauny_matrix = { 0, 0, { 0 }, { 0 }, { 0 } };
   PyObject *__pyx_r = NULL;
@@ -29976,7 +29976,7 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_112calcDistanceDelaunyMindist(C
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __PYX_XDEC_MEMVIEW(&__pyx_t_5, 1);
-  __Pyx_AddTraceback("newanalysis.helpers.calcDistanceDelaunyMindist", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.calcDistanceDelaunyMindist", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_delauny_matrix, 1);
@@ -29995,10 +29995,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_112calcDistanceDelaunyMindist(C
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_115calcDistanceDelauny(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_114calcDistanceDelauny[] = "\n    coor    ... (n_particles, 3)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_115calcDistanceDelauny = {"calcDistanceDelauny", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_115calcDistanceDelauny, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_114calcDistanceDelauny};
-static PyObject *__pyx_pw_11newanalysis_7helpers_115calcDistanceDelauny(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_115calcDistanceDelauny(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_114calcDistanceDelauny[] = "\n    coor    ... (n_particles, 3)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_115calcDistanceDelauny = {"calcDistanceDelauny", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_115calcDistanceDelauny, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_114calcDistanceDelauny};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_115calcDistanceDelauny(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_coor = { 0, 0, { 0 }, { 0 }, { 0 } };
   int __pyx_v_number_of_shells;
   double __pyx_v_bin_width;
@@ -30067,18 +30067,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_115calcDistanceDelauny(PyObject
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("calcDistanceDelauny", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1718, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.calcDistanceDelauny", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.calcDistanceDelauny", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_114calcDistanceDelauny(__pyx_self, __pyx_v_coor, __pyx_v_number_of_shells, __pyx_v_bin_width);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_114calcDistanceDelauny(__pyx_self, __pyx_v_coor, __pyx_v_number_of_shells, __pyx_v_bin_width);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_114calcDistanceDelauny(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, int __pyx_v_number_of_shells, double __pyx_v_bin_width) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_114calcDistanceDelauny(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, int __pyx_v_number_of_shells, double __pyx_v_bin_width) {
   int __pyx_v_n_particles;
   __Pyx_memviewslice __pyx_v_delauny_matrix = { 0, 0, { 0 }, { 0 }, { 0 } };
   PyObject *__pyx_r = NULL;
@@ -30195,7 +30195,7 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_114calcDistanceDelauny(CYTHON_U
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __PYX_XDEC_MEMVIEW(&__pyx_t_5, 1);
-  __Pyx_AddTraceback("newanalysis.helpers.calcDistanceDelauny", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.calcDistanceDelauny", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_delauny_matrix, 1);
@@ -30214,10 +30214,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_114calcDistanceDelauny(CYTHON_U
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_117minDistTesselation(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_116minDistTesselation[] = "\n    dataset         ... (n_particles_surround)\n    coor_core       ... (n_particles_core, 3)\n    coor_surround   ... (n_particles_surround, 3)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_117minDistTesselation = {"minDistTesselation", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_117minDistTesselation, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_116minDistTesselation};
-static PyObject *__pyx_pw_11newanalysis_7helpers_117minDistTesselation(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_117minDistTesselation(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_116minDistTesselation[] = "\n    dataset         ... (n_particles_surround)\n    coor_core       ... (n_particles_core, 3)\n    coor_surround   ... (n_particles_surround, 3)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_117minDistTesselation = {"minDistTesselation", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_117minDistTesselation, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_116minDistTesselation};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_117minDistTesselation(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_dataset = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_coor_core = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_coor_surround = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -30297,18 +30297,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_117minDistTesselation(PyObject 
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("minDistTesselation", 0, 3, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1732, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.minDistTesselation", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.minDistTesselation", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_116minDistTesselation(__pyx_self, __pyx_v_dataset, __pyx_v_coor_core, __pyx_v_coor_surround, __pyx_v_binwidth);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_116minDistTesselation(__pyx_self, __pyx_v_dataset, __pyx_v_coor_core, __pyx_v_coor_surround, __pyx_v_binwidth);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_116minDistTesselation(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_dataset, __Pyx_memviewslice __pyx_v_coor_core, __Pyx_memviewslice __pyx_v_coor_surround, double __pyx_v_binwidth) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_116minDistTesselation(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_dataset, __Pyx_memviewslice __pyx_v_coor_core, __Pyx_memviewslice __pyx_v_coor_surround, double __pyx_v_binwidth) {
   int __pyx_v_n_particle_core;
   int __pyx_v_n_particle_surround;
   PyObject *__pyx_r = NULL;
@@ -30384,10 +30384,10 @@ static PyObject *__pyx_pf_11newanalysis_7helpers_116minDistTesselation(CYTHON_UN
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11newanalysis_7helpers_119getPolarizabilityMatrix(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11newanalysis_7helpers_118getPolarizabilityMatrix[] = "\n    coor                        ... (n_atoms, 3)\n    inv_atom_polarizabilities   ... (n_atoms, 3, 3)\n    matrix                      ... (3*n_atoms, 3*n_atoms)\n    ";
-static PyMethodDef __pyx_mdef_11newanalysis_7helpers_119getPolarizabilityMatrix = {"getPolarizabilityMatrix", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_7helpers_119getPolarizabilityMatrix, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_7helpers_118getPolarizabilityMatrix};
-static PyObject *__pyx_pw_11newanalysis_7helpers_119getPolarizabilityMatrix(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_119getPolarizabilityMatrix(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_11newanalysis_13miscellaneous_118getPolarizabilityMatrix[] = "\n    coor                        ... (n_atoms, 3)\n    inv_atom_polarizabilities   ... (n_atoms, 3, 3)\n    matrix                      ... (3*n_atoms, 3*n_atoms)\n    ";
+static PyMethodDef __pyx_mdef_11newanalysis_13miscellaneous_119getPolarizabilityMatrix = {"getPolarizabilityMatrix", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11newanalysis_13miscellaneous_119getPolarizabilityMatrix, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11newanalysis_13miscellaneous_118getPolarizabilityMatrix};
+static PyObject *__pyx_pw_11newanalysis_13miscellaneous_119getPolarizabilityMatrix(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_coor = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_inv_atom_polarizabilities = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_matrix = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -30449,18 +30449,18 @@ static PyObject *__pyx_pw_11newanalysis_7helpers_119getPolarizabilityMatrix(PyOb
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("getPolarizabilityMatrix", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1745, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("newanalysis.helpers.getPolarizabilityMatrix", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("newanalysis.miscellaneous.getPolarizabilityMatrix", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11newanalysis_7helpers_118getPolarizabilityMatrix(__pyx_self, __pyx_v_coor, __pyx_v_inv_atom_polarizabilities, __pyx_v_matrix);
+  __pyx_r = __pyx_pf_11newanalysis_13miscellaneous_118getPolarizabilityMatrix(__pyx_self, __pyx_v_coor, __pyx_v_inv_atom_polarizabilities, __pyx_v_matrix);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11newanalysis_7helpers_118getPolarizabilityMatrix(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_inv_atom_polarizabilities, __Pyx_memviewslice __pyx_v_matrix) {
+static PyObject *__pyx_pf_11newanalysis_13miscellaneous_118getPolarizabilityMatrix(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_coor, __Pyx_memviewslice __pyx_v_inv_atom_polarizabilities, __Pyx_memviewslice __pyx_v_matrix) {
   int __pyx_v_n_atoms;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -44680,7 +44680,7 @@ static PyBufferProcs __pyx_tp_as_buffer_array = {
 
 static PyTypeObject __pyx_type___pyx_array = {
   PyVarObject_HEAD_INIT(0, 0)
-  "newanalysis.helpers.array", /*tp_name*/
+  "newanalysis.miscellaneous.array", /*tp_name*/
   sizeof(struct __pyx_array_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_array, /*tp_dealloc*/
@@ -44799,7 +44799,7 @@ static PyMethodDef __pyx_methods_Enum[] = {
 
 static PyTypeObject __pyx_type___pyx_MemviewEnum = {
   PyVarObject_HEAD_INIT(0, 0)
-  "newanalysis.helpers.Enum", /*tp_name*/
+  "newanalysis.miscellaneous.Enum", /*tp_name*/
   sizeof(struct __pyx_MemviewEnum_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_Enum, /*tp_dealloc*/
@@ -45060,7 +45060,7 @@ static PyBufferProcs __pyx_tp_as_buffer_memoryview = {
 
 static PyTypeObject __pyx_type___pyx_memoryview = {
   PyVarObject_HEAD_INIT(0, 0)
-  "newanalysis.helpers.memoryview", /*tp_name*/
+  "newanalysis.miscellaneous.memoryview", /*tp_name*/
   sizeof(struct __pyx_memoryview_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_memoryview, /*tp_dealloc*/
@@ -45198,7 +45198,7 @@ static struct PyGetSetDef __pyx_getsets__memoryviewslice[] = {
 
 static PyTypeObject __pyx_type___pyx_memoryviewslice = {
   PyVarObject_HEAD_INIT(0, 0)
-  "newanalysis.helpers._memoryviewslice", /*tp_name*/
+  "newanalysis.miscellaneous._memoryviewslice", /*tp_name*/
   sizeof(struct __pyx_memoryviewslice_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc__memoryviewslice, /*tp_dealloc*/
@@ -45280,17 +45280,17 @@ static PyMethodDef __pyx_methods[] = {
 #if PY_MAJOR_VERSION >= 3
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 static PyObject* __pyx_pymod_create(PyObject *spec, PyModuleDef *def); /*proto*/
-static int __pyx_pymod_exec_helpers(PyObject* module); /*proto*/
+static int __pyx_pymod_exec_miscellaneous(PyObject* module); /*proto*/
 static PyModuleDef_Slot __pyx_moduledef_slots[] = {
   {Py_mod_create, (void*)__pyx_pymod_create},
-  {Py_mod_exec, (void*)__pyx_pymod_exec_helpers},
+  {Py_mod_exec, (void*)__pyx_pymod_exec_miscellaneous},
   {0, NULL}
 };
 #endif
 
 static struct PyModuleDef __pyx_moduledef = {
     PyModuleDef_HEAD_INIT,
-    "helpers",
+    "miscellaneous",
     0, /* m_doc */
   #if CYTHON_PEP489_MULTI_PHASE_INIT
     0, /* m_size */
@@ -45588,7 +45588,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_ndim, __pyx_k_ndim, sizeof(__pyx_k_ndim), 0, 0, 1, 1},
   {&__pyx_n_s_new, __pyx_k_new, sizeof(__pyx_k_new), 0, 0, 1, 1},
   {&__pyx_n_s_new_2, __pyx_k_new_2, sizeof(__pyx_k_new_2), 0, 0, 1, 1},
-  {&__pyx_n_s_newanalysis_helpers, __pyx_k_newanalysis_helpers, sizeof(__pyx_k_newanalysis_helpers), 0, 0, 1, 1},
+  {&__pyx_n_s_newanalysis_miscellaneous, __pyx_k_newanalysis_miscellaneous, sizeof(__pyx_k_newanalysis_miscellaneous), 0, 0, 1, 1},
   {&__pyx_n_s_nmol, __pyx_k_nmol, sizeof(__pyx_k_nmol), 0, 0, 1, 1},
   {&__pyx_kp_s_no_default___reduce___due_to_non, __pyx_k_no_default___reduce___due_to_non, sizeof(__pyx_k_no_default___reduce___due_to_non), 0, 0, 1, 0},
   {&__pyx_n_s_noe_task, __pyx_k_noe_task, sizeof(__pyx_k_noe_task), 0, 0, 1, 1},
@@ -47081,11 +47081,11 @@ static int __Pyx_modinit_function_import_code(void) {
 
 
 #if PY_MAJOR_VERSION < 3
-__Pyx_PyMODINIT_FUNC inithelpers(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC inithelpers(void)
+__Pyx_PyMODINIT_FUNC initmiscellaneous(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC initmiscellaneous(void)
 #else
-__Pyx_PyMODINIT_FUNC PyInit_helpers(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC PyInit_helpers(void)
+__Pyx_PyMODINIT_FUNC PyInit_miscellaneous(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC PyInit_miscellaneous(void)
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 {
   return PyModuleDef_Init(&__pyx_moduledef);
@@ -47152,7 +47152,7 @@ bad:
 }
 
 
-static CYTHON_SMALL_CODE int __pyx_pymod_exec_helpers(PyObject *__pyx_pyinit_module)
+static CYTHON_SMALL_CODE int __pyx_pymod_exec_miscellaneous(PyObject *__pyx_pyinit_module)
 #endif
 #endif
 {
@@ -47166,7 +47166,7 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec_helpers(PyObject *__pyx_pyinit_mod
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   if (__pyx_m) {
     if (__pyx_m == __pyx_pyinit_module) return 0;
-    PyErr_SetString(PyExc_RuntimeError, "Module 'helpers' has already been imported. Re-initialisation is not supported.");
+    PyErr_SetString(PyExc_RuntimeError, "Module 'miscellaneous' has already been imported. Re-initialisation is not supported.");
     return -1;
   }
   #elif PY_MAJOR_VERSION >= 3
@@ -47181,7 +47181,7 @@ if (!__Pyx_RefNanny) {
       Py_FatalError("failed to import 'refnanny' module");
 }
 #endif
-  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_helpers(void)", 0);
+  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_miscellaneous(void)", 0);
   if (__Pyx_check_binary_version() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #ifdef __Pxy_PyFrame_Initialize_Offsets
   __Pxy_PyFrame_Initialize_Offsets();
@@ -47218,7 +47218,7 @@ if (!__Pyx_RefNanny) {
   Py_INCREF(__pyx_m);
   #else
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("helpers", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("miscellaneous", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
@@ -47236,14 +47236,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_newanalysis__helpers) {
+  if (__pyx_module_is_main_newanalysis__miscellaneous) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name_2, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "newanalysis.helpers")) {
-      if (unlikely(PyDict_SetItemString(modules, "newanalysis.helpers", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "newanalysis.miscellaneous")) {
+      if (unlikely(PyDict_SetItemString(modules, "newanalysis.miscellaneous", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -47283,7 +47283,7 @@ if (!__Pyx_RefNanny) {
  *     test_parallelism(n_iterations)
  *     return
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_1testParallelism, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 69, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_1testParallelism, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 69, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_testParallelism, __pyx_t_1) < 0) __PYX_ERR(0, 69, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47295,7 +47295,7 @@ if (!__Pyx_RefNanny) {
  *     # this function is designed only for water hydrogen bonds!
  *     cdef int sites_per_res = coor_surr.shape[0] / nres_surr
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_3countHBonds, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 74, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_3countHBonds, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 74, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_countHBonds, __pyx_t_1) < 0) __PYX_ERR(0, 74, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47307,7 +47307,7 @@ if (!__Pyx_RefNanny) {
  *     cdef int n_particles = coors.shape[0]
  *     cdef int pair_1_par_1 = 0
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_5structureFactorDipTen, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_5structureFactorDipTen, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_structureFactorDipTen, __pyx_t_1) < 0) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47319,7 +47319,7 @@ if (!__Pyx_RefNanny) {
  *     cdef int n_particles = coors.shape[0]
  *     cdef int pair_1_par_1 = 0
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_7structureFactorCharge, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 168, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_7structureFactorCharge, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_structureFactorCharge, __pyx_t_1) < 0) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47331,7 +47331,7 @@ if (!__Pyx_RefNanny) {
  *     '''
  *     aufpunkte   ... (n_aufpunkte, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_9accumulateShellwiseGFunction, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 226, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_9accumulateShellwiseGFunction, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 226, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_accumulateShellwiseGFunction, __pyx_t_1) < 0) __PYX_ERR(0, 226, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47343,7 +47343,7 @@ if (!__Pyx_RefNanny) {
  *     cdef int particle1, particle2, point1, point2, shell, bin_dist
  *     cdef int maxshell = histogram.shape[1]
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_11accumulateNMShellwiseGFunction, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 242, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_11accumulateNMShellwiseGFunction, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 242, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_accumulateNMShellwiseGFunction, __pyx_t_1) < 0) __PYX_ERR(0, 242, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47355,7 +47355,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     timeseries           ... (n_frames, n_particles, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_13sumUpByShell, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 260, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_13sumUpByShell, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 260, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_sumUpByShell, __pyx_t_1) < 0) __PYX_ERR(0, 260, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47367,7 +47367,7 @@ if (!__Pyx_RefNanny) {
  *     '''
  *     data    ... (n_shells1, n_shells2)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_15countVennShellOccupation, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 281, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_15countVennShellOccupation, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 281, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_countVennShellOccupation, __pyx_t_1) < 0) __PYX_ERR(0, 281, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47379,7 +47379,7 @@ if (!__Pyx_RefNanny) {
  *     '''
  *     data    ... (nshells, max_cardinality {==5})
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_17countMultiShell, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 299, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_17countMultiShell, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 299, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_countMultiShell, __pyx_t_1) < 0) __PYX_ERR(0, 299, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47391,7 +47391,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     coors          ... (N_all, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_19atomicIndDip, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 353, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_19atomicIndDip, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 353, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_atomicIndDip, __pyx_t_1) < 0) __PYX_ERR(0, 353, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47403,7 +47403,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     coors          ... (N_all, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_21atomicIndDipPerAtom, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 427, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_21atomicIndDipPerAtom, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 427, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_atomicIndDipPerAtom, __pyx_t_1) < 0) __PYX_ERR(0, 427, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47415,7 +47415,7 @@ if (!__Pyx_RefNanny) {
  *     if (a == b): return 1
  *     return 0
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_23kronecker, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 441, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_23kronecker, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 441, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_kronecker, __pyx_t_1) < 0) __PYX_ERR(0, 441, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47427,7 +47427,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     coors_ind              ... (N_ind, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_25deriveIndDip, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 447, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_25deriveIndDip, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 447, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_deriveIndDip, __pyx_t_1) < 0) __PYX_ERR(0, 447, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47439,7 +47439,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     coors_ind              ... (N_ind, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_27deriveIndDipPerAtom, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 511, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_27deriveIndDipPerAtom, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 511, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_deriveIndDipPerAtom, __pyx_t_1) < 0) __PYX_ERR(0, 511, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47451,7 +47451,7 @@ if (!__Pyx_RefNanny) {
  *     cdef double res = np.dot(x,x)**.5
  *     return res
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_29norm, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 525, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_29norm, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 525, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_norm, __pyx_t_1) < 0) __PYX_ERR(0, 525, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47463,7 +47463,7 @@ if (!__Pyx_RefNanny) {
  *     cdef int i
  *     cdef double D
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_31unfold, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 530, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_31unfold, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 530, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_unfold, __pyx_t_1) < 0) __PYX_ERR(0, 530, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47475,7 +47475,7 @@ if (!__Pyx_RefNanny) {
  *     cdef int i
  *     cdef double D
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_33min_dist, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 543, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_33min_dist, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 543, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_min_dist, __pyx_t_1) < 0) __PYX_ERR(0, 543, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47487,7 +47487,7 @@ if (!__Pyx_RefNanny) {
  *     cdef double [:] rv = np.zeros(3) #distance vector
  *     rv[0] = coo2[0] - coo1[0]
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_35dipTen, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 560, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_35dipTen, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 560, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_dipTen, __pyx_t_1) < 0) __PYX_ERR(0, 560, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47499,7 +47499,7 @@ if (!__Pyx_RefNanny) {
  *     def __init__(self, int p, double [:,:] p_coor, int apr_emim_h, int n_pairs_h, int [:] emim_h): #TODO: Bin-handling for intra-molecular?
  *         self.p = p
  */
-  __pyx_t_1 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_selfobject, __pyx_n_s_selfobject, (PyObject *) NULL, __pyx_n_s_newanalysis_helpers, (PyObject *) NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 579, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_selfobject, __pyx_n_s_selfobject, (PyObject *) NULL, __pyx_n_s_newanalysis_miscellaneous, (PyObject *) NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 579, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
   /* "src/helpers/miscellaneous.pyx":580
@@ -47509,7 +47509,7 @@ if (!__Pyx_RefNanny) {
  *         self.p = p
  *         self.apr_emim_h = apr_emim_h
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11newanalysis_7helpers_10selfobject_1__init__, 0, __pyx_n_s_selfobject___init, NULL, __pyx_n_s_newanalysis_helpers, __pyx_d, ((PyObject *)__pyx_codeobj__60)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 580, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11newanalysis_13miscellaneous_10selfobject_1__init__, 0, __pyx_n_s_selfobject___init, NULL, __pyx_n_s_newanalysis_miscellaneous, __pyx_d, ((PyObject *)__pyx_codeobj__60)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 580, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_init, __pyx_t_2) < 0) __PYX_ERR(0, 580, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -47521,7 +47521,7 @@ if (!__Pyx_RefNanny) {
  *     def __init__(self, int p, double [:,:] p_coor, int apr_emim_h, int n_pairs_h, int [:] emim_h): #TODO: Bin-handling for intra-molecular?
  *         self.p = p
  */
-  __pyx_t_2 = __Pyx_Py3ClassCreate(((PyObject*)&__Pyx_DefaultClassType), __pyx_n_s_selfobject, __pyx_empty_tuple, __pyx_t_1, NULL, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 579, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Py3ClassCreate(((PyObject*)&__Pyx_DefaultClassType), __pyx_n_s_selfobject, __pyx_empty_tuple, __pyx_t_1, NULL, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 579, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_selfobject, __pyx_t_2) < 0) __PYX_ERR(0, 579, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -47534,7 +47534,7 @@ if (!__Pyx_RefNanny) {
  *     def __init__(self, int p1, int p2, double [:,:] p1_coor, double [:,:] p2_coor, int apr_emim_h, int n_pairs_h, int [:] emim_h): #rename: p1 -> resnum1; p2 -> resnum2
  *         self.p1 = p1
  */
-  __pyx_t_1 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_pairobject, __pyx_n_s_pairobject, (PyObject *) NULL, __pyx_n_s_newanalysis_helpers, (PyObject *) NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 639, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_pairobject, __pyx_n_s_pairobject, (PyObject *) NULL, __pyx_n_s_newanalysis_miscellaneous, (PyObject *) NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 639, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
   /* "src/helpers/miscellaneous.pyx":640
@@ -47544,7 +47544,7 @@ if (!__Pyx_RefNanny) {
  *         self.p1 = p1
  *         self.p2 = p2
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11newanalysis_7helpers_10pairobject_1__init__, 0, __pyx_n_s_pairobject___init, NULL, __pyx_n_s_newanalysis_helpers, __pyx_d, ((PyObject *)__pyx_codeobj__62)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 640, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11newanalysis_13miscellaneous_10pairobject_1__init__, 0, __pyx_n_s_pairobject___init, NULL, __pyx_n_s_newanalysis_miscellaneous, __pyx_d, ((PyObject *)__pyx_codeobj__62)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 640, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_init, __pyx_t_2) < 0) __PYX_ERR(0, 640, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -47556,7 +47556,7 @@ if (!__Pyx_RefNanny) {
  *     def __init__(self, int p1, int p2, double [:,:] p1_coor, double [:,:] p2_coor, int apr_emim_h, int n_pairs_h, int [:] emim_h): #rename: p1 -> resnum1; p2 -> resnum2
  *         self.p1 = p1
  */
-  __pyx_t_2 = __Pyx_Py3ClassCreate(((PyObject*)&__Pyx_DefaultClassType), __pyx_n_s_pairobject, __pyx_empty_tuple, __pyx_t_1, NULL, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 639, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Py3ClassCreate(((PyObject*)&__Pyx_DefaultClassType), __pyx_n_s_pairobject, __pyx_empty_tuple, __pyx_t_1, NULL, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 639, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_pairobject, __pyx_t_2) < 0) __PYX_ERR(0, 639, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -47569,7 +47569,7 @@ if (!__Pyx_RefNanny) {
  *     @cython.boundscheck(False)
  *     def __init__(self, int apr_emim_h, int [:] emim_h, int n_pairs_h, int n_self_pairs_h, int max_distance, int n_res_emim, int apr_pair, double [:,:,:] coors):
  */
-  __pyx_t_1 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_noe_task, __pyx_n_s_noe_task, (PyObject *) NULL, __pyx_n_s_newanalysis_helpers, (PyObject *) NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 711, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_noe_task, __pyx_n_s_noe_task, (PyObject *) NULL, __pyx_n_s_newanalysis_miscellaneous, (PyObject *) NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 711, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
   /* "src/helpers/miscellaneous.pyx":713
@@ -47579,7 +47579,7 @@ if (!__Pyx_RefNanny) {
  *         self.apr_emim_h = apr_emim_h
  *         self.emim_h = emim_h
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11newanalysis_7helpers_8noe_task_1__init__, 0, __pyx_n_s_noe_task___init, NULL, __pyx_n_s_newanalysis_helpers, __pyx_d, ((PyObject *)__pyx_codeobj__64)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 713, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11newanalysis_13miscellaneous_8noe_task_1__init__, 0, __pyx_n_s_noe_task___init, NULL, __pyx_n_s_newanalysis_miscellaneous, __pyx_d, ((PyObject *)__pyx_codeobj__64)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 713, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_init, __pyx_t_2) < 0) __PYX_ERR(0, 713, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -47591,7 +47591,7 @@ if (!__Pyx_RefNanny) {
  *         cdef double [:,:] cl = np.zeros((self.n_pairs_h, self.max_distance), dtype='float64') #rename: cl->correlationlist
  *         #cl = np.zeros((self.n_pairs_h, self.max_distance), dtype='float64') #ROLLBACK: ERASE THIS, UNCOMMENT BELOW
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11newanalysis_7helpers_8noe_task_3pairiter, 0, __pyx_n_s_noe_task_pairiter, NULL, __pyx_n_s_newanalysis_helpers, __pyx_d, ((PyObject *)__pyx_codeobj__66)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 749, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11newanalysis_13miscellaneous_8noe_task_3pairiter, 0, __pyx_n_s_noe_task_pairiter, NULL, __pyx_n_s_newanalysis_miscellaneous, __pyx_d, ((PyObject *)__pyx_codeobj__66)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 749, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_pairiter, __pyx_t_2) < 0) __PYX_ERR(0, 749, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -47603,7 +47603,7 @@ if (!__Pyx_RefNanny) {
  *     @cython.boundscheck(False)
  *     def __init__(self, int apr_emim_h, int [:] emim_h, int n_pairs_h, int n_self_pairs_h, int max_distance, int n_res_emim, int apr_pair, double [:,:,:] coors):
  */
-  __pyx_t_2 = __Pyx_Py3ClassCreate(((PyObject*)&__Pyx_DefaultClassType), __pyx_n_s_noe_task, __pyx_empty_tuple, __pyx_t_1, NULL, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 711, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Py3ClassCreate(((PyObject*)&__Pyx_DefaultClassType), __pyx_n_s_noe_task, __pyx_empty_tuple, __pyx_t_1, NULL, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 711, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_noe_task, __pyx_t_2) < 0) __PYX_ERR(0, 711, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -47616,7 +47616,7 @@ if (!__Pyx_RefNanny) {
  *     '''
  *     getBestIndex(point, coor)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_37getBestIndex, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 810, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_37getBestIndex, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 810, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_getBestIndex, __pyx_t_1) < 0) __PYX_ERR(0, 810, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47628,7 +47628,7 @@ if (!__Pyx_RefNanny) {
  *     '''
  *     coor ... (n_particles, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_39getBestIndices, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 824, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_39getBestIndices, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 824, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_getBestIndices, __pyx_t_1) < 0) __PYX_ERR(0, 824, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47640,7 +47640,7 @@ if (!__Pyx_RefNanny) {
  *     '''
  *     coor        ... (number_of_particles, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_41writeMrHistogram, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 853, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_41writeMrHistogram, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 853, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_writeMrHistogram, __pyx_t_1) < 0) __PYX_ERR(0, 853, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47652,7 +47652,7 @@ if (!__Pyx_RefNanny) {
  *     #TODO documentation
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_43writeKirkwoodHistogram, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 866, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_43writeKirkwoodHistogram, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 866, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_writeKirkwoodHistogram, __pyx_t_1) < 0) __PYX_ERR(0, 866, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47664,7 +47664,7 @@ if (!__Pyx_RefNanny) {
  *     '''
  *     aufpunkt        ... (3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_45writeKirkwoodHistogramShellwise, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 872, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_45writeKirkwoodHistogramShellwise, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 872, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_writeKirkwoodHistogramShellwise, __pyx_t_1) < 0) __PYX_ERR(0, 872, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47676,7 +47676,7 @@ if (!__Pyx_RefNanny) {
  *     '''
  *     aufpunkt        ... (number_aufpunkte, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_47writeKirkwoodHistogramShellwise, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 895, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_47writeKirkwoodHistogramShellwise, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 895, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_writeKirkwoodHistogramShellwise, __pyx_t_1) < 0) __PYX_ERR(0, 895, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47688,7 +47688,7 @@ if (!__Pyx_RefNanny) {
  *     #TODO documentation
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_49writeKirkwoodHistogram2D, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 926, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_49writeKirkwoodHistogram2D, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 926, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_writeKirkwoodHistogram2D, __pyx_t_1) < 0) __PYX_ERR(0, 926, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47700,7 +47700,7 @@ if (!__Pyx_RefNanny) {
  *     '''
  *     coor        ... (n_particles, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_51getBondTable, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 933, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_51getBondTable, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 933, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_getBondTable, __pyx_t_1) < 0) __PYX_ERR(0, 933, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47712,7 +47712,7 @@ if (!__Pyx_RefNanny) {
  * 
  *     cdef int w, shell1, shell2, i, nres_wat = dipoles.shape[0]
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_53sumVennMDCageSingle, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 955, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_53sumVennMDCageSingle, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 955, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_sumVennMDCageSingle, __pyx_t_1) < 0) __PYX_ERR(0, 955, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47724,7 +47724,7 @@ if (!__Pyx_RefNanny) {
  * 
  *     cdef int w, shell, i, nres_wat = dip_wat.shape[0]
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_55sumMultiMDCageSingle, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 973, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_55sumMultiMDCageSingle, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 973, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_sumMultiMDCageSingle, __pyx_t_1) < 0) __PYX_ERR(0, 973, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47736,7 +47736,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     rotTs              ... (nmol, n (time length), 3D)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_57multiVecShellCorrelate, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 995, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_57multiVecShellCorrelate, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 995, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_multiVecShellCorrelate, __pyx_t_1) < 0) __PYX_ERR(0, 995, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47748,7 +47748,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     rotTs              ... (nmol, n (time length), 3D)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_59multiVecVennShellCorrelate, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1052, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_59multiVecVennShellCorrelate, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1052, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_multiVecVennShellCorrelate, __pyx_t_1) < 0) __PYX_ERR(0, 1052, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47760,7 +47760,7 @@ if (!__Pyx_RefNanny) {
  *     cdef long nmol = <long> len(rotTs) # number of molecules
  *     cdef long n = <long> len(rotTs[0]) # number of time steps
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_61rotationMatrixVennShellCorrelate, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1112, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_61rotationMatrixVennShellCorrelate, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_rotationMatrixVennShellCorrelate, __pyx_t_1) < 0) __PYX_ERR(0, 1112, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47772,7 +47772,7 @@ if (!__Pyx_RefNanny) {
  *     cdef long nmol = <long> len(rotTs) # number of molecules
  *     cdef long n = <long> len(rotTs[0]) # number of time steps
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_63rotationMatrixMultiShellCorrelate, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1200, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_63rotationMatrixMultiShellCorrelate, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1200, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_rotationMatrixMultiShellCorrelat, __pyx_t_1) < 0) __PYX_ERR(0, 1200, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47784,7 +47784,7 @@ if (!__Pyx_RefNanny) {
  *     #TODO documentation
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_65collectiveDipolesCutoff, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1292, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_65collectiveDipolesCutoff, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1292, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_collectiveDipolesCutoff, __pyx_t_1) < 0) __PYX_ERR(0, 1292, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47796,7 +47796,7 @@ if (!__Pyx_RefNanny) {
  *     #TODO documentation
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_67shellHistograms, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1300, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_67shellHistograms, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1300, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_shellHistograms, __pyx_t_1) < 0) __PYX_ERR(0, 1300, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47808,7 +47808,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     Correlate the timeseries of a single vector (e.g. collective dipole, one single particle, etc...)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_69correlateSingleVector, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1345, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_69correlateSingleVector, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_correlateSingleVector, __pyx_t_1) < 0) __PYX_ERR(0, 1345, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47820,7 +47820,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     Correlate the timeseries of two different single vectors (e.g. collective dipole, one single particle, etc...)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_71crossCorrelateSingleVector, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1357, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_71crossCorrelateSingleVector, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1357, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_crossCorrelateSingleVector, __pyx_t_1) < 0) __PYX_ERR(0, 1357, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47832,7 +47832,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     Correlate the timeseries of multiple vectors (e.g. single-particle dynamics of a collection of dipoles,...)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_73correlateMultiVector, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1374, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_73correlateMultiVector, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1374, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_correlateMultiVector, __pyx_t_1) < 0) __PYX_ERR(0, 1374, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47844,7 +47844,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     timeseries  ... (number_of_particles, number_of_frames, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_75correlateMultiVectorShellwise, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1387, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_75correlateMultiVectorShellwise, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1387, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_correlateMultiVectorShellwise, __pyx_t_1) < 0) __PYX_ERR(0, 1387, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47856,7 +47856,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     timeseries  ... (number_of_particles, number_of_frames, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_77correlateMultiVectorVennShellwise, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1399, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_77correlateMultiVectorVennShellwise, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1399, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_correlateMultiVectorVennShellwis, __pyx_t_1) < 0) __PYX_ERR(0, 1399, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47868,7 +47868,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     Correlate the timeseries of multiple vectors (e.g. single-particle dynamics of a collection of dipoles,...)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_79crossCorrelateMultiVector, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1413, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_79crossCorrelateMultiVector, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1413, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_crossCorrelateMultiVector, __pyx_t_1) < 0) __PYX_ERR(0, 1413, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47880,7 +47880,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     timeseries... (N_particle, number_of_frames, mu)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_81correlateSingleParticleMuShellwise, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1431, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_81correlateSingleParticleMuShellwise, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1431, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_correlateSingleParticleMuShellwi, __pyx_t_1) < 0) __PYX_ERR(0, 1431, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47892,7 +47892,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     timeseries... (N_particle, number_of_frames, mu)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_83correlateSingleParticleMuVennShellwise, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1480, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_83correlateSingleParticleMuVennShellwise, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1480, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_correlateSingleParticleMuVennShe, __pyx_t_1) < 0) __PYX_ERR(0, 1480, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47904,7 +47904,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     timeseries  ... (correlation_length * 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_85vanHoveSingleVector, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1530, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_85vanHoveSingleVector, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1530, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_vanHoveSingleVector, __pyx_t_1) < 0) __PYX_ERR(0, 1530, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47916,7 +47916,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     timeseries  ... (n_particles * correlation_length * 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_87vanHoveMultiVector, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1542, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_87vanHoveMultiVector, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1542, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_vanHoveMultiVector, __pyx_t_1) < 0) __PYX_ERR(0, 1542, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47928,7 +47928,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     ds        ... (n_particles, n_particles)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_89sortCollectiveDipNNShells, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1555, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_89sortCollectiveDipNNShells, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1555, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_sortCollectiveDipNNShells, __pyx_t_1) < 0) __PYX_ERR(0, 1555, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47940,7 +47940,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     ds        ... (n_particles, n_particles)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_91sortCollectiveDipNNShellsInt, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1566, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_91sortCollectiveDipNNShellsInt, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1566, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_sortCollectiveDipNNShellsInt, __pyx_t_1) < 0) __PYX_ERR(0, 1566, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47952,7 +47952,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     coor    ... (n_particles, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_93calcDipTenCollective, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1577, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_93calcDipTenCollective, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1577, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_calcDipTenCollective, __pyx_t_1) < 0) __PYX_ERR(0, 1577, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47964,7 +47964,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     coor    ... (n_particles, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_95calcDipTenCollectivePerAtom, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1587, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_95calcDipTenCollectivePerAtom, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1587, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_calcDipTenCollectivePerAtom, __pyx_t_1) < 0) __PYX_ERR(0, 1587, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47976,7 +47976,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     coor1   ... (n_particles1, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_97calcDipTenCollectiveCross, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1597, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_97calcDipTenCollectiveCross, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1597, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_calcDipTenCollectiveCross, __pyx_t_1) < 0) __PYX_ERR(0, 1597, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47988,7 +47988,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     coor    ... (n_particles, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_99calcDipTenCollectiveNNShellwise, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1610, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_99calcDipTenCollectiveNNShellwise, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1610, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_calcDipTenCollectiveNNShellwise, __pyx_t_1) < 0) __PYX_ERR(0, 1610, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -48000,7 +48000,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     coor    ... (n_particles, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_101calcDipTenCollectiveNNShellwiseSelf, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1623, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_101calcDipTenCollectiveNNShellwiseSelf, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1623, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_calcDipTenCollectiveNNShellwiseS, __pyx_t_1) < 0) __PYX_ERR(0, 1623, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -48012,7 +48012,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     coor1   ... (n_particles1, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_103calcDipTenCollectiveNNShellwiseCross, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1637, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_103calcDipTenCollectiveNNShellwiseCross, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1637, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_calcDipTenCollectiveNNShellwiseC, __pyx_t_1) < 0) __PYX_ERR(0, 1637, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -48024,7 +48024,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     coor    ... (n_particles, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_105calcDipTenCollective1NShellwiseSelf, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1653, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_105calcDipTenCollective1NShellwiseSelf, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1653, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_calcDipTenCollective1NShellwiseS, __pyx_t_1) < 0) __PYX_ERR(0, 1653, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -48036,7 +48036,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     coor1   ... (n_particles1, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_107calcDipTenCollective1NShellwiseCross, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1666, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_107calcDipTenCollective1NShellwiseCross, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1666, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_calcDipTenCollective1NShellwiseC, __pyx_t_1) < 0) __PYX_ERR(0, 1666, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -48048,7 +48048,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     coor    ... (n_particles, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_109calcDipTenCollectiveShellwise, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1682, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_109calcDipTenCollectiveShellwise, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1682, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_calcDipTenCollectiveShellwise, __pyx_t_1) < 0) __PYX_ERR(0, 1682, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -48060,7 +48060,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     coor    ... (n_particles, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_111calcDipTenCollectiveVennShellwise, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1694, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_111calcDipTenCollectiveVennShellwise, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1694, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_calcDipTenCollectiveVennShellwis, __pyx_t_1) < 0) __PYX_ERR(0, 1694, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -48072,7 +48072,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     coor    ... (n_particles, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_113calcDistanceDelaunyMindist, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1706, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_113calcDistanceDelaunyMindist, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1706, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_calcDistanceDelaunyMindist, __pyx_t_1) < 0) __PYX_ERR(0, 1706, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -48084,7 +48084,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     coor    ... (n_particles, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_115calcDistanceDelauny, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1718, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_115calcDistanceDelauny, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1718, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_calcDistanceDelauny, __pyx_t_1) < 0) __PYX_ERR(0, 1718, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -48096,7 +48096,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     dataset         ... (n_particles_surround)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_117minDistTesselation, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1732, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_117minDistTesselation, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1732, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_minDistTesselation, __pyx_t_1) < 0) __PYX_ERR(0, 1732, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -48108,7 +48108,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     coor                        ... (n_atoms, 3)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_7helpers_119getPolarizabilityMatrix, NULL, __pyx_n_s_newanalysis_helpers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1745, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11newanalysis_13miscellaneous_119getPolarizabilityMatrix, NULL, __pyx_n_s_newanalysis_miscellaneous); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1745, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_getPolarizabilityMatrix, __pyx_t_1) < 0) __PYX_ERR(0, 1745, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -48284,11 +48284,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init newanalysis.helpers", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init newanalysis.miscellaneous", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init newanalysis.helpers");
+    PyErr_SetString(PyExc_ImportError, "init newanalysis.miscellaneous");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

@@ -21,7 +21,7 @@ setup(
   name = 'newanalysis',
     version='0.1dev',
     license='None',
-    long_description=open('../README').read(),
+#    long_description=open('../README').read(),
   ext_modules=[
       Extension('newanalysis.correl',
                 sources=['src/helpers/correl.pyx','src/helpers/mod_Correl.cpp', 'src/helpers/BertholdHorn.cpp'],
@@ -39,11 +39,15 @@ setup(
                 extra_link_args=['-fopenmp']),
       Extension('newanalysis.miscellaneous',
                # ['src/helpers/miscellaneous.%s' % ("pyx" if use_cython else "cpp"),
-                ['src/helpers/miscellaneous.cpp',
-                'src/helpers/miscellaneous_implementation.cpp'],
+                sources = [
+                #'src/helpers/miscellaneous_newsyntax.pyx',
+                #'src/helpers/miscellaneous.cpp',
+                'src/helpers/miscellaneous.pyx',
+                'src/helpers/miscellaneous_implementation.cpp'
+                ],
                 language='c++',
                 include_dirs = [numpy.get_include(), 'src/helpers'],
-                extra_compile_args=['-fopenmp', '-std=c++11'],
+                extra_compile_args=['-fopenmp'],
                 extra_link_args=['-fopenmp'],
             ),
       Extension('newanalysis.diffusion',
