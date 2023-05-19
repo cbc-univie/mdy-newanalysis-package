@@ -19,9 +19,9 @@ help:
 #%: Makefile
 #	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 html: Makefile
-	@cd ../newanalysis; python setup.py build_ext --inplace
+	@cd ..; python setup.py build_ext --inplace
 	# probably replacable with:
-	#@cd ../newanalysis; pip install -e .
+	#@cd ..; pip install -e .
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 redoall: Makefile
