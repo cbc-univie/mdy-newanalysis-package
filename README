@@ -10,7 +10,7 @@ Be aware that the API syntax of MDAnalysis has changed compared to the old versi
 - charmm_utilities:
   -- scripts for CHARMM
 
-- newanalysis_source:
+- newanalysis:
   -- the actual source for the newanalysis package
   
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
