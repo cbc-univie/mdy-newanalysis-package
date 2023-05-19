@@ -13,6 +13,7 @@ Be aware that the API syntax of MDAnalysis has changed compared to the old versi
 - newanalysis_source:
   -- the actual source for the newanalysis package
 
+**Test Cases are moved to new repo: mdy-newanalysis-package-testdata**
 - test_cases
   -- test cases, contain scripts for the new version (this package) in the new/ directories,
      as well as scripts for the old version of MDAnalysis (0.8.2dev, where newanalysis was
