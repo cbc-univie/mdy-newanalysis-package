@@ -2,11 +2,7 @@
 docs/_build/
 docs/autosummary/
 
-
-newanalysis_source/newanalysis/*
-newanalysis_source/build/*
-newanalysis_source/not_build/*
-test_cases/*/*/*.dat
+build/*
 
 # Distribution / packaging
 eggs/
