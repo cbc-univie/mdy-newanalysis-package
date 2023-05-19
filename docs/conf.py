@@ -10,7 +10,7 @@ import mock
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'newanalysis_source'
+project = 'newanalysis'
 copyright = '2023, cbc-univie'
 author = 'cbc-univie'
 
@@ -44,7 +44,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 language = 'en'
 
-sys.path.insert(0, os.path.abspath('../newanalysis_source'))
+sys.path.insert(0, os.path.abspath('../newanalysis'))
 MOCK_MODULES = ["newanalysis/"]
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = mock.Mock()
