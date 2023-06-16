@@ -47,11 +47,20 @@ void atomic_ind_dip(double * coors, double * charges, double * alpha, double * c
 		e_0[i] = 0;
 	}
 
+	//TODO: Produces a zero-array. Debug!
+	//#pragma omp parallel for default(none) shared(coors, charges, alpha, coors_ind, prev_atomic_dipoles, atomic_dipoles, n_particles_all, n_particles_ind, boxlength, boxlength_2) private(atom1, atom2, i, j, k, dim, dist, dist_sq, dist_cub, dist_vec, dip_ten, e_0)
 	for(atom1 = 0; atom1 < n_particles_ind; atom1++) {
 		for(atom2 = 0; atom2 < n_particles_all; atom2++) {
 			dist_sq = 0;
 			for(dim = 0; dim < 3; dim++) {
 				dist = coors[atom2*3+dim] - coors[atom1*3+dim];
+				if (dist > boxlength_2) {
+					dist -= boxlength;
+				}
+				if ( dist < -boxlength_2) {
+					dist += boxlength;
+				}
+
 				dist_sq += pow(dist, 2);
 			}
 			if(dist_sq == 0) {continue;}
@@ -77,12 +86,20 @@ void atomic_ind_dip(double * coors, double * charges, double * alpha, double * c
 				atomic_dipoles[atom1*3+dim] = alpha[atom1] * e_0[atom1*3+dim];
 			}
 
+			//TODO Almost correct! Race conditions? TODO: Elevate above
+			//#pragma omp parallel for default(none) shared(coors, charges, alpha, coors_ind, prev_atomic_dipoles, atomic_dipoles, n_particles_all, n_particles_ind, boxlength, boxlength_2) private(atom1, atom2, i, j, k, dim, dist, dist_sq, dist_cub, dist_vec, dip_ten, e_0)
 			for(atom2 = 0; atom2 < n_particles_ind; atom2++) {
 				if(atom1 == atom2) continue;
 
 				dist_sq = 0;
 				for(dim = 0; dim < 3; dim++) {
 					dist_vec[dim] = coors_ind[atom2*3+dim] - coors_ind[atom1*3+dim];
+					if (dist_vec[dim] > boxlength_2) {
+						dist_vec[dim] -= boxlength;
+					}
+					if ( dist_vec[dim] < -boxlength_2) {
+						dist_vec[dim] += boxlength;
+					}
 					dist_sq += pow(dist_vec[dim],2);
 				}
 				dist_cub = pow(dist_sq, -1.5);
@@ -101,6 +118,7 @@ void atomic_ind_dip(double * coors, double * charges, double * alpha, double * c
 			}
 		}
 
+		#pragma omp parallel for default(none) shared(coors, charges, alpha, coors_ind, prev_atomic_dipoles, atomic_dipoles, n_particles_all, n_particles_ind, boxlength, boxlength_2) private(atom1, atom2, i, j, k, dim, dist, dist_sq, dist_cub, dist_vec, dip_ten, e_0)
 		for(atom1 = 0; atom1 < n_particles_ind; atom1++) {
 			for(dim = 0; dim < 3; dim++) {
 				prev_atomic_dipoles[atom1*3+dim] = atomic_dipoles[atom1*3+dim];
@@ -239,6 +257,12 @@ void derive_ind_dip(double * coors_ind, double * vel_ind, double * atomic_dipole
 
 			for(dim1 = 0; dim1 < 3; dim1++) {
 				dist_vec[dim1] = coors_ind[atom2*3+dim1] - coors_ind[atom1*3+dim1];
+				if (dist_vec[dim1] > boxlength_2) {
+					dist_vec[dim1] -= boxlength;
+				}
+				if ( dist_vec[dim1] < -boxlength_2) {
+					dist_vec[dim1] += boxlength;
+				}
 			}
 			dist_sq = pow(dist_vec[0],2) + pow(dist_vec[1],2) + pow(dist_vec[2],2);
 			dist_5  = pow(dist_sq, (-2.5));
@@ -1098,6 +1122,62 @@ void calc_dip_ten_collective(double * coor, int n_particles, double * results) {
 	}
 }
 
+void calc_dip_ten_collective_mindist(double * coor, int n_particles, double * results, double boxlength) {
+	int i, j;
+	double r, r_sq, r_cub;
+	double boxlength_2 = boxlength/2;
+
+	results[0] = 0;
+	results[1] = 0;
+	results[2] = 0;
+	results[3] = 0;
+	results[4] = 0;
+	results[5] = 0;
+
+	for(i = 0; i < n_particles; i++) {
+		for(j = 0; j < n_particles; j++) {
+			if(i != j) {
+				double dist_x = coor[3*i+0]-coor[3*j+0];
+				if(dist_x > boxlength_2) {
+					dist_x -= boxlength;
+				}
+				if(dist_x < -boxlength_2) {
+					dist_x += boxlength;
+				}
+
+				double dist_y = coor[3*i+1]-coor[3*j+1];
+				if(dist_y > boxlength_2) {
+					dist_y -= boxlength;
+				}
+				if(dist_y < -boxlength_2) {
+					dist_y += boxlength;
+				}
+
+				double dist_z = coor[3*i+2]-coor[3*j+2];
+				if(dist_z > boxlength_2) {
+					dist_z -= boxlength;
+				}
+				if(dist_z < -boxlength_2) {
+					dist_z += boxlength;
+				}
+
+				r = sqrt(pow(dist_x, 2) + pow(dist_y, 2) + pow(dist_z, 2));
+				r_sq = pow(r, 2);
+				r_cub = pow(r, 3);
+
+				if(r_sq > 0) {
+					results[0] += (1/r_cub) * ((3 * (coor[3*i+0] - coor[3*j+0]) * (coor[3*i+0] - coor[3*j+0]) / r_sq ) - 1); 	//xx
+					results[1] += (1/r_cub) * ( 3 * (coor[3*i+0] - coor[3*j+0]) * (coor[3*i+1] - coor[3*j+1]) / r_sq ); 		//xy
+					results[2] += (1/r_cub) * ( 3 * (coor[3*i+0] - coor[3*j+0]) * (coor[3*i+2] - coor[3*j+2]) / r_sq ); 		//xz
+					results[3] += (1/r_cub) * ((3 * (coor[3*i+1] - coor[3*j+1]) * (coor[3*i+1] - coor[3*j+1]) / r_sq ) - 1); 	//yy
+					results[4] += (1/r_cub) * ( 3 * (coor[3*i+1] - coor[3*j+1]) * (coor[3*i+2] - coor[3*j+2]) / r_sq ); 		//yz
+					results[5] += (1/r_cub) * ((3 * (coor[3*i+2] - coor[3*j+2]) * (coor[3*i+2] - coor[3*j+2]) / r_sq ) - 1); 	//zz
+				}
+			}
+		}
+	}
+}
+
 void calc_dip_ten_collective_per_atom(int i, double * coor, int n_particles, double * results) {
 	int j;
 	double r, r_sq, r_cub;
@@ -1619,12 +1699,38 @@ void construct_relay_matrix(double * coor, double * inv_atom_polarizabilities, d
  *  Daniel NOE helpers        *
  ******************************/
 
-void dipten_double_loop_(double * coor_1, double * coor_2, double * dipt_t, int n_particles_1, int n_particles_2, int only_different_nuclei) {
+void dipten_double_loop_(double * coor_1, double * coor_2, double * dipt_t, int n_particles_1, int n_particles_2, int only_different_nuclei, int is_same_molecule) {
 	double dist_sq, dist_2, dist_3, distvec[3];
 	int i,j,index;
 
-	index = 0;
-	{
+	if (is_same_molecule == 0) {
+          index = 0;
+	  {
+	    for(i = 0; i < n_particles_1; i++) {
+	      for(j = 0; j < n_particles_2; j++) {
+		distvec[0] = coor_2[3*j+0] - coor_1[3*i+0];
+		distvec[1] = coor_2[3*j+1] - coor_1[3*i+1];
+		distvec[2] = coor_2[3*j+2] - coor_1[3*i+2];
+		dist_sq = distvec[0]*distvec[0] + distvec[1]*distvec[1] + distvec[2]*distvec[2];
+		dist_2 = 1.0 / dist_sq;
+		dist_3 = pow(dist_2, 1.5);
+
+		dipt_t[6*index+0] = 3*dist_3*(distvec[0]*distvec[0]*dist_2-1);
+		dipt_t[6*index+1] = 3*dist_3*(distvec[1]*distvec[1]*dist_2-1);
+		dipt_t[6*index+2] = 3*dist_3*(distvec[2]*distvec[2]*dist_2-1);
+		dipt_t[6*index+3] = 3*dist_3*(distvec[0]*distvec[1]*dist_2)*2;
+		dipt_t[6*index+4] = 3*dist_3*(distvec[0]*distvec[2]*dist_2)*2;
+		dipt_t[6*index+5] = 3*dist_3*(distvec[1]*distvec[2]*dist_2)*2;
+
+		index += 1;
+	      }
+	    }
+	  }
+	}
+	
+	else {
+	  index = 0;
+	  {
 		for(i = 0; i < n_particles_1; i++) {
 			for(j = i+only_different_nuclei; j < n_particles_2; j++) {
 				distvec[0] = coor_2[3*j+0] - coor_1[3*i+0];
@@ -1644,6 +1750,7 @@ void dipten_double_loop_(double * coor_1, double * coor_2, double * dipt_t, int 
 				index += 1;
 			}
 		}
+	  }
 	}
 }
 

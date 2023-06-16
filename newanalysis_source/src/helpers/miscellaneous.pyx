@@ -1,3 +1,4 @@
+
 # -*- Mode: python; tab-width: 4; indent-tabs-mode:nil; encoding: utf-8 -*-
 # vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4
 #defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION
@@ -10,7 +11,7 @@ cimport numpy as np
 from cython.parallel cimport prange, parallel
 cimport cython
 
-from libc.math cimport sqrt, floor, pow
+from libc.math cimport sqrt, floor, pow, fabs
 
 cdef extern from "miscellaneous_implementation.h":
     void test_parallelism(int iterations)
@@ -49,6 +50,7 @@ cdef extern from "miscellaneous_implementation.h":
     void sort_collective_dip_NN_shells_int(int * ds, double * dip_wat, double * dip_shell, int n_particles)
 
     void calc_dip_ten_collective(double * coor, int n_particles, double * results)
+    void calc_dip_ten_collective_mindist(double * coor, int n_particles, double * results, double boxlength)
     void calc_dip_ten_collective_per_atom(int i, double * coor, int n_particles, double * results)
     void calc_dip_ten_collective_cross(double * coor1, int n_particles1, double * coor2, int n_particles2, double * results)
     void calc_dip_ten_collective_NNshellwise(double * coor, int n_particles, char * ds, int maxshell, double * results)
@@ -62,13 +64,190 @@ cdef extern from "miscellaneous_implementation.h":
     void construct_relay_matrix(double * coor, double * inv_atom_polarizabilities, double * matrix, int n_atoms)
 
     void pairiter_loop_(int pairlist_len, int * pairlist_p1, int * pairlist_p2, double * correlation_list, int n_pairs_h, int apr_emim_h, int * emim_h, int emim_h_len, double * run, double * dipt_0, double * dipt_t, int * bins, int max_distance)
-    void dipten_double_loop_(double * coor_1, double * coor_2, double * dipt_t, int n_particles_1, int n_particles_2, int only_different_nuclei)
+    void dipten_double_loop_(double * coor_1, double * coor_2, double * dipt_t, int n_particles_1, int n_particles_2, int only_different_nuclei, int is_same_mol)
     void dipten_double_loop2_(double * coor_1, double * coor_2, double * dipt_t, int n_particles_1, int n_particles_2, int only_different_nuclei)
 
 @cython.boundscheck(False)
 def testParallelism(int n_iterations):
     test_parallelism(n_iterations)
     return
+
+@cython.boundscheck(False)
+def allPairDist(double[:,:] coor_ref, double[:,:] coor_test, double boxl):
+    cdef int n_ref  = coor_ref.shape[0]
+    cdef int n_test = coor_test.shape[0]
+    cdef double[:] res = np.zeros(n_ref*(n_test-1), dtype=np.float64)
+    cdef int i = 0
+    cdef int j = 0
+    cdef int ctr = 0
+    cdef double dx, dy, dz
+
+    ctr = 0
+    for i in range(0,n_ref):
+        for j in range(0,n_test):
+            if i == j: 
+                continue
+            else:
+                dx = coor_ref[i,0] - coor_test[j,0]
+                if dx > boxl/2.0:
+                    dx -= boxl
+                if dx < -boxl/2.0:
+                    dx += boxl
+
+                dy = coor_ref[i,1] - coor_test[j,1]
+                if dy > boxl/2.0:
+                    dy -= boxl
+                if dy < -boxl/2.0:
+                    dx += boxl
+
+                dz = coor_ref[i,2] - coor_test[j,2]
+                if dz > boxl/2.0:
+                    dz -= boxl
+                if dz < -boxl/2.0:
+                    dz += boxl
+
+                res[ctr] += np.sqrt(dx**2 + dy**2 + dz**2)
+                ctr += 1
+    return res
+
+@cython.boundscheck(False)
+def correlAllPairDist(double[:,:] pair_ts, double[:] correl):
+    """
+    shapes:
+        pair_ts (n_frames, n_pairs)
+        correl  (n_frames)
+    """
+    cdef int n_frames = pair_ts.shape[0]
+    cdef int n_pairs  = pair_ts.shape[1]
+    cdef int curr_pair = 0
+    cdef int curr_dt = 1
+    cdef int curr_start = 0
+
+    for curr_dt in range(1, n_frames):
+        for curr_start in range(0, n_frames-curr_dt):
+            for curr_pair in range(0, n_pairs):
+                correl[curr_dt] += (pair_ts[curr_dt+curr_start,curr_pair]-pair_ts[curr_start,curr_pair])**2
+        correl[curr_dt] /= ((n_frames-curr_dt)*n_pairs)
+
+@cython.boundscheck(False)
+def allPairVec(double[:,:] coor_ref, double[:,:] coor_test, double boxl):
+    """
+    shapes:
+        coor_ref    (n_ref, 3)
+        coor_test   (n_test, 3)
+        coor_ref    (n_pair, 3)
+    """
+
+    cdef int n_ref  = coor_ref.shape[0]
+    cdef int n_test = coor_test.shape[0]
+    cdef int i = 0
+    cdef int j = 0
+    cdef int ctr = 0
+    cdef double dx, dy, dz
+    cdef double[:,:] res = np.zeros((n_ref*(n_test-1),3), dtype=np.float64)
+
+    ctr = 0
+    for i in range(0,n_ref):
+        for j in range(0,n_test):
+            if i == j: 
+                continue
+            else:
+                dx = coor_ref[i,0] - coor_test[j,0]
+                if dx > boxl/2.0:
+                    dx -= boxl
+                if dx < -boxl/2.0:
+                    dx += boxl
+
+                dy = coor_ref[i,1] - coor_test[j,1]
+                if dy > boxl/2.0:
+                    dy -= boxl
+                if dy < -boxl/2.0:
+                    dx += boxl
+
+                dz = coor_ref[i,2] - coor_test[j,2]
+                if dz > boxl/2.0:
+                    dz -= boxl
+                if dz < -boxl/2.0:
+                    dz += boxl
+
+                res[ctr,0] = dx
+                res[ctr,1] = dy
+                res[ctr,2] = dz
+                ctr += 1
+    return res
+
+@cython.boundscheck(False)
+def allPairVecNorm(double[:,:] coor_ref, double[:,:] coor_test, double boxl):
+    """
+    shapes:
+        coor_ref    (n_ref, 3)
+        coor_test   (n_test, 3)
+        coor_ref    (n_pair, 3)
+    """
+
+    cdef int n_ref  = coor_ref.shape[0]
+    cdef int n_test = coor_test.shape[0]
+    cdef int i = 0
+    cdef int j = 0
+    cdef int ctr = 0
+    cdef double dx, dy, dz
+    cdef double res_len
+    cdef double[:,:] res = np.zeros((n_ref*(n_test-1),3), dtype=np.float64)
+
+    ctr = 0
+    for i in range(0,n_ref):
+        for j in range(0,n_test):
+            if i == j: 
+                continue
+            else:
+                dx = coor_ref[i,0] - coor_test[j,0]
+                if dx > boxl/2.0:
+                    dx -= boxl
+                if dx < -boxl/2.0:
+                    dx += boxl
+
+                dy = coor_ref[i,1] - coor_test[j,1]
+                if dy > boxl/2.0:
+                    dy -= boxl
+                if dy < -boxl/2.0:
+                    dx += boxl
+
+                dz = coor_ref[i,2] - coor_test[j,2]
+                if dz > boxl/2.0:
+                    dz -= boxl
+                if dz < -boxl/2.0:
+                    dz += boxl
+
+                res[ctr,0] = dx
+                res[ctr,1] = dy
+                res[ctr,2] = dz
+                res_len = np.sqrt(dx**2 + dy**2 + dz**2)
+                res[ctr,0] /= res_len
+                res[ctr,1] /= res_len
+                res[ctr,2] /= res_len
+                ctr += 1
+    return res
+
+@cython.boundscheck(False)
+def correlAllPair(double[:,:,:] pair_ts, double[:] correl):
+    """
+    shapes:
+        pair_ts (n_frames, n_pairs, 3)
+        correl  (n_frames)
+    """
+    cdef int n_frames = pair_ts.shape[0]
+    cdef int n_pairs  = pair_ts.shape[1]
+    cdef int curr_pair = 0
+    cdef int curr_dt = 1
+    cdef int curr_start = 0
+
+    for curr_dt in range(1, n_frames):
+        for curr_start in range(0, n_frames-curr_dt):
+            for curr_pair in range(0, n_pairs):
+                correl[curr_dt] += pair_ts[curr_dt+curr_start,curr_pair,0]*pair_ts[curr_start,curr_pair,0]
+                correl[curr_dt] += pair_ts[curr_dt+curr_start,curr_pair,1]*pair_ts[curr_start,curr_pair,1]
+                correl[curr_dt] += pair_ts[curr_dt+curr_start,curr_pair,2]*pair_ts[curr_start,curr_pair,2]
+        correl[curr_dt] /= ((n_frames-curr_dt)*n_pairs)
 
 @cython.boundscheck(False)
 def countHBonds(double [:,:] coor_surr, double [:,:] coor_oh2, int nres_surr, double maxdist, double cos_angle=-0.95):
@@ -109,6 +288,49 @@ def countHBonds(double [:,:] coor_surr, double [:,:] coor_oh2, int nres_surr, do
                             hbond[i] += 1
 
     return np.asarray(hbond)
+
+def getMinDistSets(double [:,:] setA, double [:,:] setB, double boxlength):
+    """
+    setA ... (N_particles_a, 3)
+    setB ... (N_particles_b, 3)
+    """
+
+    cdef int N_particles_a = setA.shape[0]
+    cdef int N_particles_b = setB.shape[0]
+    cdef double boxlength_half = boxlength / 2.0
+
+    cdef double res = 10**9
+    cdef double dist_x, dist_y, dist_z, curr_dist
+    cdef int idx_a, idx_b
+
+    for idx_a in range(N_particles_a):
+        for idx_b in range(N_particles_b):
+            dist_x = setB[idx_b,0]-setA[idx_a,0]
+
+            if dist_x >  boxlength_half:
+                dist_x -= boxlength
+            if dist_x < -boxlength_half:
+                dist_x += boxlength
+
+            dist_y = setB[idx_b,1]-setA[idx_a,1]
+
+            if dist_y >  boxlength_half:
+                dist_y -= boxlength
+            if dist_y < -boxlength_half:
+                dist_y += boxlength
+
+            dist_z = setB[idx_b,2]-setA[idx_a,2]
+
+            if dist_z >  boxlength_half:
+                dist_z -= boxlength
+            if dist_z < -boxlength_half:
+                dist_z += boxlength
+
+            curr_dist = (dist_x)**2 + (dist_y)**2 + (dist_z)**2
+            if curr_dist < res:
+                res = curr_dist
+
+    return np.sqrt(res)
 
 @cython.boundscheck(False)
 def structureFactorDipTen(double [:,:] coors, double [:,:] histogram, int bin_dist, int segs, double boxlength):
@@ -575,15 +797,74 @@ def dipTen(double[:] coo1, double [:] coo2): #returns dipole dipole tensor for a
     dipt[5]=f1*(rv[1]*rv[2]*f2)*2
     return dipt
 
+#################################################################################################################################
+#@cython.boundscheck(False)
+#class selfobject:
+#    def __init__(self, int p, double [:,:] p_coor, int apr_emim_h, int n_pairs_h, int [:] emim_h):
+#        self.p = p
+#        self.apr_emim_h = apr_emim_h
+#        self.emim_h     = emim_h
+#        self.n_pairs_h  = n_pairs_h
+#
+#        cdef double [:,:] pl = np.zeros((self.apr_emim_h, 3), dtype='float64')
+#        cdef i, j, index = 0
+#
+#        cdef double [:] rv = np.zeros(3)
+#        cdef double r2
+#        cdef double f1
+#        cdef double f2
+#        
+#        for i in self.emim_h:
+#            pl[index, 0] = np.copy(p_coor[i,0])
+#            pl[index, 1] = np.copy(p_coor[i,1])
+#            pl[index, 2] = np.copy(p_coor[i,2])
+#            index += 1
+#
+#        cdef double [:]   r_0    = np.zeros(self.n_pairs_h, dtype='float64')
+#        #cdef int    [:]   bins   = np.zeros(self.n_pairs_h, dtype='int32')
+#        cdef double [:,:] dipt_0 = np.zeros((self.n_pairs_h, 6), dtype='float64')
+#        self.r_0 = r_0
+#        #self.bin = bins
+#
+#        index = 0
+#        for i in range(self.apr_emim_h-1):
+#            for j in range((i+1), self.apr_emim_h):
+#                self.r_0[index] = norm(np.float64(pl[j]) - np.float64(pl[i]))
+#                #self.bin[index]    = int(self.r_0[index])
+#                index += 1
+#
+#        self.dipt_0 = dipt_0
+#        index = 0
+#        for i in range(self.apr_emim_h-1):
+#            for j in range((i+1), self.apr_emim_h):
+#                self.r_0[index]    = norm(np.float64(pl[j]) - np.float64(pl[i]))
+#                #self.bin[index]    = int(self.r_0[index])
+#
+#                self.dipt_0[index] = dipTen(np.float64(pl[j]), np.float64(pl[i]))
+#                rv[0] = pl[i,0] - pl[j,0]
+#                rv[1] = pl[i,1] - pl[j,1]
+#                rv[2] = pl[i,2] - pl[j,2]
+#                r2 = np.dot(rv,rv) #norm squared of rv
+#                f1 = r2**-1.5      #prefactor 1: 1/r**3
+#                f2 = 3/r2          #prefactor 2: 3*1/r**2
+#
+#                self.dipt_0[index,0]=f1*(rv[0]*rv[0]*f2-1)     #calculate elements
+#                self.dipt_0[index,1]=f1*(rv[1]*rv[1]*f2-1)     #minus 1 in definition of dipole dipole tensor
+#                self.dipt_0[index,2]=f1*(rv[2]*rv[2]*f2-1)
+#                self.dipt_0[index,3]=f1*(rv[0]*rv[1]*f2)*2     #times 2 because off diag elements appear twice
+#                self.dipt_0[index,4]=f1*(rv[0]*rv[2]*f2)*2
+#                self.dipt_0[index,5]=f1*(rv[1]*rv[2]*f2)*2
+#
+#                index += 1
+####################################### Commit: Uncomment below, comment above
 @cython.boundscheck(False)
 class selfobject:
-    def __init__(self, int p, double [:,:] p_coor, int apr_emim_h, int n_pairs_h, int [:] emim_h): #TODO: Bin-handling for intra-molecular?
-        self.p = p
-        self.apr_emim_h = apr_emim_h
-        self.emim_h     = emim_h
-        self.n_pairs_h  = n_pairs_h
+    def __init__(self, double [:,:] p_coor, int apr_mol_nuclei, int n_pairs, int [:] mol_indices):
+        self.apr_mol_nuclei = apr_mol_nuclei
+        self.mol_indices    = mol_indices[0:apr_mol_nuclei]
+        self.n_pairs = n_pairs
 
-        cdef double [:,:] pl = np.zeros((self.apr_emim_h, 3), dtype='float64')
+        cdef double [:,:] pl = np.zeros((self.apr_mol_nuclei, 3), dtype='float64')
         cdef i, j, index = 0
 
         cdef double [:] rv = np.zeros(3)
@@ -591,36 +872,22 @@ class selfobject:
         cdef double f1
         cdef double f2
 
-        for i in self.emim_h:
+        for i in mol_indices:
             pl[index, 0] = np.copy(p_coor[i,0])
             pl[index, 1] = np.copy(p_coor[i,1])
             pl[index, 2] = np.copy(p_coor[i,2])
             index += 1
-
-        cdef double [:]   r_0    = np.zeros(self.n_pairs_h, dtype='float64')
-        #cdef int    [:]   bins   = np.zeros(self.n_pairs_h, dtype='int32')
-        cdef double [:,:] dipt_0 = np.zeros((self.n_pairs_h, 6), dtype='float64')
-        self.r_0 = r_0
-        #self.bin = bins
-
-        index = 0
-        for i in range(self.apr_emim_h-1):
-            for j in range((i+1), self.apr_emim_h):
-                self.r_0[index] = norm(np.float64(pl[j]) - np.float64(pl[i]))
-                #self.bin[index]    = int(self.r_0[index])
-                index += 1
+            
+        cdef double [:,:] dipt_0 = np.zeros((self.n_pairs, 6), dtype='float64')
 
         self.dipt_0 = dipt_0
         index = 0
-        for i in range(self.apr_emim_h-1):
-            for j in range((i+1), self.apr_emim_h):
-                self.r_0[index]    = norm(np.float64(pl[j]) - np.float64(pl[i]))
-                #self.bin[index]    = int(self.r_0[index])
-
+        for i in range(self.apr_mol_nuclei):
+            for j in range((i+1), self.apr_mol_nuclei):
                 self.dipt_0[index] = dipTen(np.float64(pl[j]), np.float64(pl[i]))
-                rv[0] = pl[i,0] - pl[j,0]
-                rv[1] = pl[i,1] - pl[j,1]
-                rv[2] = pl[i,2] - pl[j,2]
+                rv[0] = pl[j,0] - pl[i,0]
+                rv[1] = pl[j,1] - pl[i,1]
+                rv[2] = pl[j,2] - pl[i,2]
                 r2 = np.dot(rv,rv) #norm squared of rv
                 f1 = r2**-1.5      #prefactor 1: 1/r**3
                 f2 = 3/r2          #prefactor 2: 3*1/r**2
@@ -633,177 +900,506 @@ class selfobject:
                 self.dipt_0[index,5]=f1*(rv[1]*rv[2]*f2)*2
 
                 index += 1
+######################################################################################################################
 
-
+#######################################################################################################################
+#@cython.boundscheck(False)
+#class pairobject:
+#    def __init__(self, int p1, int p2, double [:,:] p1_coor, double [:,:] p2_coor, int apr_emim_h, int n_pairs_h, int [:] emim_h): #rename: p1 -> resnum1; p2 -> resnum2
+#        self.p1 = p1
+#        self.p2 = p2
+#        self.apr_emim_h = apr_emim_h
+#        self.n_pairs_h  = n_pairs_h
+#        self.emim_h     = emim_h
+#
+#        cdef double [:,:] p1l = np.zeros((self.apr_emim_h, 3), dtype='float64')
+#        cdef double [:,:] p2l = np.zeros((self.apr_emim_h, 3), dtype='float64')
+#        cdef int i, j, index = 0
+#
+#        cdef double [:] rv = np.zeros(3) #distance vector
+#        cdef double r2
+#        cdef double f1
+#        cdef double f2
+#
+#        for i in self.emim_h:
+#            p1l[index,0] = np.copy(p1_coor[i,0])
+#            p1l[index,1] = np.copy(p1_coor[i,1])
+#            p1l[index,2] = np.copy(p1_coor[i,2])
+#
+#            p2l[index,0] = np.copy(p2_coor[i,0])
+#            p2l[index,1] = np.copy(p2_coor[i,1])
+#            p2l[index,2] = np.copy(p2_coor[i,2])
+#            index += 1
+#
+#        cdef double [:]   r_0    = np.zeros(self.n_pairs_h, dtype='float64')
+#        cdef int    [:]   bins   = np.zeros(self.n_pairs_h, dtype='int32')
+#        cdef double [:,:] dipt_0 = np.zeros((self.n_pairs_h, 6), dtype='float64')
+#        self.r_0    = r_0
+#        self.bin    = bins
+#
+#        index = 0
+#        for i in range(self.apr_emim_h):
+#            for j in range(i, self.apr_emim_h):
+#                self.r_0[index]    = norm(np.float64(p2l[j]) - np.float64(p1l[i]))
+#                self.bin[index]    = int(self.r_0[index])
+#                index += 1
+#
+#        ################
+#        #dipten_double_loop2_(&p1l[0,0], &p2l[0,0], &dipt_0[0,0], self.apr_emim_h-1, self.apr_emim_h, 1)
+#        #self.dipt_0 = dipt_0
+#        ################# COMMIT 5: UNCOMMENT ABOVE, COMMENT BELOW
+#        self.dipt_0 = dipt_0
+#
+#        index = 0
+#
+#        for i in range(self.apr_emim_h):
+#            for j in range(i, self.apr_emim_h):
+#                self.r_0[index]    = norm(np.float64(p2l[j]) - np.float64(p1l[i]))
+#                self.bin[index]    = int(self.r_0[index])
+#
+#                self.dipt_0[index] = dipTen(np.float64(p1l[j]), np.float64(p2l[i]))
+#                rv[0] = p2l[i,0] - p1l[j,0]
+#                rv[1] = p2l[i,1] - p1l[j,1]
+#                rv[2] = p2l[i,2] - p1l[j,2]
+#                r2 = np.dot(rv,rv) #norm squared of rv
+#                f1 = r2**-1.5      #prefactor 1: 1/r**3
+#                f2 = 3/r2          #prefactor 2: 3*1/r**2
+#
+#                self.dipt_0[index,0]=f1*(rv[0]*rv[0]*f2-1)     #calculate elements
+#                self.dipt_0[index,1]=f1*(rv[1]*rv[1]*f2-1)     #minus 1 in definition of dipole dipole tensor
+#                self.dipt_0[index,2]=f1*(rv[2]*rv[2]*f2-1)
+#                self.dipt_0[index,3]=f1*(rv[0]*rv[1]*f2)*2     #times 2 because off diag elements appear twice
+#                self.dipt_0[index,4]=f1*(rv[0]*rv[2]*f2)*2
+#                self.dipt_0[index,5]=f1*(rv[1]*rv[2]*f2)*2
+#
+#                index += 1
+#                #################
+########### Commit: Uncomment below, comment above
 @cython.boundscheck(False)
 class pairobject:
-    def __init__(self, int p1, int p2, double [:,:] p1_coor, double [:,:] p2_coor, int apr_emim_h, int n_pairs_h, int [:] emim_h): #rename: p1 -> resnum1; p2 -> resnum2
-        self.p1 = p1
-        self.p2 = p2
-        self.apr_emim_h = apr_emim_h
-        self.n_pairs_h  = n_pairs_h
-        self.emim_h     = emim_h
-
-        cdef double [:,:] p1l = np.zeros((self.apr_emim_h, 3), dtype='float64')
-        cdef double [:,:] p2l = np.zeros((self.apr_emim_h, 3), dtype='float64')
+    def __init__(self, double [:,:] p1_coor, double [:,:] p2_coor, int apr_mol_nuclei1, int apr_mol_nuclei2, int n_pairs, int [:] mol1_indices, int[:] mol2_indices, int is_same_moltype):
+        self.apr_mol_nuclei1 = apr_mol_nuclei1
+        self.apr_mol_nuclei2 = apr_mol_nuclei2
+        self.n_pairs  = n_pairs
+        self.mol1_indices = mol1_indices[0:apr_mol_nuclei1]
+        self.mol2_indices = mol2_indices[0:apr_mol_nuclei2]
+        cdef double [:,:] p1l = np.zeros((self.apr_mol_nuclei1, 3), dtype='float64')
+        cdef double [:,:] p2l = np.zeros((self.apr_mol_nuclei2, 3), dtype='float64')
         cdef int i, j, index = 0
-
         cdef double [:] rv = np.zeros(3) #distance vector
         cdef double r2
         cdef double f1
         cdef double f2
-
-        for i in self.emim_h:
+        index = 0
+        for i in self.mol1_indices:
             p1l[index,0] = np.copy(p1_coor[i,0])
             p1l[index,1] = np.copy(p1_coor[i,1])
             p1l[index,2] = np.copy(p1_coor[i,2])
-
+            index +=1
+        index = 0
+        for i in self.mol2_indices:
             p2l[index,0] = np.copy(p2_coor[i,0])
             p2l[index,1] = np.copy(p2_coor[i,1])
             p2l[index,2] = np.copy(p2_coor[i,2])
             index += 1
-
-        cdef double [:]   r_0    = np.zeros(self.n_pairs_h, dtype='float64')
-        cdef int    [:]   bins   = np.zeros(self.n_pairs_h, dtype='int32')
-        cdef double [:,:] dipt_0 = np.zeros((self.n_pairs_h, 6), dtype='float64')
+        
+        cdef double [:]   r_0    = np.zeros(self.n_pairs, dtype='float64')
+        cdef int    [:]   bins   = np.zeros(self.n_pairs, dtype='int32')
+        cdef double [:,:] dipt_0 = np.zeros((self.n_pairs, 6), dtype='float64')
         self.r_0    = r_0
         self.bin    = bins
 
         index = 0
-        for i in range(self.apr_emim_h):
-            for j in range(i, self.apr_emim_h):
-                self.r_0[index]    = norm(np.float64(p2l[j]) - np.float64(p1l[i]))
-                self.bin[index]    = int(self.r_0[index])
-                index += 1
+        if is_same_moltype == 0:
+            for i in range(self.apr_mol_nuclei1):
+                for j in range(self.apr_mol_nuclei2):
+                    self.r_0[index] = norm(np.float64(p2l[j]) - np.float64(p1l[i]))
+                    self.bin[index] = int(self.r_0[index])
+                    index += 1
+        else:
+            for i in range(self.apr_mol_nuclei1):
+                for j in range(i,self.apr_mol_nuclei2):
+                    self.r_0[index] = norm(np.float64(p2l[j]) - np.float64(p1l[i]))
+                    self.bin[index] = int(self.r_0[index])
+                    index += 1
+                    
 
-        ################
-        #dipten_double_loop2_(&p1l[0,0], &p2l[0,0], &dipt_0[0,0], self.apr_emim_h-1, self.apr_emim_h, 1)
-        #self.dipt_0 = dipt_0
-        ################# COMMIT 5: UNCOMMENT ABOVE, COMMENT BELOW
         self.dipt_0 = dipt_0
-
         index = 0
+        if is_same_moltype == 0:
+            for i in range(self.apr_mol_nuclei1):
+                for j in range(self.apr_mol_nuclei2):
+                    self.r_0[index]    = norm(np.float64(p2l[j]) - np.float64(p1l[i]))
+                    self.bin[index]    = int(self.r_0[index])
+                
+                    self.dipt_0[index] = dipTen(np.float64(p1l[i]), np.float64(p2l[j]))
+                    rv[0] = p2l[j,0] - p1l[i,0]
+                    rv[1] = p2l[j,1] - p1l[i,1]
+                    rv[2] = p2l[j,2] - p1l[i,2]
+                    r2 = np.dot(rv,rv) #norm squared of rv
+                    f1 = r2**-1.5      #prefactor 1: 1/r**3
+                    f2 = 3/r2          #prefactor 2: 3*1/r**2
+                
+                    self.dipt_0[index,0]=f1*(rv[0]*rv[0]*f2-1)     #calculate elements
+                    self.dipt_0[index,1]=f1*(rv[1]*rv[1]*f2-1)     #minus 1 in definition of dipole dipole tensor
+                    self.dipt_0[index,2]=f1*(rv[2]*rv[2]*f2-1)
+                    self.dipt_0[index,3]=f1*(rv[0]*rv[1]*f2)*2     #times 2 because off diag elements appear twice
+                    self.dipt_0[index,4]=f1*(rv[0]*rv[2]*f2)*2
+                    self.dipt_0[index,5]=f1*(rv[1]*rv[2]*f2)*2
+                    index += 1
+        else:
+            for i in range(self.apr_mol_nuclei1):
+                for j in range(i, self.apr_mol_nuclei2):
+                    self.r_0[index]    = norm(np.float64(p2l[j]) - np.float64(p1l[i]))
+                    self.bin[index]    = int(self.r_0[index])
 
-        for i in range(self.apr_emim_h):
-            for j in range(i, self.apr_emim_h):
-                self.r_0[index]    = norm(np.float64(p2l[j]) - np.float64(p1l[i]))
-                self.bin[index]    = int(self.r_0[index])
+                    self.dipt_0[index] = dipTen(np.float64(p1l[i]), np.float64(p2l[j]))
+                    rv[0] = p2l[j,0] - p1l[i,0]
+                    rv[1] = p2l[j,1] - p1l[i,1]
+                    rv[2] = p2l[j,2] - p1l[i,2]
+                    r2 = np.dot(rv,rv) #norm squared of rv
+                    f1 = r2**-1.5      #prefactor 1: 1/r**3
+                    f2 = 3/r2          #prefactor 2: 3*1/r**2
 
-                self.dipt_0[index] = dipTen(np.float64(p1l[j]), np.float64(p2l[i]))
-                rv[0] = p2l[i,0] - p1l[j,0]
-                rv[1] = p2l[i,1] - p1l[j,1]
-                rv[2] = p2l[i,2] - p1l[j,2]
-                r2 = np.dot(rv,rv) #norm squared of rv
-                f1 = r2**-1.5      #prefactor 1: 1/r**3
-                f2 = 3/r2          #prefactor 2: 3*1/r**2
-
-                self.dipt_0[index,0]=f1*(rv[0]*rv[0]*f2-1)     #calculate elements
-                self.dipt_0[index,1]=f1*(rv[1]*rv[1]*f2-1)     #minus 1 in definition of dipole dipole tensor
-                self.dipt_0[index,2]=f1*(rv[2]*rv[2]*f2-1)
-                self.dipt_0[index,3]=f1*(rv[0]*rv[1]*f2)*2     #times 2 because off diag elements appear twice
-                self.dipt_0[index,4]=f1*(rv[0]*rv[2]*f2)*2
-                self.dipt_0[index,5]=f1*(rv[1]*rv[2]*f2)*2
-
-                index += 1
-        #################
-
+                    self.dipt_0[index,0]=f1*(rv[0]*rv[0]*f2-1)     #calculate elements
+                    self.dipt_0[index,1]=f1*(rv[1]*rv[1]*f2-1)     #minus 1 in definition of dipole dipole tensor
+                    self.dipt_0[index,2]=f1*(rv[2]*rv[2]*f2-1)
+                    self.dipt_0[index,3]=f1*(rv[0]*rv[1]*f2)*2     #times 2 because off diag elements appear twice
+                    self.dipt_0[index,4]=f1*(rv[0]*rv[2]*f2)*2
+                    self.dipt_0[index,5]=f1*(rv[1]*rv[2]*f2)*2
+                    index += 1
+#####################################################################################################################################################
+                    
+######################################################################################################################################################
+#@cython.boundscheck(False)
+#class noe_task:
+#    @cython.boundscheck(False)
+#    def __init__(self, int apr_emim_h, int [:] emim_h, int n_pairs_h, int n_self_pairs_h, int max_distance, int n_res_emim, int apr_pair, double [:,:,:] coors):
+#        self.apr_emim_h = apr_emim_h
+#        self.emim_h = emim_h
+#        self.n_pairs_h = n_pairs_h
+#        self.max_distance = max_distance
+#        self.pairlist = []
+#        self.selflist = []
+#        self.n_self_pairs_h = n_self_pairs_h
+#
+#        cdef int i, j, atom
+#        cdef double [:,:] coor_i = np.zeros((apr_pair, 3), dtype='float64')
+#        cdef double [:,:] coor_j = np.zeros((apr_pair, 3), dtype='float64')
+#
+#        for i in range(n_res_emim):
+#            for atom in range(apr_pair):
+#                    coor_i[atom, 0] = coors[i, atom, 0]
+#                    coor_i[atom, 1] = coors[i, atom, 1]
+#                    coor_i[atom, 2] = coors[i, atom, 2]
+#            self.selflist.append(selfobject(i, coor_i, apr_emim_h, n_self_pairs_h, emim_h))
+#
+#        for i in range(n_res_emim):
+#            for j in range((i+1), n_res_emim):
+#                for atom in range(apr_pair):
+#                    coor_i[atom, 0] = coors[i, atom, 0]
+#                    coor_i[atom, 1] = coors[i, atom, 1]
+#                    coor_i[atom, 2] = coors[i, atom, 2]
+#
+#                    coor_j[atom, 0] = coors[j, atom, 0]
+#                    coor_j[atom, 1] = coors[j, atom, 1]
+#                    coor_j[atom, 2] = coors[j, atom, 2]
+#                self.pairlist.append(pairobject(i, j, coor_i, coor_j, apr_emim_h, n_pairs_h, emim_h))
+#        #print("Pairs: ", len(self.pairlist), "Should be 499500")
+#        #exit()
+#
+#
+#    @cython.boundscheck(False)
+#    def pairiter(self, double [:,:,:] run):
+#        cdef double [:,:] cl = np.zeros((self.n_pairs_h, self.max_distance), dtype='float64') #rename: cl->correlationlist
+#        #cl = np.zeros((self.n_pairs_h, self.max_distance), dtype='float64') #ROLLBACK: ERASE THIS, UNCOMMENT BELOW
+#        cdef double [:,:] dipt_t = np.zeros((self.n_pairs_h, 6), dtype='float64')
+#        cdef double [:,:] p1l = np.zeros((self.apr_emim_h, 3), dtype='float64')
+#        cdef double [:,:] p2l = np.zeros((self.apr_emim_h, 3), dtype='float64')
+#
+#        cdef double [:]   cl_self     = np.zeros(self.n_self_pairs_h,      dtype='float64') #Add bin information?
+#        #cl_self     = np.zeros(self.n_self_pairs_h,      dtype='float64') #ROLLBACK: ERASE THIS, UNCOMMENT BELOW
+#        cdef double [:,:] dipt_t_self = np.zeros((self.n_self_pairs_h, 6), dtype='float64')
+#        cdef double [:,:] pl          = np.zeros((self.apr_emim_h, 3),     dtype='float64')
+#
+#        cdef int i, j, index = 0
+#        #cdef int [:] local_emim_h = np.int32(self.emim_h) #COMMIT 4: UNCOMMENT
+#
+#        cdef double [:] rv = np.zeros(3) #distance vector
+#        cdef double r2
+#        cdef double f1
+#        cdef double f2
+#        cdef double [:] distvec = np.zeros(3, dtype='float64')
+#        cdef double dist_sq, dist_2, dist_3
+#
+#        for selfobj in self.selflist:
+#            index = 0
+#
+#            for i in self.emim_h:
+#                pl[index, 0] = run[selfobj.p][i,0]
+#                pl[index, 1] = run[selfobj.p][i,1]
+#                pl[index, 2] = run[selfobj.p][i,2]
+#                index += 1
+#
+#            dipten_double_loop_(&pl[0,0], &pl[0,0], &dipt_t_self[0,0], self.apr_emim_h-1, self.apr_emim_h, 1)
+#            dipt_0_self = selfobj.dipt_0
+#
+#            for i in range(self.n_self_pairs_h):
+#                cl_self[i] += np.dot(dipt_0_self[i], dipt_t_self[i])
+#
+#        for pair in self.pairlist:
+#            index = 0
+#
+#            for i in self.emim_h:
+#        
+#                p1l[index, 0] = run[pair.p1][i,0]
+#                p1l[index, 1] = run[pair.p1][i,1]
+#                p1l[index, 2] = run[pair.p1][i,2]
+#        
+#                p2l[index, 0] = run[pair.p2][i,0]     
+#                p2l[index, 1] = run[pair.p2][i,1]   
+#                p2l[index, 2] = run[pair.p2][i,2]
+#        
+#                index += 1
+#    
+#            dipten_double_loop_(&p1l[0,0], &p2l[0,0], &dipt_t[0,0], self.apr_emim_h, self.apr_emim_h, 0)
+#            dipt_0 = pair.dipt_0
+#  
+#            for i in range(self.n_pairs_h):
+#                cl[i][pair.bin[i]] += np.dot(dipt_0[i], dipt_t[i])
+#        return cl, cl_self
+############## Commit: Uncomment below, comment above
 @cython.boundscheck(False)
 class noe_task:
-    @cython.boundscheck(False)
-    def __init__(self, int apr_emim_h, int [:] emim_h, int n_pairs_h, int n_self_pairs_h, int max_distance, int n_res_emim, int apr_pair, double [:,:,:] coors):
-        self.apr_emim_h = apr_emim_h
-        self.emim_h = emim_h
-        self.n_pairs_h = n_pairs_h
-        self.max_distance = max_distance
-        self.pairlist = []
-        self.selflist = []
-        self.n_self_pairs_h = n_self_pairs_h
+        @cython.boundscheck(False)
+        def __init__(self, int [:] apr_mols_nuclei, int [:,:] mol_indiceslist, int [:] n_pairs_inter, int [:] n_pairs_intra, int max_distance, int [:] n_res_mols, int [:] apr_mols, double [:,:] coors, int n_atoms, int [:] atoms_first, int [:] n_pairs_inter_first, int [:] n_pairs_intra_first):
+            self.apr_mols_nuclei = apr_mols_nuclei
+            self.apr_mols = apr_mols
+            self.mol_indiceslist = mol_indiceslist
+            self.n_pairs_inter = n_pairs_inter
+            self.n_pairs_intra = n_pairs_intra
+            self.max_distance = max_distance
+            self.pairlist = []
+            self.selflist = []
+            self.n_pairs_inter_first = n_pairs_inter_first
+            self.n_pairs_intra_first = n_pairs_intra_first
+            self.atoms_first = atoms_first
+            self.n_res_mols = n_res_mols
+            
+            cdef int i, j, atom
+            cdef int n_res_mol
+            cdef int apr_mol
+            cdef int apr_mol_nuclei
+            cdef int moltype_ctr = 0
+            cdef int n_moltypes = len(apr_mols)
+            cdef int atom_first
+            #cdef int atom_ctr = 0
+            for moltype_ctr in range(n_moltypes):
+                n_res_mol      = n_res_mols[moltype_ctr]
+                apr_mol        = apr_mols[moltype_ctr]
+                apr_mol_nuclei = apr_mols_nuclei[moltype_ctr]
+                atom_first     = atoms_first[moltype_ctr]
+                #cdef int [:] mol_indices = np.zeros((apr_mol_nuclei, 3), dtype='int32') #NOTE: Use some trick to make into C++ again?
+                mol_indices = np.zeros((apr_mol_nuclei), dtype='int32')
+                for i in range(apr_mol_nuclei):
+                    mol_indices[i] = mol_indiceslist[moltype_ctr,i]
+                #cdef double [:,:] coor_i = np.zeros((apr_mol, 3), dtype='float64') #NOTE: Use some trick to make into C++ again?
+                coor_i = np.zeros((apr_mol, 3), dtype='float64') 
+                #atom_ctr = 0
+                for i in range(n_res_mol):
+                    for atom in range(apr_mol):
+                        coor_i[atom, 0] = coors[atom_first + i*apr_mol + atom, 0]
+                        coor_i[atom, 1] = coors[atom_first + i*apr_mol + atom, 1]
+                        coor_i[atom, 2] = coors[atom_first + i*apr_mol + atom, 2]
+                        #atom_ctr += apr_mol
+                    self.selflist.append(selfobject(coor_i, apr_mol_nuclei, np.int32(((apr_mol_nuclei-1)**2+(apr_mol_nuclei-1))/2), mol_indices))
+                    
+            cdef int moltype_ctr1 = 0
+            cdef int moltype_ctr2 = 0
+            cdef int n_res_mol1, n_res_mol2
+            cdef int apr_mol1, apr_mol2
+            cdef int apr_mol_nuclei1, apr_mol_nuclei2
+            cdef int atom1_first, atom2_first
+            cdef int is_same_moltype
+            cdef int atom1, atom2
+            for moltype_ctr1 in range(n_moltypes):
+                for moltype_ctr2 in range(moltype_ctr1, n_moltypes):
+                    if moltype_ctr1 == moltype_ctr2:
+                        is_same_moltype = 1
+                    else:
+                        is_same_moltype = 0
+                    n_res_mol1 = n_res_mols[moltype_ctr1]
+                    n_res_mol2 = n_res_mols[moltype_ctr2]
+                    apr_mol1 = apr_mols[moltype_ctr1]
+                    apr_mol2 = apr_mols[moltype_ctr2]
+                    apr_mol_nuclei1 = apr_mols_nuclei[moltype_ctr1]
+                    apr_mol_nuclei2 = apr_mols_nuclei[moltype_ctr2]
+                    atom1_first = atoms_first[moltype_ctr1]
+                    atom2_first = atoms_first[moltype_ctr2]
+                    mol_indices1 = np.zeros((apr_mol_nuclei1), dtype='float64')
+                    mol_indices2 = np.zeros((apr_mol_nuclei2), dtype='float64')
+                    for i in range(apr_mol_nuclei1):
+                        mol_indices1[i] = mol_indiceslist[moltype_ctr1,i]
+                    for i in range(apr_mol_nuclei2):
+                        mol_indices2[i] = mol_indiceslist[moltype_ctr2,i]
+                    coor_i = np.zeros((apr_mol1, 3), dtype='float64')
+                    coor_j = np.zeros((apr_mol2, 3), dtype='float64')
+                    if is_same_moltype == 0:
+                        for i in range(n_res_mol1):
+                            for atom1 in range(apr_mol1):
+                                coor_i[atom1, 0] = coors[atom1_first + i*apr_mol1 + atom1, 0]
+                                coor_i[atom1, 1] = coors[atom1_first + i*apr_mol1 + atom1, 1]
+                                coor_i[atom1, 2] = coors[atom1_first + i*apr_mol1 + atom1, 2]
+                            
+                            for j in range(n_res_mol2):
+                                for atom2 in range(apr_mol2):
+                                    coor_j[atom2, 0] = coors[atom2_first + j*apr_mol2 + atom2, 0]
+                                    coor_j[atom2, 1] = coors[atom2_first + j*apr_mol2 + atom2, 1]
+                                    coor_j[atom2, 2] = coors[atom2_first + j*apr_mol2 + atom2, 2]
+                                self.pairlist.append(pairobject(coor_i, coor_j, np.int32(apr_mol_nuclei1), np.int32(apr_mol_nuclei2), np.int32(apr_mol_nuclei1*apr_mol_nuclei2), np.int32(mol_indices1), np.int32(mol_indices2), np.int32(0)))
+                    else:
+                        for i in range(n_res_mol1):
+                            for atom1 in range(apr_mol1):
+                                coor_i[atom1, 0] = coors[atom1_first + i*apr_mol1 + atom1, 0]
+                                coor_i[atom1, 1] = coors[atom1_first + i*apr_mol1 + atom1, 1]
+                                coor_i[atom1, 2] = coors[atom1_first + i*apr_mol1 + atom1, 2]
+                                                                                            
+                            for j in range(i+1, n_res_mol2):
+                                for atom2 in range(apr_mol2):
+                                    coor_j[atom2, 0] = coors[atom2_first + j*apr_mol2 + atom2, 0]
+                                    coor_j[atom2, 1] = coors[atom2_first + j*apr_mol2 + atom2, 1]
+                                    coor_j[atom2, 2] = coors[atom2_first + j*apr_mol2 + atom2, 2]
+                                self.pairlist.append(pairobject(coor_i, coor_j, np.int32(apr_mol_nuclei1), np.int32(apr_mol_nuclei2), np.int32((apr_mol_nuclei1**2+apr_mol_nuclei1)/2), np.int32(mol_indices1), np.int32(mol_indices2), np.int32(1)))
+                            
+        @cython.boundscheck(False)
+        def pairiter(self, double [:,:] run):
+            cdef int max_atoms_nuclei = np.int32(np.max(self.apr_mols_nuclei))
+            cdef double [:,:] cl = np.zeros((np.sum(self.n_pairs_inter), self.max_distance), dtype='float64')
+            cdef double [:,:] dipt_t = np.zeros((np.max(self.n_pairs_inter), 6), dtype='float64')
+            cdef double [:,:] pl1 = np.zeros((max_atoms_nuclei, 3), dtype='float64')
+            cdef double [:,:] pl2 = np.zeros((max_atoms_nuclei, 3), dtype='float64')
+            
+            cdef double [:]   cl_self     = np.zeros(np.sum(self.n_pairs_intra),      dtype='float64')
+            cdef double [:,:] dipt_t_self = np.zeros((np.max(self.n_pairs_intra), 6), dtype='float64')
+            cdef double [:,:] pl = np.zeros((max_atoms_nuclei, 3), dtype='float64')
+            
+            cdef int i, j, index = 0
+            cdef double [:] rv = np.zeros(3) #distance vector
+            cdef double r2
+            cdef double f1
+            cdef double f2
+            cdef double [:] distvec = np.zeros(3, dtype='float64')
+            cdef double dist_sq, dist_2, dist_3
 
-        cdef int i, j, atom
-        cdef double [:,:] coor_i = np.zeros((apr_pair, 3), dtype='float64')
-        cdef double [:,:] coor_j = np.zeros((apr_pair, 3), dtype='float64')
+            cdef int n_moltypes = len(self.apr_mols)
+            cdef int molctr
+            cdef int molctr1, molctr2
+            cdef int mol_idx
+            cdef int mol_idx1, mol_idx2
+            cdef int atom_idx
+            cdef int atom_idx1, atom_idx2
+            cdef int atom_first
+            cdef int atom1_first, atom2_first
+            cdef int selfobj_ctr, pairobj_ctr
+            cdef int apr_mol
+            cdef int apr_mol1, apr_mol2
+            cdef int apr_mol_nuclei_first
+            cdef int apr_mol_nuclei_first1, apr_mol_nuclei_first2
+            cdef int apr_mol_nuclei
+            cdef int apr_mol_nuclei1, apr_mol_nuclei2
+            cdef int molidx, molidx1, molidx2
+            cdef int n_res_mol, n_res_mol1, n_res_mol2
+            cdef int resctr, resctr1, resctr2
+            cdef int curr_pairs_inter, curr_pairs_intra
+            cdef int start2
+            
+            cdef int self_type_ctr = 0
+            selfobj_ctr = 0
+            for molctr in range(n_moltypes):
+                atom_first = self.atoms_first[molctr]
+                n_res_mol  = self.n_res_mols[molctr]
+                apr_mol = self.apr_mols[molctr]
+                apr_mol_nuclei = self.apr_mols_nuclei[molctr]
+                mol_indices = self.mol_indiceslist[molctr,0:apr_mol_nuclei]
+                curr_pairs_intra = np.int32(((apr_mol_nuclei-1)**2+(apr_mol_nuclei-1))/2)
+                
+                for resctr in range(n_res_mol):
+                    selfobj = self.selflist[selfobj_ctr]
+                    index = 0
+                    for atom_idx in mol_indices:
+                        pl[index, 0] = run[atom_first + resctr*apr_mol + atom_idx, 0]
+                        pl[index, 1] = run[atom_first + resctr*apr_mol + atom_idx, 1]
+                        pl[index, 2] = run[atom_first + resctr*apr_mol + atom_idx, 2]
+                        index += 1
 
-        for i in range(n_res_emim):
-            for atom in range(apr_pair):
-                    coor_i[atom, 0] = coors[i, atom, 0]
-                    coor_i[atom, 1] = coors[i, atom, 1]
-                    coor_i[atom, 2] = coors[i, atom, 2]
-            self.selflist.append(selfobject(i, coor_i, apr_emim_h, n_self_pairs_h, emim_h))
+                    dipten_double_loop_(&pl[0,0], &pl[0,0], &dipt_t_self[0,0], apr_mol_nuclei, apr_mol_nuclei, 1, 1)
+                    dipt_0_self = selfobj.dipt_0
 
-        for i in range(n_res_emim):
-            for j in range((i+1), n_res_emim):
-                for atom in range(apr_pair):
-                    coor_i[atom, 0] = coors[i, atom, 0]
-                    coor_i[atom, 1] = coors[i, atom, 1]
-                    coor_i[atom, 2] = coors[i, atom, 2]
+                    for i in range(curr_pairs_intra):
+                        cl_self[self_type_ctr + i] += np.dot(dipt_0_self[i], dipt_t_self[i]) 
+                    
+                    selfobj_ctr += 1
+                self_type_ctr += curr_pairs_intra
+            
+            cdef int is_same_mol
+            cdef int pair_type_ctr = 0
+            
+            pairobj_ctr = 0
+            for molctr1 in range(n_moltypes):
+                for molctr2 in range(molctr1, n_moltypes):
+                    atom1_first = self.atoms_first[molctr1]
+                    atom2_first = self.atoms_first[molctr2]
+                    apr_mol1 = self.apr_mols[molctr1]
+                    apr_mol2 = self.apr_mols[molctr2]
+                    apr_mol_nuclei1 = self.apr_mols_nuclei[molctr1]
+                    apr_mol_nuclei2 = self.apr_mols_nuclei[molctr2]
+                    if molctr1 == molctr2:
+                        is_same_mol = 1
+                    else:
+                        is_same_mol = 0
+                    mol_indices1 = self.mol_indiceslist[molctr1,0:apr_mol_nuclei1]
+                    mol_indices2 = self.mol_indiceslist[molctr2,0:apr_mol_nuclei2]
+                    n_res_mol1 = self.n_res_mols[molctr1]
+                    n_res_mol2 = self.n_res_mols[molctr2]
 
-                    coor_j[atom, 0] = coors[j, atom, 0]
-                    coor_j[atom, 1] = coors[j, atom, 1]
-                    coor_j[atom, 2] = coors[j, atom, 2]
-                self.pairlist.append(pairobject(i, j, coor_i, coor_j, apr_emim_h, n_pairs_h, emim_h))
-        #print("Pairs: ", len(self.pairlist), "Should be 499500")
-        #exit()
+                    if is_same_mol == 0:
+                        curr_pairs_inter = apr_mol_nuclei1 * apr_mol_nuclei2
+                    else:
+                        curr_pairs_inter = np.int32((apr_mol_nuclei1**2+apr_mol_nuclei1)/2)
+                        
+                    for resctr1 in range(n_res_mol1):
+                        index = 0
+                        for atom_idx1 in mol_indices1:
+                            pl1[index, 0] = run[atom1_first + resctr1*apr_mol1 + atom_idx1, 0]
+                            pl1[index, 1] = run[atom1_first + resctr1*apr_mol1 + atom_idx1, 1]
+                            pl1[index, 2] = run[atom1_first + resctr1*apr_mol1 + atom_idx1, 2]
+                            index += 1                                                                              
 
+                        if is_same_mol == 0:
+                            start2 = 0
+                        else:
+                            start2 = resctr1+1
+                            
+                        for resctr2 in range(start2, n_res_mol2):
+                            pairobj = self.pairlist[pairobj_ctr]
+                            index = 0
+                            for atom_idx2 in mol_indices2:
+                                pl2[index, 0] = run[atom2_first + resctr2*apr_mol2 + atom_idx2, 0]
+                                pl2[index, 1] = run[atom2_first + resctr2*apr_mol2 + atom_idx2, 1]
+                                pl2[index, 2] = run[atom2_first + resctr2*apr_mol2 + atom_idx2, 2]
+                                index += 1
 
-    @cython.boundscheck(False)
-    def pairiter(self, double [:,:,:] run):
-        cdef double [:,:] cl = np.zeros((self.n_pairs_h, self.max_distance), dtype='float64') #rename: cl->correlationlist
-        #cl = np.zeros((self.n_pairs_h, self.max_distance), dtype='float64') #ROLLBACK: ERASE THIS, UNCOMMENT BELOW
-        cdef double [:,:] dipt_t = np.zeros((self.n_pairs_h, 6), dtype='float64')
-        cdef double [:,:] p1l = np.zeros((self.apr_emim_h, 3), dtype='float64')
-        cdef double [:,:] p2l = np.zeros((self.apr_emim_h, 3), dtype='float64')
+                            dipten_double_loop_(&pl1[0,0], &pl2[0,0], &dipt_t[0,0], apr_mol_nuclei1, apr_mol_nuclei2, 0, is_same_mol)
+                            dipt_0 = pairobj.dipt_0
+                        
+                            for i in range(curr_pairs_inter):
+                                cl[pair_type_ctr+i][pairobj.bin[i]] += np.dot(dipt_0[i], dipt_t[i])
+                            pairobj_ctr += 1
+                    pair_type_ctr += curr_pairs_inter
 
-        cdef double [:]   cl_self     = np.zeros(self.n_self_pairs_h,      dtype='float64') #Add bin information?
-        #cl_self     = np.zeros(self.n_self_pairs_h,      dtype='float64') #ROLLBACK: ERASE THIS, UNCOMMENT BELOW
-        cdef double [:,:] dipt_t_self = np.zeros((self.n_self_pairs_h, 6), dtype='float64')
-        cdef double [:,:] pl          = np.zeros((self.apr_emim_h, 3),     dtype='float64')
-
-        cdef int i, j, index = 0
-        #cdef int [:] local_emim_h = np.int32(self.emim_h) #COMMIT 4: UNCOMMENT
-
-        cdef double [:] rv = np.zeros(3) #distance vector
-        cdef double r2
-        cdef double f1
-        cdef double f2
-        cdef double [:] distvec = np.zeros(3, dtype='float64')
-        cdef double dist_sq, dist_2, dist_3
-
-        for selfobj in self.selflist:
-            index = 0
-
-            for i in self.emim_h:
-                pl[index, 0] = run[selfobj.p][i,0]
-                pl[index, 1] = run[selfobj.p][i,1]
-                pl[index, 2] = run[selfobj.p][i,2]
-                index += 1
-
-            dipten_double_loop_(&pl[0,0], &pl[0,0], &dipt_t_self[0,0], self.apr_emim_h-1, self.apr_emim_h, 1)
-            dipt_0_self = selfobj.dipt_0
-
-            for i in range(self.n_self_pairs_h):
-                cl_self[i] += np.dot(dipt_0_self[i], dipt_t_self[i])
-
-        for pair in self.pairlist:
-            index = 0
-
-            for i in self.emim_h:
-        
-                p1l[index, 0] = run[pair.p1][i,0]
-                p1l[index, 1] = run[pair.p1][i,1]
-                p1l[index, 2] = run[pair.p1][i,2]
-        
-                p2l[index, 0] = run[pair.p2][i,0]     
-                p2l[index, 1] = run[pair.p2][i,1]   
-                p2l[index, 2] = run[pair.p2][i,2]
-        
-                index += 1
+            return cl, cl_self
+###################################################################################################
     
-            dipten_double_loop_(&p1l[0,0], &p2l[0,0], &dipt_t[0,0], self.apr_emim_h, self.apr_emim_h, 0)
-            dipt_0 = pair.dipt_0
-  
-            for i in range(self.n_pairs_h):
-                cl[i][pair.bin[i]] += np.dot(dipt_0[i], dipt_t[i])
-        return cl, cl_self
 ###END DANIEL NOE HELPERS
 
 @cython.boundscheck(False)
@@ -1580,8 +2176,16 @@ def calcDipTenCollective(double[:,:] coor, double[:] results):
     results ... (6) 
     """
     cdef int n_particles = coor.shape[0]
-
     calc_dip_ten_collective(&coor[0,0], n_particles, &results[0])
+
+@cython.boundscheck(False)
+def calcDipTenCollectiveMinDist(double[:,:] coor, double[:] results, double boxlength):
+    """
+    coor    ... (n_particles, 3)
+    results ... (6) 
+    """
+    cdef int n_particles = coor.shape[0]
+    calc_dip_ten_collective_mindist(&coor[0,0], n_particles, &results[0], boxlength)
 
 @cython.boundscheck(False)
 def calcDipTenCollectivePerAtom(int idx, double[:,:] coor, double[:] results):
@@ -1754,3 +2358,24 @@ def getPolarizabilityMatrix(double[:,:] coor, double[:,:,:] inv_atom_polarizabil
     construct_relay_matrix(&coor[0,0], &inv_atom_polarizabilities[0,0,0], &matrix[0,0], n_atoms)
 
     #TODO: invert relay matrix
+
+cdef inline int sign(double a) nogil:
+     return ((<double> 0.0 < a) - (a < <double> 0.0))
+
+@cython.boundscheck(False)
+def minDist(double [:] coor1, double [:] coor2, double boxl, double boxl2):
+    """
+    minDist(xyz1, xyz2, boxl, boxl2)
+
+    Gives the shortest distance between xyz1 and xyz2 considering periodic boundary conditions.
+    """
+
+    cdef double delta [3]
+    cdef int i
+
+    for i in range(3):
+        delta[i] = coor2[i] - coor1[i]
+        if fabs(delta[i]) > boxl2:
+            delta[i] -= sign(delta[i]) * boxl
+
+    return float(sqrt(delta[0]*delta[0] + delta[1]*delta[1] + delta[2]*delta[2]))

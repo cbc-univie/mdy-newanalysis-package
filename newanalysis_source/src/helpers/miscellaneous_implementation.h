@@ -31,6 +31,7 @@ void sort_collective_dip_NN_shells(char *, double *, double *, int);
 void sort_collective_dip_NN_shells_int(int *, double *, double *, int);
 
 void calc_dip_ten_collective(double *, int, double *);
+void calc_dip_ten_collective_mindist(double*, int, double *, double);
 void calc_dip_ten_collective_per_atom(int, double *, int, double *);
 void calc_dip_ten_collective_cross(double *, int, double *, int, double *);
 void calc_dip_ten_collective_NNshellwise(double *, int, char *, int, double *);
@@ -48,5 +49,5 @@ void calc_min_dist_tesselation(double *, double *, double *, int, int, double);
 void construct_relay_matrix(double *, double *, double *, int);
 
 void pairiter_loop_(int, int *, int *, double *, int, int, int *, int, double *, double *, double *, int *, int);
-void dipten_double_loop_(double *, double *, double *, int, int, int);
+void dipten_double_loop_(double *, double *, double *, int, int, int, int);
 void dipten_double_loop2_(double *, double *, double *, int, int, int);
