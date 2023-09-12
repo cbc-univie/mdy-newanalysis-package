@@ -73,9 +73,9 @@ def testParallelism(int n_iterations):
 @cython.boundscheck(False)
 def countHBonds(double [:,:] coor_surr, double [:,:] coor_oh2, int nres_surr, double maxdist, double cos_angle=-0.95):
     # this function is designed only for water hydrogen bonds!
-    cdef int sites_per_res = coor_surr.shape[0] / nres_surr
-    cdef int nsurr = coor_surr.shape[0] / sites_per_res
-    cdef int nwat = coor_oh2.shape[0] / 3
+    cdef int sites_per_res = coor_surr.shape[0] // nres_surr
+    cdef int nsurr = coor_surr.shape[0] // sites_per_res
+    cdef int nwat = coor_oh2.shape[0] // 3
     cdef int i, j, k, l, idx, idx2, idx3
     
     cdef int [:] hbond = np.zeros(nwat, dtype=np.int32)
@@ -1000,7 +1000,7 @@ def multiVecShellCorrelate(double [:,:,:] rotTs, int [:,:] ds1, long nshells1, l
 
     cdef long nmol = <long> len(rotTs) # number of molecules
     cdef long n = <long> len(rotTs[0]) # number of time steps
-    cdef long startskip = <long> (n-maxdt)/startingpoints
+    cdef long startskip = <long> (n-maxdt)//startingpoints
     cdef double [:,:] corr = np.zeros((nshells1,maxdt)) 
     cdef double [:,:] selfcorr = np.zeros((nshells1,maxdt))
     cdef double [:,:] crosscorr = np.zeros((nshells1,maxdt))
@@ -1035,11 +1035,11 @@ def multiVecShellCorrelate(double [:,:,:] rotTs, int [:,:] ds1, long nshells1, l
             if ctr[i,j] != 0:
                 corr[i,j] /= ctr[i,j]
             else:
-                print 'tot too sparse'
+                print('tot too sparse')
             if selfctr[i,j] != 0:
                 selfcorr[i,j] /= selfctr[i,j]
             else:
-                print 'self too sparse'
+                print('self too sparse')
 
     for i in range(nshells1):
         for j in range(maxdt):
@@ -1057,7 +1057,7 @@ def multiVecVennShellCorrelate(double [:,:,:] rotTs, int [:,:] ds1, int [:,:] ds
 
     cdef long nmol = <long> len(rotTs) # number of molecules
     cdef long n = <long> len(rotTs[0]) # number of time steps
-    cdef long startskip = <long> (n-maxdt)/startingpoints
+    cdef long startskip = <long> (n-maxdt)//startingpoints
     cdef double [:,:,:] corr = np.zeros((nshells1,nshells2,maxdt)) 
     cdef double [:,:,:] selfcorr = np.zeros((nshells1,nshells2,maxdt))
     cdef double [:,:,:] crosscorr = np.zeros((nshells1,nshells2,maxdt))
@@ -1094,11 +1094,11 @@ def multiVecVennShellCorrelate(double [:,:,:] rotTs, int [:,:] ds1, int [:,:] ds
                 if ctr[i,l,j] != 0:
                     corr[i,l,j] /= ctr[i,l,j]
                 else:
-                    print 'tot too sparse'
+                    print('tot too sparse')
                 if selfctr[i,l,j] != 0:
                     selfcorr[i,l,j] /= selfctr[i,l,j]
                 else:
-                    print 'self too sparse'
+                    print('self too sparse')
 
     for i in range(nshells1):
         for l in range(nshells2):
@@ -1113,7 +1113,7 @@ def rotationMatrixVennShellCorrelate(double [:,:,:,:] rotTs, int [:,:] ds1, int 
     cdef long nmol = <long> len(rotTs) # number of molecules
     cdef long n = <long> len(rotTs[0]) # number of time steps
 #    cdef long nds = <long> len(ds) # number of steps in delaunay array
-    cdef long startskip = <long> (n-maxdt)/startingpoints
+    cdef long startskip = <long> (n-maxdt)//startingpoints
     cdef double [:,:,:,:] corr = np.zeros((12,nshells1,nshells2,maxdt)) # 3x l={1,2} rotautocorr+ 3x l={1,2} rotcrosscorr = 12
     cdef double [:,:,:,:] selfcorr = np.zeros((12,nshells1,nshells2,maxdt))
     cdef double [:,:,:,:] crosscorr = np.zeros((12,nshells1,nshells2,maxdt))
@@ -1179,12 +1179,12 @@ def rotationMatrixVennShellCorrelate(double [:,:,:,:] rotTs, int [:,:] ds1, int 
                     for k in range(12):
                         corr[k,i,l,j] /= ctr[i,l,j]
                 else:
-                    print 'tot too sparse'
+                    print('tot too sparse')
                 if selfctr[i,l,j] != 0:
                     for k in range(12):
                         selfcorr[k,i,l,j] /= selfctr[i,l,j]
                 else:
-                    print 'self too sparse'
+                    print('self too sparse')
 
     for i in range(nshells1):
         for l in range(nshells2):
@@ -1201,7 +1201,7 @@ def rotationMatrixMultiShellCorrelate(double [:,:,:,:] rotTs, int [:,:] ds1, int
     cdef long nmol = <long> len(rotTs) # number of molecules
     cdef long n = <long> len(rotTs[0]) # number of time steps
 #    cdef long nds = <long> len(ds) # number of steps in delaunay array
-    cdef long startskip = <long> (n-maxdt)/startingpoints
+    cdef long startskip = <long> (n-maxdt)//startingpoints
     cdef double [:,:,:] corr = np.zeros((12,nshells,maxdt)) # 3x l={1,2} rotautocorr+ 3x l={1,2} rotcrosscorr = 12
     cdef double [:,:,:] selfcorr = np.zeros((12,nshells,maxdt))
     cdef double [:,:,:] crosscorr = np.zeros((12,nshells,maxdt))
@@ -1274,12 +1274,12 @@ def rotationMatrixMultiShellCorrelate(double [:,:,:,:] rotTs, int [:,:] ds1, int
                 for k in range(12):
                     corr[k,i,j] /= ctr[i,j]
             else:
-                print 'tot too sparse'
+                print('tot too sparse')
             if selfctr[i,j] != 0:
                 for k in range(12):
                     selfcorr[k,i,j] /= selfctr[i,j]
             else:
-                print 'self too sparse'
+                print('self too sparse')
     for i in range(nshells):
         for j in range(maxdt):
             crossctr[i,j] = ctr[i,j] - selfctr[i,j]

@@ -260,7 +260,7 @@ class RDF(object):
         if use_cuda and cu.cuda:
             self.cuda = True
         elif use_cuda and not cu.cuda:
-            print "No suitable CUDA device was found to calculate radial distribution functions. Using CPU instead."
+            print("No suitable CUDA device was found to calculate radial distribution functions. Using CPU instead.")
             self.cuda = False
         else:
             self.cuda = False
@@ -577,8 +577,8 @@ cdef void calcHistoVoronoi(double *core_xyz, double *surr_xyz, double *core_dip,
     cdef double *dest = <double*> np_dest.data
     cdef double *box_dim = <double*> np_box_dim.data
     cdef int ds_pos1, ds_pos2, shell, ix3, ix4
-    cdef int apr_core = ncore / nm_core
-    cdef int apr_surround = nsurround / nm_surround
+    cdef int apr_core = ncore // nm_core
+    cdef int apr_surround = nsurround // nm_surround
 
 
     #TODO: Change with nm_core, int nm_surround, int delaunay_matrix, nshells
@@ -586,7 +586,7 @@ cdef void calcHistoVoronoi(double *core_xyz, double *surr_xyz, double *core_dip,
     for i in prange(ncore, nogil=True):
         #ix2=i*histo_n
         ix2 = i*nshells*histo_n #ROLLBACK: ERASE THESE 2, UNCOMMENT ABOVE
-        ds_pos1 = i/apr_core 
+        ds_pos1 = i//apr_core 
 
         if mode_sel & 2 or mode_sel & 4 or mode_sel & 16 or mode_sel & 32:
             cpx = core_dip[i*3]
@@ -598,7 +598,7 @@ cdef void calcHistoVoronoi(double *core_xyz, double *surr_xyz, double *core_dip,
         else:
             j_begin = 0
         for j in range(j_begin,nsurround):
-            ds_pos2 = j/apr_surround # ROLLBACK: ERASE THESE 2
+            ds_pos2 = j//apr_surround # ROLLBACK: ERASE THESE 2
             shell = delaunay_matrix[ds_pos1*nsurround + ds_pos2] #Correctly shaped?
             shell = shell-1
             if shell <  0:       shell = nshells-1
@@ -674,8 +674,8 @@ cdef void calcHistoVoronoiNonSelf(double *core_xyz, double *surr_xyz, double *co
     cdef double *dest = <double*> np_dest.data
     cdef double *box_dim = <double*> np_box_dim.data
     cdef int ds_pos1, ds_pos2, shell, ix3, ix4
-    cdef int apr_core = ncore / nm_core
-    cdef int apr_surround = nsurround / nm_surround
+    cdef int apr_core = ncore // nm_core
+    cdef int apr_surround = nsurround // nm_surround
 
 
     #TODO: Change with nm_core, int nm_surround, int delaunay_matrix, nshells
@@ -683,7 +683,7 @@ cdef void calcHistoVoronoiNonSelf(double *core_xyz, double *surr_xyz, double *co
     for i in prange(ncore, nogil=True):
         #ix2=i*histo_n
         ix2 = i*nshells*histo_n #ROLLBACK: ERASE THESE 2, UNCOMMENT ABOVE
-        ds_pos1 = i/apr_core 
+        ds_pos1 = i//apr_core 
 
         if mode_sel & 2 or mode_sel & 4 or mode_sel & 16 or mode_sel & 32:
             cpx = core_dip[i*3]
@@ -695,7 +695,7 @@ cdef void calcHistoVoronoiNonSelf(double *core_xyz, double *surr_xyz, double *co
         else:
             j_begin = 0
         for j in range(j_begin,nsurround):
-            ds_pos2 = j/apr_surround # ROLLBACK: ERASE THESE 3
+            ds_pos2 = j//apr_surround # ROLLBACK: ERASE THESE 3
             if(ds_pos1 == ds_pos2): continue
             shell = delaunay_matrix[ds_pos1*nsurround + ds_pos2] #Correctly shaped?
             shell = shell-1
@@ -799,7 +799,7 @@ class RDF_voronoi(object):
         if use_cuda and cu.cuda:
             self.cuda = True
         elif use_cuda and not cu.cuda:
-            print "No suitable CUDA device was found to calculate radial distribution functions. Using CPU instead."
+            print("No suitable CUDA device was found to calculate radial distribution functions. Using CPU instead.")
             self.cuda = False
         else:
             self.cuda = False

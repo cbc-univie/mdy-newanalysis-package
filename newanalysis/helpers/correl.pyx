@@ -189,7 +189,7 @@ def sparsecrosscorrelate(np.ndarray[np.float64_t,ndim=2] pdata,
         if cctr[i] != 0:
             ccorr[i] /= cctr[i]
         else:
-            print 'too sparse'
+            print('too sparse')
 
     return corr
 
@@ -246,11 +246,11 @@ def sparsefullcorrelate(np.ndarray[np.float64_t,ndim=2] pdata,
         if cctr[i] != 0:
             ccorr[i] /= cctr[i]
         else:
-            print 'tot too sparse'
+            print('tot too sparse')
         if cctr[i] != 0:
             cselfcorr[i] /= cselfctr[i]
         else:
-            print 'self too sparse'
+            print('self too sparse')
             
     for i in range(maxdt*nshells):
         ccrosscorr[i] = ccorr[i] - cselfcorr[i]
@@ -310,11 +310,11 @@ def sparsefullcorrelate(np.ndarray[np.float64_t,ndim=2] pdata,
 #         if cctr[i] != 0:
 #             ccorr[i] /= cctr[i]
 #         else:
-#             print 'tot too sparse'
+#             print('tot too sparse')
 #         if cctr[i] != 0:
 #             cselfcorr[i] /= cselfctr[i]
 #         else:
-#             print 'self too sparse'
+#             print('self too sparse')
             
 #     for i in range(maxdt*nshells):
 #         ccrosscorr[i] = ccorr[i] - cselfcorr[i]
@@ -331,7 +331,7 @@ def sparsefullnobulkcorrelate(np.ndarray[np.float64_t,ndim=2] pdata,
                               maxlen=None,):
     
     cdef long corrdim = <long> pcorrdim
-    cdef long nmol = <long> len(pdata)/pcorrdim # number of molecules
+    cdef long nmol = <long> len(pdata)//pcorrdim # number of molecules
     cdef long n = <long> len(pdata[0]) # number of time steps
     cdef long nds = <long> len(pds[0]) # number of steps in delaunay array
     cdef long maxdt = <long> n
@@ -381,11 +381,11 @@ def sparsefullnobulkcorrelate(np.ndarray[np.float64_t,ndim=2] pdata,
         if cctr[i] != 0:
             ccorr[i] /= cctr[i]
         else:
-            print 'tot too sparse'
+            print('tot too sparse')
         if cctr[i] != 0:
             cselfcorr[i] /= cselfctr[i]
         else:
-            print 'self too sparse'
+            print('self too sparse')
             
     for i in range(maxdt*nshells):
         ccrosscorr[i] = ccorr[i] - cselfcorr[i]
@@ -398,7 +398,7 @@ def rotationMatrixShellCorrelateDist(double [:,:,:,:] rotTs, int [:,:] ds, long 
     cdef long nmol = <long> len(rotTs) # number of molecules
     cdef long n = <long> len(rotTs[0]) # number of time steps
 #    cdef long nds = <long> len(ds) # number of steps in delaunay array
-    cdef long startskip = <long> (n-maxdt)/startingpoints
+    cdef long startskip = <long> (n-maxdt)//startingpoints
     cdef double [:,:,:,:] corr = np.zeros((6,nshells,maxdt,20)) # 3x l={1,2} rotautocorr+ 3x l={1,2} rotcrosscorr = 12
     cdef double [:,:] ctr = np.zeros((nshells,maxdt))
     cdef double t1,t2,t3,t4,t5,t6
@@ -443,7 +443,7 @@ def rotationMatrixShellCorrelate(double [:,:,:,:] rotTs, int [:,:] ds, long nshe
     cdef long nmol = <long> len(rotTs) # number of molecules
     cdef long n = <long> len(rotTs[0]) # number of time steps
 #    cdef long nds = <long> len(ds) # number of steps in delaunay array
-    cdef long startskip = <long> (n-maxdt)/startingpoints
+    cdef long startskip = <long> (n-maxdt)//startingpoints
     cdef double [:,:,:] corr = np.zeros((12,nshells,maxdt)) # 3x l={1,2} rotautocorr+ 3x l={1,2} rotcrosscorr = 12
     cdef double [:,:,:] selfcorr = np.zeros((12,nshells,maxdt))
     cdef double [:,:,:] crosscorr = np.zeros((12,nshells,maxdt))
@@ -505,12 +505,12 @@ def rotationMatrixShellCorrelate(double [:,:,:,:] rotTs, int [:,:] ds, long nshe
                 for k in range(12):
                     corr[k,i,j] /= ctr[i,j]
             else:
-                print 'tot too sparse'
+                print('tot too sparse')
             if selfctr[i,j] != 0:
                 for k in range(12):
                     selfcorr[k,i,j] /= selfctr[i,j]
             else:
-                print 'self too sparse'
+                print('self too sparse')
     for i in range(nshells):
         for j in range(maxdt):
             crossctr[i,j] = ctr[i,j] - selfctr[i,j]
@@ -524,7 +524,7 @@ def rotationMatrixShellCorrelateTot(double [:,:,:,:] rotTs, int [:,:] ds, long n
     cdef long nmol = <long> len(rotTs) # number of molecules
     cdef long n = <long> len(rotTs[0]) # number of time steps
 #    cdef long nds = <long> len(ds) # number of steps in delaunay array
-    cdef long startskip = <long> (n-maxdt)/startingpoints
+    cdef long startskip = <long> (n-maxdt)//startingpoints
     cdef double [:,:,:] corr = np.zeros((12,nshells,maxdt)) # 3x l={1,2} rotautocorr+ 3x l={1,2} rotcrosscorr = 12
     cdef double [:,:] ctr = np.zeros((nshells,maxdt)) # counter array of correlation entries
     cdef double t1,t2,t3,t4,t5,t6
@@ -565,7 +565,7 @@ def rotationMatrixShellCorrelateTot(double [:,:,:,:] rotTs, int [:,:] ds, long n
                 for k in range(12):
                     corr[k,i,j] /= ctr[i,j]
             else:
-                print 'tot too sparse'
+                print('tot too sparse')
         
     return corr
 
@@ -574,7 +574,7 @@ def rotationMatrixShellCorrelateTotParts(double [:,:,:] rotTs1,double [:,:,:] ro
     cdef long nmol = <long> len(rotTs1) # number of molecules
     cdef long n = <long> len(rotTs1[0]) # number of time steps
 #    cdef long nds = <long> len(ds) # number of steps in delaunay array
-    cdef long startskip = <long> (n-maxdt)/startingpoints
+    cdef long startskip = <long> (n-maxdt)//startingpoints
     cdef double [:,:,:] corr = np.zeros((12,nshells,maxdt)) # 3x l={1,2} rotautocorr+ 3x l={1,2} rotcrosscorr = 12
     cdef double [:,:] ctr = np.zeros((nshells,maxdt)) # counter array of correlation entries
     cdef double t1,t2,t3,t4,t5,t6
@@ -628,7 +628,7 @@ def rotationMatrixShellCorrelateTotParts(double [:,:,:] rotTs1,double [:,:,:] ro
                 for k in range(12):
                     corr[k,i,j] /= ctr[i,j]
             else:
-                print 'tot too sparse'
+                print('tot too sparse')
         
     return corr
 
@@ -661,13 +661,13 @@ def sparsefullnobulkthincorrelate(np.ndarray[np.float64_t,ndim=2] pdata,
                               startingpoints=None):
     
     cdef long corrdim = <long> pcorrdim
-    cdef long nmol = <long> len(pdata)/pcorrdim # number of molecules
+    cdef long nmol = <long> len(pdata)//pcorrdim # number of molecules
     cdef long n = <long> len(pdata[0]) # number of time steps
     cdef long nds = <long> len(pds[0]) # number of steps in delaunay array
     cdef long maxdt = <long> maxlen
     cdef long nshells = <long> pnshells
-    cdef long startskip = <long> (n-maxdt)/startingpoints
-    cdef long startmax = (n-maxdt)/startskip
+    cdef long startskip = <long> (n-maxdt)//startingpoints
+    cdef long startmax = (n-maxdt)//startskip
     cdef np.ndarray[np.float64_t,ndim=2,mode="c"] contdata = np.ascontiguousarray(pdata)
     cdef np.ndarray[np.int32_t,ndim=2,mode="c"] contds = np.ascontiguousarray(pds)
     cdef double *cdata = <double *> contdata.data
@@ -712,11 +712,11 @@ def sparsefullnobulkthincorrelate(np.ndarray[np.float64_t,ndim=2] pdata,
         if cctr[i] != 0:
             ccorr[i] /= cctr[i]
         else:
-            print 'tot too sparse'
+            print('tot too sparse')
         if cselfctr[i] != 0:
             cselfcorr[i] /= cselfctr[i]
         else:
-            print 'self too sparse'
+            print('self too sparse')
             
     for i in range(maxdt*nshells):
         ccrosscorr[i] = ccorr[i] - cselfcorr[i]
@@ -734,13 +734,13 @@ def sparsefullnobulkthingreenkubo(np.ndarray[np.float64_t,ndim=2] pdata,
                               startingpoints=None):
     
     cdef long corrdim = <long> pcorrdim
-    cdef long nmol = <long> len(pdata)/pcorrdim # number of molecules
+    cdef long nmol = <long> len(pdata)//pcorrdim # number of molecules
     cdef long n = <long> len(pdata[0]) # number of time steps
     cdef long nds = <long> len(pds[0]) # number of steps in delaunay array
     cdef long maxdt = <long> maxlen
     cdef long nshells = <long> pnshells
-    cdef long startskip = <long> (n-maxdt)/startingpoints
-    cdef long startmax = (n-maxdt)/startskip
+    cdef long startskip = <long> (n-maxdt)//startingpoints
+    cdef long startmax = (n-maxdt)//startskip
     cdef np.ndarray[np.float64_t,ndim=2,mode="c"] contdata = np.ascontiguousarray(pdata)
     cdef np.ndarray[np.int32_t,ndim=2,mode="c"] contds = np.ascontiguousarray(pds)
     cdef double *cdata = <double *> contdata.data
@@ -786,11 +786,11 @@ def sparsefullnobulkthingreenkubo(np.ndarray[np.float64_t,ndim=2] pdata,
         if cctr[i] != 0:
             ccorr[i] /= cctr[i]
         else:
-            print 'tot too sparse'
+            print('tot too sparse')
         if cctr[i] != 0:
             cselfcorr[i] /= cselfctr[i]
         else:
-            print 'self too sparse'
+            print('self too sparse')
             
     for i in range(maxdt*nshells):
         ccrosscorr[i] = ccorr[i] - cselfcorr[i]
@@ -855,11 +855,11 @@ def sparsefullcrosscorrelate(np.ndarray[np.float64_t,ndim=2] pdata1,
         if cctr[i] != 0:
             ccorr[i] /= cctr[i]
         else:
-            print 'tot too sparse'
+            print('tot too sparse')
         if cctr[i] != 0:
             cselfcorr[i] /= cselfctr[i]
         else:
-            print 'self too sparse'
+            print('self too sparse')
             
     for i in range(maxdt*nshells):
         ccrosscorr[i] = ccorr[i] - cselfcorr[i]
@@ -898,7 +898,7 @@ def sparsecorrelate(np.ndarray[np.float64_t,ndim=2] pdata,
         if cctr[i] != 0:
             ccorr[i] /= cctr[i]
         else:
-            print 'too sparse'
+            print('too sparse')
 
     return corr
 

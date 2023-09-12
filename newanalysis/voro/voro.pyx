@@ -86,7 +86,7 @@ def calcTessellation(np.ndarray[np.float64_t,ndim=2, mode="c"] xyz, float boxlen
     cdef float* cfa
     cdef int i, j, nsurr, ncore = <int> len(corelist), mindist, dist, icore, isurr
     if (vols is not None and fa is None) or (vols is None and fa is not None):
-        print "ERROR: Either pass vols AND fa or neither of them! Neither volumes nor face areas were calculated!"
+        print("ERROR: Either pass vols AND fa or neither of them! Neither volumes nor face areas were calculated!")
     if vols is not None:
         cvols = <float *> vols.data
     if fa is not None:
@@ -250,7 +250,7 @@ def calcCN(np.ndarray[np.int32_t,ndim=2] ds,
             if cds[i*n+j]>=sh1 and cds[i*n+j]<=sh2:
                 ctr+=1
         if ctr >= nmax:
-            print "Result array is too short!\n"
+            print("Result array is too short!\n")
         else:
             cres[ctr]+=1
 
@@ -287,7 +287,7 @@ def calcCN_int8(np.ndarray[np.int8_t,ndim=2] ds,
             if cds[i*n+j]>=sh1 and cds[i*n+j]<=sh2:
                 ctr+=1
         if ctr >= nmax:
-            print "Result array is too short!\n"
+            print("Result array is too short!\n")
         else:
             cres[ctr]+=1
 

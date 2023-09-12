@@ -903,7 +903,7 @@ def dipTen(np.ndarray[np.float64_t,ndim=1] rv,
 @cython.boundscheck(False)
 def NQRself(np.ndarray[np.float64_t,ndim=2] py_xyz):
     
-    cdef int nwat = len(py_xyz)/3 # number of water molecules
+    cdef int nwat = len(py_xyz)//3 # number of water molecules
     cdef double *xyz = <double *> py_xyz.data
     cdef double H1x,H1y,H1z,H2x,H2y,H2z,n2,n3
     cdef double Exx = -2.3067236 # -2.0486*1.126
@@ -960,7 +960,7 @@ def NQRself(np.ndarray[np.float64_t,ndim=2] py_xyz):
             T[7] = B[7]*Ezz
             T[8] = B[8]*Ezz
 
-            ind = (i/9)*6
+            ind = (i//9)*6
             
             # (B dot T) dot B.T
             dipt[ind]   = T[0]*B[0]+T[3]*B[3]+T[6]*B[6] # 11 .... here B.T is taken directly from B
@@ -977,7 +977,7 @@ def NQRself(np.ndarray[np.float64_t,ndim=2] py_xyz):
 
 @cython.boundscheck(False)
 def waterRotationMatrix(double [:,:] coor):
-    cdef int nwat = len(coor)/3 # number of water molecules
+    cdef int nwat = len(coor)//3 # number of water molecules
     cdef double H1x,H1y,H1z,H2x,H2y,H2z,n2,n3
     cdef int i, k, ind
     cdef double [:,:,:] B_out = np.zeros((nwat,3,3)) # rotation matrix to return from parallel code
@@ -1017,7 +1017,7 @@ def waterRotationMatrix(double [:,:] coor):
             B[1] = B[5]*B[6]-B[3]*B[8]
             B[2] = B[3]*B[7]-B[4]*B[6]
 
-            ind =i/3
+            ind =i//3
             
             B_out[ind,0,0] = B[0]
             B_out[ind,0,1] = B[1]
@@ -1036,7 +1036,7 @@ def waterRotationMatrix(double [:,:] coor):
 @cython.boundscheck(False)
 def NQRselfAndB(np.ndarray[np.float64_t,ndim=2] py_xyz):
     
-    cdef int nwat = len(py_xyz)/3 # number of water molecules
+    cdef int nwat = len(py_xyz)//3 # number of water molecules
     cdef double *xyz = <double *> py_xyz.data
     cdef double H1x,H1y,H1z,H2x,H2y,H2z,n2,n3
     cdef double Exx = -2.3067236 # -2.0486*1.126
@@ -1100,7 +1100,7 @@ def NQRselfAndB(np.ndarray[np.float64_t,ndim=2] py_xyz):
             T[7] = B[7]*Ezz
             T[8] = B[8]*Ezz
 
-            ind = (i/9)*6
+            ind = (i//9)*6
             
             # (B dot T) dot B.T
             dipt[ind]   = T[0]*B[0]+T[3]*B[3]+T[6]*B[6] # 11 .... here B.T is taken directly from B
@@ -1110,7 +1110,7 @@ def NQRselfAndB(np.ndarray[np.float64_t,ndim=2] py_xyz):
             dipt[ind+4] = T[2]*B[0]+T[5]*B[3]+T[8]*B[6] # 31
             dipt[ind+5] = T[2]*B[1]+T[5]*B[4]+T[8]*B[7] # 32 .... matrix is symmetric
 
-            ind = (i/9)*3
+            ind = (i//9)*3
             
             B1[ind]   = B[0]
             B1[ind+1] = B[1]
@@ -1157,7 +1157,7 @@ def NQRdipTen(np.ndarray[np.float64_t,ndim=2] py_xyz,
         B = <double *> malloc(sizeof(double) * 9)
         T = <double *> malloc(sizeof(double) * 9)
         for i in prange(0,n,3): # dip-dip T for to all atoms on every other molecule
-            j = i/3 * 15
+            j = i//3 * 15
             for k in range(9):
                 B[k] = 0.0
                 T[k] = 0.0
@@ -1166,7 +1166,7 @@ def NQRdipTen(np.ndarray[np.float64_t,ndim=2] py_xyz,
                 y = xyz[i+1]
                 z = xyz[i+2]
                 r2 = x*x+y*y+z*z
-                f1 = pow(r2,-1.5) * charges[i/3]
+                f1 = pow(r2,-1.5) * charges[i//3]
                 f2 = 3.0 * f1 / r2
                 f2_x = f2 * x
                 f2_y = f2 * y
@@ -1219,7 +1219,7 @@ def NQRdipTen(np.ndarray[np.float64_t,ndim=2] py_xyz,
         free(B)
         free(T)
 
-    for i in range(1,n/3):
+    for i in range(1,n//3):
         for j in range(15):
             dipt[j] += dipt[i*15+j]
     
@@ -1548,9 +1548,9 @@ def findNearestAtom(double [:,:] coor_core, double [:,:] coor_surr, double [:] m
 @cython.boundscheck(False)
 def checkHBond(double [:,:] coor_surr, double [:,:] coor_oh2, int nres_surr, double maxdist):
     # this function is designed only for water hydrogen bonds!
-    cdef int sites_per_res = coor_surr.shape[0] / nres_surr
-    cdef int nsurr = coor_surr.shape[0] / sites_per_res
-    cdef int nwat = coor_oh2.shape[0] / 3
+    cdef int sites_per_res = coor_surr.shape[0] // nres_surr
+    cdef int nsurr = coor_surr.shape[0] // sites_per_res
+    cdef int nwat = coor_oh2.shape[0] // 3
     cdef int i, j, k, l, idx, idx2, idx3
     
     cdef char [:] hbond = np.zeros(nwat, dtype=np.int8)
