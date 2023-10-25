@@ -1,3 +1,19 @@
+
+<p align="center">
+ <a href="https://github.com/cbc-univie/mdy-newanalysis-package/blob/master/docs/_static/newanalysis_logo.png" target="_blank" rel="noopener noreferrer">
+  <img src="https://github.com/cbc-univie/mdy-newanalysis-package/blob/master/docs/_static/newanalysis_logo.png" alt="newanalysis Logo" width="400"/>
+ </a>
+</p>
+
+### Installation
+
+```python
+git clone git@github.com:cbc-univie/mdy-newanalysis-package.git
+cd mdy-newanalysis-package
+pip install .
+```
+
+
 The python package "newanalysis" contains all our homebrew functions for MDAnalysis,
 that formerly were embedded into the MDAnalysis package and are now available as a separate python module.
 Be aware that the API syntax of MDAnalysis has changed compared to the old version we have used for a long time.
