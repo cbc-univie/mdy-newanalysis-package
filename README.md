@@ -1,4 +1,3 @@
-
 <p align="center">
  <a href="https://github.com/cbc-univie/mdy-newanalysis-package/blob/master/docs/_static/newanalysis_logo.png" target="_blank" rel="noopener noreferrer">
   <img src="https://github.com/cbc-univie/mdy-newanalysis-package/blob/master/docs/_static/newanalysis_logo.png" alt="newanalysis Logo" width="400"/>
@@ -13,15 +12,15 @@ cd mdy-newanalysis-package
 pip install .
 ```
 
+### Info
 
 The python package "newanalysis" contains all our homebrew functions for MDAnalysis,
 that formerly were embedded into the MDAnalysis package and are now available as a separate python module.
 Be aware that the API syntax of MDAnalysis has changed compared to the old version we have used for a long time.
 
 
-=============================================================================================
- CONTENTS OF THIS REPO (newanalysis_package)
-=============================================================================================
+
+ ### CONTENTS OF THIS REPO (newanalysis_package)
 
 - charmm_utilities:
   -- scripts for CHARMM
@@ -29,9 +28,8 @@ Be aware that the API syntax of MDAnalysis has changed compared to the old versi
 - newanalysis:
   -- the actual source for the newanalysis package
   
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 **Test Cases are moved to new repo: mdy-newanalysis-package-testdata**
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 - test_cases
   -- test cases, contain scripts for the new version (this package) in the new/ directories,
@@ -42,9 +40,9 @@ Be aware that the API syntax of MDAnalysis has changed compared to the old versi
 
 
 
-=============================================================================================
- HOW TO INSTALL NEWANALYSIS
-=============================================================================================
+
+### HOW TO INSTALL NEWANALYSIS
+
 1) add new channel via
 conda config --add channels conda-forge
 
@@ -70,9 +68,9 @@ python3 setup.py install
 Try to build again, if still not working, contact me.
 
 
-=============================================================================================
- HOW TO IMPORT INTO YOUR PYTHON SCRIPTS
-=============================================================================================
+
+### HOW TO IMPORT INTO YOUR PYTHON SCRIPTS
+
 - To be able to import these modules, change syntax in python script:
 
 OLD:
@@ -84,9 +82,8 @@ from newanalysis.helpers import calcEnergyAtomic
 from newanalysis.correl import correlate
 
 
-=============================================================================================
- CHANGES COMPARED TO THE OLD MDANALYSIS VERSIONS
-=============================================================================================
+
+ ### CHANGES COMPARED TO THE OLD MDANALYSIS VERSIONS
 
 - use new CHARMM psf type (default in Versions >= 40, otherwise specify "psf xplor" instead of "psf" in the write statement)
 
