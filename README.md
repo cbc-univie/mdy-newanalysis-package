@@ -16,7 +16,9 @@ pip install .
 
 If you want to install the package you have to connect an ssh key to your github account.
 Here are the instructions on how to generate ssh keys and link them to your github account:
+
 https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
 https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
 
 The python package "newanalysis" contains all our homebrew functions for MDAnalysis,
