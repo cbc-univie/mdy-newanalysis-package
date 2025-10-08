@@ -1,4 +1,4 @@
-prefix=/scratch/data/esther/mdanalysis/src/helpers/fftw-3.3.4/install
+prefix=/usr/local
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
