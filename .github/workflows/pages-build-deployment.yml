@@ -81,7 +81,7 @@ jobs:
       #    branch: gh-pages
       #    directory: gh-pages
       
-      - uses: actions/upload-pages-artifact@v1
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: docs/_build/html
         
